@@ -1,0 +1,216 @@
+/*
+---
+name: Icon
+icon:
+  - Icon
+tag:
+  - Icon
+compile: true
+---
+## アイコンのバリエーション  
+### ラベル＋アイコンの場合
+アイコンを配置する場所（ラベルの前後）によって、`.i-label-right`もしくは`.i-label-left`を付与する。  
+chevronアイコンは幅半分のサイズで書き出して、アイコンごとにModifierをつけて幅を調整する。
+```html
+<a href="#"><img class="i-label i-label-left" src="/assets/img/icons/ic_search.svg" alt="">検索</a>
+<a href="#" style="font-size: 20px;margin-left: 16px;">詳しくみる<img class="i-label i-label-right -chevron" src="/assets/img/icons/ic_chevron_right_harf.svg" alt=""></a>
+<button type="button" class="c-btn c-btn-autoWidth" style="margin-left: 16px; margin-top: 0;">ボタンラベル<img class="i-label i-label-right -chevron" src="/assets/img/icons/ic_chevron_right_harf.svg" alt=""></button>
+```
+
+### エリアに対して配置する場合
+アイコンを包括するコンポーネントとの上下関係が生まれるため、親要素側でのスタイルが必要。<a href="/_styleguide/action/A1-Control/A102-Button/index.html">ボタンコンポーネント</a>を参考にする。
+```html
+<a class="c-btn c-btn-autoWidth c-btn-primary" href="#" style="min-width:250px;">お問い合わせ<img class="i-label i-label-right" src="/assets/img/icons/dark/ic_link_blank.svg" alt="外部サイト"></a>
+<a class="c-btn c-btn-sub c-btn-hasIcon" href="#"><img class="i-area i-area-left" src="/assets/img/icons/ic_chevron_left.svg" alt="">トップに戻る</a>
+```
+
+### アイコン自体がボタンになる場合
+```html
+<button type="button"><img class="i-button" src="/assets/img/icons/ic_menu.svg" alt=""></button>
+<button type="button"><img class="i-button" src="/assets/img/icons/ic_setting.svg" alt=""></button>
+```
+
+## アイコンのサイズ
+`.i-label`と`.i-area`は、包括されている要素の文字サイズに合わせてアイコンサイズが変化するような仕様になっている。  
+アイコンサイズを固定にしたい場合は、foundationの`$ic-baseSize`をpx値に変更する。  
+
+`.i-button`はデフォルトサイズ32pxで設定されている。変更する場合は_icon.scssの`$btnIcon-base`の値を変更する。  
+
+### バリエーション
+デフォルトサイズをベースとして、largeとsmallのサイズバリエーションが用意されている。  
+largeは基底サイズ×1.3、smallは基底サイズ×0.7で設定されている。値を変更する場合は、_icon.scss内の計算式を修正する。
+
+```html
+<a href="#">詳しくみる<img class="i-label i-label-small i-label-right -chevron" src="/assets/img/icons/ic_chevron_right_harf.svg" alt=""></a>
+<a href="#">詳しくみる<img class="i-label i-label-right -chevron" src="/assets/img/icons/ic_chevron_right_harf.svg" alt=""></a>
+<a href="#">詳しくみる<img class="i-label i-label-large i-label-right -chevron" src="/assets/img/icons/ic_chevron_right_harf.svg" alt=""></a>
+```
+```html
+<button type="button"><img class="i-button i-button-small" src="/assets/img/icons/ic_setting.svg" alt=""></button>
+<button type="button"><img class="i-button" src="/assets/img/icons/ic_setting.svg" alt=""></button>
+<button type="button"><img class="i-button i-button-large" src="/assets/img/icons/ic_setting.svg" alt=""></button>
+```
+
+
+## アイコン一覧
+alt属性の値はプロジェクトごとに適宜調整してください。
+
+check
+```html
+<img class="i-button" src="/assets/img/icons/ic_check.svg" alt="">
+```
+chevronBottom
+```html
+<img class="i-button" src="/assets/img/icons/ic_chevron_bottom.svg" alt="">
+```
+chevronTop
+```html
+<img class="i-button" src="/assets/img/icons/ic_chevron_top.svg" alt="">
+```
+chevronRight
+```html
+<img class="i-button" src="/assets/img/icons/ic_chevron_right.svg" alt="">
+```
+chevronLeft
+```html
+<img class="i-button" src="/assets/img/icons/ic_chevron_left.svg" alt="">
+```
+chevronRightHarf
+```html
+<img class="i-button" src="/assets/img/icons/ic_chevron_right_harf.svg" alt="">
+```
+accordionOpen
+```html
+<img class="i-button" src="/assets/img/icons/ic_accordion_open.svg" alt="">
+```
+accordionClose
+```html
+<img class="i-button" src="/assets/img/icons/ic_accordion_close.svg" alt="">
+```
+close
+```html
+<img class="i-button" src="/assets/img/icons/ic_close.svg" alt="">
+```
+globe
+```html
+<img class="i-button" src="/assets/img/icons/ic_globe.svg" alt="">
+```
+info
+```html
+<img class="i-button" src="/assets/img/icons/ic_info.svg" alt="">
+```
+linkBlank
+```html
+<img class="i-button" src="/assets/img/icons/ic_link_blank.svg" alt="">
+```
+menu
+```html
+<img class="i-button" src="/assets/img/icons/ic_menu.svg" alt="">
+```
+mail
+```html
+<img class="i-button" src="/assets/img/icons/ic_mail.svg" alt="">
+```
+search
+```html
+<img class="i-button" src="/assets/img/icons/ic_search.svg" alt="">
+```
+setting
+```html
+<img class="i-button" src="/assets/img/icons/ic_setting.svg" alt="">
+```
+triDown
+```html
+<img class="i-button" src="/assets/img/icons/ic_tri_down.svg" alt="">
+```
+triUp
+```html
+<img class="i-button" src="/assets/img/icons/ic_tri_up.svg" alt="">
+```
+play
+```html
+<img class="i-button" src="/assets/img/icons/ic_play.svg" alt="">
+```
+pause
+```html
+<img class="i-button" src="/assets/img/icons/ic_pause.svg" alt="">
+```
+*/
+@mixin icon_label($size: $ic-baseSize) {
+  // IE11はtransformでcalc変数が使用できないためSass変数で先に計算をしておく
+  $calc: ($size - $ic-capheight) / 2;
+
+  display: inline-block;
+  width: $size;
+  height: $size;
+  vertical-align: baseline;
+  margin-top: $size * -1;
+  transform: translateY( $calc );
+  margin-left: $size * 0.2;
+  margin-right: $size * 0.2;
+  &.-chevron {
+    width: $size * 0.5;
+  }
+}
+@mixin icon_area($size: $ic-baseSize) {
+  display: inline-block;
+  vertical-align: baseline;
+  position: absolute;
+  width: $size;
+  height: $size;
+  top: calc(50% - (#{$size} * 0.5));
+  &.-chevron {
+    width: $size * 0.5;
+  }
+}
+
+.i-label {
+  @include icon_label;
+  &-large {
+    @include icon_label($ic-baseSize * 1.3);
+  }
+  &-small {
+    @include icon_label($ic-baseSize * 0.7);
+  }
+  &-right {
+    margin-right: 0;
+  }
+  &-left {
+    margin-left: 0;
+  }
+}
+.i-area {
+  @include icon_area;
+  &-right {
+    right: $ic-padding;
+  }
+  &-left {
+    left: $ic-padding;
+  }
+  // アイコンサイズ
+  &-large {
+    @include icon_area($ic-baseSize * 1.3);
+  }
+  &-small {
+    @include icon_area($ic-baseSize * 0.7);
+  }
+}
+
+$btnIcon-base: 32px;
+.i-button {
+  display: inline-block;
+  width: $btnIcon-base;
+  height: $btnIcon-base;
+  vertical-align: middle;
+  &-large {
+    width: $btnIcon-base * 1.3;
+    height: $btnIcon-base * 1.3;
+  }
+  &-small {
+    width: $btnIcon-base * 0.7;
+    height: $btnIcon-base * 0.7;
+  }
+  &.-chevron {
+    width: $btnIcon-base * 0.5;
+  }
+}

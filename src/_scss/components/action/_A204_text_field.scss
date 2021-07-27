@@ -1,0 +1,51 @@
+/*
+---
+name: A204 Text field
+action:
+  - A2 Input
+  - A2 Input/A204 Text field
+tag:
+  - Input
+---
+
+フォーム画面の実装に<a href="/_styleguide/layout/Layout/L102-Grid/index.html">グリッドコンポーネント</a>、  
+並列する要素の横並び表示の実装に<a href="/_styleguide/layout/Layout/L104-Tile/index.html">タイルコンポーネント</a>を利用しているため、  
+各コンポーネントのオプションが利用可能。
+
+```html
+<input class="c-textField" type="text" placeholder="内容を入力してください">
+```
+
+### 幅成り行き
+`.c-textField-autoWidth`を付与することで幅が成り行きとなる。
+
+```html
+<input class="c-textField c-textField-autoWidth" type="text" placeholder="内容を入力してください">
+```
+
+### エラー時
+`.c-textField-error`を付与することでエラー時の表示となる。
+
+```html
+<input class="c-textField c-textField-error" type="text" placeholder="内容を入力してください">
+```
+*/
+
+.c-textField {
+  @include dfm(medium);
+  @include ex($ts-midium);
+  display: inline-block;
+  padding: ($unit * 1.5) ($unit * 2);
+  border: 1px solid #000;
+  border-radius: 4px;
+  line-height: 1;
+  width: 100%;
+  &:focus {
+  }
+  &-error {
+    border-color: #e65100;
+  }
+  &-autoWidth {
+    width: auto;
+  }
+}

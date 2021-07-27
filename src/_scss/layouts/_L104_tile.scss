@@ -1,0 +1,142 @@
+/*! Tile */
+/*
+---
+name: L104 Tile
+layout:
+  - Layout
+  - Layout/L104 Tile
+tag:
+  - Layout
+---
+
+タイルは並列要素を均等幅で横分割するためのレイアウト要素。  
+
+## タイルコンポーネント
+
+タイルの包括要素  
+均等幅で横分割したい場合に利用する。  
+子要素として`.l-tile_item`が必要となる。
+
+```html
+<div class="l-tile">
+</div><!-- /.l-tile -->
+```
+
+## タイル基本設定
+
+`.l-tile_item`のタイリング数を決めて、`.l-tile`に`.l-tile-{n}`を付与する。  
+{n}の最大数は8。  
+左右の余白は `_L104_tile.scss` のローカル変数（`$ti-gap`）で数値を指定する。  
+
+```html
+<div class="l-tile l-tile-6">
+<div class="l-tile_item">
+<div class="sg-dummy">6</div>
+</div><!-- /.l-tile_item -->
+<div class="l-tile_item">
+<div class="sg-dummy">6</div>
+</div><!-- /.l-tile_item -->
+<div class="l-tile_item">
+<div class="sg-dummy">6</div>
+</div><!-- /.l-tile_item -->
+<div class="l-tile_item">
+<div class="sg-dummy">6</div>
+</div><!-- /.l-tile_item -->
+<div class="l-tile_item">
+<div class="sg-dummy">6</div>
+</div><!-- /.l-tile_item -->
+<div class="l-tile_item">
+<div class="sg-dummy">6</div>
+</div><!-- /.l-tile_item -->
+</div><!-- /.l-tile -->
+```
+
+### 各screenの設定
+large screen、medium screen、small screen、セットで利用する。
+
+#### large screen時の設定
+
+large screenの表示については、タイリング数を決めて`.l-tile-{n}-lg`を付与することで変更可能。  
+※ medium screen以下には継承されない
+
+#### medium screen時の設定
+
+medium screenの表示については、タイリング数を決めて`.l-tile-{n}-md`を付与することで変更可能。  
+※ small screenには継承されない
+
+#### small screen時の設定
+
+small screenの表示については、タイリング数を決めて`.l-tile-{n}-sm`を付与することで変更可能。
+
+```html
+<div class="l-tile l-tile-6-lg l-tile-4-md l-tile-2-sm">
+<div class="l-tile_item">
+<div class="sg-dummy">6(md4,sm2)</div>
+</div><!-- /.l-tile_item -->
+<div class="l-tile_item">
+<div class="sg-dummy">6(md4,sm2)</div>
+</div><!-- /.l-tile_item -->
+<div class="l-tile_item">
+<div class="sg-dummy">6(md4,sm2)</div>
+</div><!-- /.l-tile_item -->
+<div class="l-tile_item">
+<div class="sg-dummy">6(md4,sm2)</div>
+</div><!-- /.l-tile_item -->
+<div class="l-tile_item">
+<div class="sg-dummy">6(md4,sm2)</div>
+</div><!-- /.l-tile_item -->
+<div class="l-tile_item">
+<div class="sg-dummy">6(md4,sm2)</div>
+</div><!-- /.l-tile_item -->
+</div><!-- /.l-tile -->
+```
+*/
+
+$ti-gap: 16px;
+
+.l-tile {
+  @include dfm(medium);
+  margin-left: -($ti-gap / 2);
+  margin-right: -($ti-gap / 2);
+  margin-bottom: - $ti-gap;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.l-tile {
+  $_root: &;
+  & > &_item {
+    width: 100%;
+    padding-left: $ti-gap / 2;
+    padding-right: $ti-gap / 2;
+    margin-bottom: $ti-gap;
+  }
+  @for $col from 1 through 10 {
+    &-#{$col} {
+      & > #{$_root}_item {
+        width: 100% / $col;
+      }
+      &-lg {
+        & > #{$_root}_item {
+          @include bp(large) {
+            width: 100% / $col;
+          }
+        }
+      }
+      &-md {
+        & > #{$_root}_item {
+          @include bp(medium-only) {
+            width: 100% / $col;
+          }
+        }
+      }
+      &-sm {
+        & > #{$_root}_item {
+          @include bp(small) {
+            width: 100% / $col;
+          }
+        }
+      }
+    }
+  }
+}

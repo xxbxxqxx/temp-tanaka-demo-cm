@@ -1,0 +1,57 @@
+/*! Header */
+/*
+---
+name: P103  Local nav
+part:
+  - P1 Area
+  - P1 Area/P103 Local nav
+tag:
+  - Area
+---
+グローバルヘッダー周辺のコンポーネント
+
+
+```html
+<nav class="c-localNav">
+<div class="l-grid">
+<div class="l-grid_item l-grid_item-3">
+<p class="c-localNav_title">ナビゲーションタイトル</p>
+</div>
+<div class="l-grid_item l-grid_item-9">
+<ul class="l-tile l-tile-4">
+<li class="l-tile_item"><a class="c-localNav_link" href="#">リンクテキスト</a></li>
+<li class="l-tile_item"><a class="c-localNav_link" href="#">リンクテキスト</a></li>
+<li class="l-tile_item"><a class="c-localNav_link" href="#">リンクテキスト</a></li>
+<li class="l-tile_item"><a class="c-localNav_link" href="#">リンクテキスト</a></li>
+<li class="l-tile_item"><a class="c-localNav_link" href="#">リンクテキスト</a></li>
+<li class="l-tile_item"><a class="c-localNav_link" href="#">リンクテキスト</a></li>
+<li class="l-tile_item"><a class="c-localNav_link" href="#">リンクテキスト</a></li>
+<li class="l-tile_item"><a class="c-localNav_link" href="#">リンクテキスト</a></li>
+</ul>
+</div><!-- /.l-grid_item -->
+</div><!-- /.l-grid -->
+</nav><!-- /.c-localNav-->
+```
+*/
+.c-localNav {
+  @include dfm(medium);
+  &_title {
+    @include ex($ts-small);
+    font-weight: bold;
+  }
+  &_link{
+    @include ex($ts-small);
+    &::before {
+      content: '';
+      display: inline-block;
+      width: $ic-baseSize;
+      height: $ic-baseSize;
+      margin-top: $ic-baseSize * -1;
+      vertical-align: baseline;
+      background-image: url(#{$ic-rootPath}#{map-get($ic-paths,chevronRight)});
+      background-repeat: no-repeat;
+      background-size: 100%;
+      transform: translateY( calc((#{$ic-baseSize} - #{$ic-capheight}) / 2) );
+    }
+  }
+}

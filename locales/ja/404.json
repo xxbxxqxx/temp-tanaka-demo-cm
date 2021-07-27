@@ -1,0 +1,15 @@
+{
+  "404": {
+    "title": "404: Not Found",
+    "meta": {
+      "description": "",
+      "keyword": "",
+      "og_type": "",
+      "og_image": ""
+    },
+    "body": {
+      "head1": "404: Not Found",
+      "text1": "お探しのページは見つかりませんでした。"
+    }
+  }
+}

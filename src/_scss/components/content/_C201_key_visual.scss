@@ -1,0 +1,34 @@
+/*
+---
+name: C201 Key visual
+content:
+  - C2 Unit
+  - C2 Unit/C201 Key visual
+tag:
+  - Unit
+---
+
+単体画像を表示させたい場合に利用。画像を説明するテキストとセットでも可。
+
+```html
+<div class="c-visual">
+<div class="c-visual_image">
+<img src="//picsum.photos/g/1280/500/" width="1280" height="500" alt="">
+</div><!-- /.c-visual_image -->
+<div class="c-visual_caption">
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro cupiditate reiciendis reprehenderit veritatis, eaque eum, placeat totam. Suscipit ipsam eius tempora tenetur. Dolorum totam et, accusantium libero deleniti fugiat hic?
+</div>
+</div>
+```
+*/
+
+.c-visual {
+  @include dfm(medium);
+  &_image {
+    img {
+      width: 100%;
+      height: auto;
+      vertical-align: bottom;
+    }
+  }
+}

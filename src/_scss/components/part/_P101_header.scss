@@ -1,0 +1,1114 @@
+/*! Header */
+/*
+---
+name: P101 Header
+part:
+  - P1 Area
+  - P1 Area/P101 Header
+tag:
+  - Area
+---
+
+必要最低限の要素を用意しているが、基本的にプロジェクトの要件に応じてカスタマイズ・独自実装を行う。  
+デフォルトではmedium screen時の表示はsmall screen時と同じものとなる。  
+JSの設定については「/src/assets/js/view/_headernav.js」に記載のGlobalHeaderNavクラスを「/src/assets/js/_init.js」にて呼び出し初期化を行っている。  
+オプションの詳細は各JS内のコメントを参照。要件に合わない場合は随時JS側の調整を行う。  
+
+### ハンバーガーメニューの仕様
+
+下記の処理でmedium/smallスクリーン時にハンバーガーメニューの複数設置が可能。  
+
+1. 設置したいトリガーの数だけ`.g-headerSwitch`内に`.g-headerSwitch_icon`を追加
+2. それぞれの`.g-headerSwitch_icon`に`data-js-hamburger-trigger`を付与し、任意の値を指定
+3. ハンバーガーメニューに格納される要素となる`.g-headerMenu_root`直下の子要素それぞれに`data-js-hamburger-category`を付与
+4. `data-js-hamburger-category`の値として、表示トリガーとしたい`data-js-hamburger-trigger`の値と同じものを指定
+
+### グローバルヘッダー パターン1
+
+```html
+<header role="banner" class="g-header" data-js-hamburger data-js-header>
+<div class="g-header_fog" data-js-hamburger-overlay>
+</div><!-- /.g-header_fog -->
+<div class="g-header_inner">
+<div class="g-header_root">
+<div class="g-headerTitle">
+<div class="g-headerLogo">
+<a class="g-headerLogo_link" href="/">
+<div class="g-headerLogo_tagline">サイトショルダー</div>
+<div class="g-headerLogo_img">
+<img src="/assets/img/logo.svg" alt="サイトタイトル" width="143" height="27">
+</div>
+</a>
+</div><!-- /.g-headerLogo -->
+<div class="g-headerSwitch" data-js-hamburger-switch>
+<p class="g-headerSwitch_icon">
+<a class="g-headerSwitch_iconLink g-headerSwitch_iconLink-search" href="#" data-js-hamburger-trigger="lang" aria-haspopup="false" aria-expanded="false">
+<img class="i-button is-close" src="/assets/img/icons/ic_globe.svg" alt="言語切替メニューを開く">
+<img class="i-button is-open" src="/assets/img/icons/ic_close.svg" alt="言語切替メニューを閉じる">
+</a></p>
+<p class="g-headerSwitch_icon">
+<a class="g-headerSwitch_iconLink g-headerSwitch_iconLink-hamburger" href="#" data-js-hamburger-trigger="menu" aria-haspopup="false" aria-expanded="false">
+<img class="i-button is-close" src="/assets/img/icons/ic_menu.svg" alt="メニューを開く">
+<img class="i-button is-open" src="/assets/img/icons/ic_close.svg" alt="メニューを閉じる">
+</a></p>
+</div><!-- /.g-headerSwitch -->
+</div><!-- /.g-headerTitle -->
+<div class="g-headerMenu" data-js-dropdown>
+<div class="g-headerMenu_inner" data-js-hamburger-content="" aria-hidden="false">
+<div class="g-headerMenu_root">
+<nav class="g-headerNav" data-js-hamburger-category="menu">
+<ul class="g-headerNav_list">
+<li class="g-headerNav_listItem">
+<a class="g-headerNav_listItemLink" href="/">TOP</a>
+</li><!-- /.g-headerNav_listItem -->
+<li class="g-headerNav_listItem">
+<a class="g-headerNav_listItemLink g-headerNav_listItemLink-current" href="#">カテゴリ</a>
+</li><!-- /.g-headerNav_listItem -->
+<li class="g-headerNav_listItem g-headerNavDropdown" data-js-dropdown-wrapper>
+<a class="g-headerNav_listItemLink g-headerNavDropdown_trigger" href="#" data-js-dropdown-trigger aria-expanded="false">
+ドロップダウンメニュー
+<img class="i-label i-label-right open" src="/assets/img/icons/ic_tri_up.svg" alt="メニューを閉じる">
+<img class="i-label i-label-right close" src="/assets/img/icons/ic_tri_down.svg" alt="メニューを開く"></a>
+<div class="g-headerNavDropdown_content" data-js-dropdown-content aria-hidden="true">
+<div class="g-headerNavDropdown_contentInner">
+<p class="g-headerNavDropdown_link"><a href="#">カテゴリトップ</a></p>
+<div class="g-headerNavDropdown_nav">
+<div class="l-tile l-tile-4">
+<div class="l-tile_item">
+<div class="c-card">
+<a href="#">
+<div class="c-card_img c-img">
+<img src="//picsum.photos/g/600/200/?gravity=north" alt="">
+</div><!-- /.c-card_img -->
+<p class="c-card_title">サブカテゴリ</p>
+</a>
+</div><!-- /.c-card -->
+</div><!-- /.l-tile_item -->
+<div class="l-tile_item">
+<div class="c-card">
+<a href="#">
+<div class="c-card_img c-img">
+<img src="//picsum.photos/g/600/200/?gravity=east" alt="">
+</div><!-- /.c-card_img -->
+<p class="c-card_title">サブカテゴリ</p>
+</a>
+</div><!-- /.c-card -->
+</div><!-- /.l-tile_item -->
+<div class="l-tile_item">
+<div class="c-card">
+<a href="#">
+<div class="c-card_img c-img">
+<img src="//picsum.photos/g/600/200/?gravity=south" alt="">
+</div><!-- /.c-card_img -->
+<p class="c-card_title">サブカテゴリ</p>
+</a>
+</div><!-- /.c-card -->
+</div><!-- /.l-tile_item -->
+<div class="l-tile_item">
+<div class="c-card">
+<a href="#">
+<div class="c-card_img c-img">
+<img src="//picsum.photos/g/600/200/?gravity=west" alt="">
+</div><!-- /.c-card_img -->
+<p class="c-card_title">サブカテゴリ</p>
+</a>
+</div><!-- /.c-card -->
+</div><!-- /.l-tile_item -->
+</div><!-- /.l-tile -->
+</div><!-- /.g-headerNavDropdown_nav -->
+</div><!-- /.headerNavDropdown_contentInner -->
+</div><!-- /.headerNavDropdown_content -->
+</li><!-- /.g-headerNav_listItem -->
+<li class="g-headerNav_listItem g-headerNavDropdown" data-js-dropdown-wrapper>
+<a class="g-headerNav_listItemLink g-headerNavDropdown_trigger" href="#" data-js-dropdown-trigger aria-expanded="false">
+ドロップダウンメニュー
+<img class="i-label i-label-right open" src="/assets/img/icons/ic_tri_up.svg" alt="メニューを閉じる">
+<img class="i-label i-label-right close" src="/assets/img/icons/ic_tri_down.svg" alt="メニューを開く"></a>
+<div class="g-headerNavDropdown_content" data-js-dropdown-content aria-hidden="true">
+<div class="g-headerNavDropdown_contentInner">
+<p class="g-headerNavDropdown_link"><a href="#">カテゴリトップ</a></p>
+<div class="g-headerNavDropdown_nav">
+<ul class="l-tile l-tile-4 l-gapNone">
+<li class="l-tile_item"><a href="#">サブカテゴリ</a></li>
+<li class="l-tile_item"><a href="#">サブカテゴリ</a></li>
+<li class="l-tile_item"><a href="#">サブカテゴリ</a></li>
+<li class="l-tile_item"><a href="#">サブカテゴリ</a></li>
+<li class="l-tile_item"><a href="#">サブカテゴリ</a></li>
+<li class="l-tile_item"><a href="#">サブカテゴリ</a></li>
+<li class="l-tile_item"><a href="#">サブカテゴリ</a></li>
+<li class="l-tile_item"><a href="#">サブカテゴリ</a></li>
+</ul><!-- /.l-tile -->
+</div><!-- /.g-headerNavDropdown_nav -->
+</div><!-- /.g-headerNavDropdown_contentInner -->
+</div><!-- /.g-headerNavDropdown_content -->
+</li><!-- /.g-headerNav_listItem -->
+</ul><!-- /.g-headerNav_list -->
+</nav><!-- /.g-headerNav -->
+<div class="g-headerSubNav" data-js-hamburger-category="menu">
+<ul class="g-headerSubNav_list">
+<li class="g-headerSubNav_listItem"><a class="g-headerSubNav_listItemLink" href="#">サブメニュー</a></li>
+<li class="g-headerSubNav_listItem"><a class="g-headerSubNav_listItemLink" href="#">サブメニュー</a></li>
+<li class="g-headerSubNav_listItem"><a class="g-headerSubNav_listItemLink" href="#">サブメニュー</a></li>
+</ul><!-- /.headerSubNav_list -->
+</div><!-- /.g-headerSubNav -->
+<div class="g-headerSearch g-headerSearch-dropdown" data-js-hamburger-category="menu">
+<div class="g-headerSearch_inner" data-js-dropdown-wrapper>
+<a class="g-headerSearch_trigger" href="#" data-js-search-trigger data-js-dropdown-trigger aria-expanded="false"><img class="i-button i-button-small" src="/assets/img/icons/ic_search.svg" alt="検索ボタン"></a>
+<div class="g-headerSearch_body" data-js-dropdown-content aria-hidden="true">
+<div class="g-headerSearch_bodyInner">
+<div class="l-grid l-grid-center">
+<div class="l-grid_item l-grid_item-8-lg l-grid_item-12-md l-grid_item-12-sm">
+<div class="c-searchBox">
+<form class="c-searchBox_form" action="">
+<input class="c-searchBox_input" type="text" placeholder="Placeholder" data-js-search-input>
+<button type="submit" class="c-searchBox_submit">
+<img class="i-button i-button-small" src="/assets/img/icons/ic_search.svg" alt="検索ボタン">
+</button>
+</form>
+</div><!-- /.c-searchBox -->
+</div><!-- /.l-griditem -->
+</div><!-- /.l-grid -->
+</div><!-- /.g-headerSearch_bodyInner -->
+</div><!-- /.g-headerSearch_body -->
+</div><!-- /.g-headerSearch_inner -->
+</div><!-- /.g-headerSearch -->
+<div class="g-headerLang" data-js-hamburger-category="lang">
+<div class="g-headerLang_selector" data-js-dropdown-wrapper>
+<a href="#" class=" g-headerLang_selected" data-js-dropdown-trigger aria-expanded="false">
+<img class="i-label i-label-left" src="/assets/img/icons/ic_globe.svg" alt="言語切替">
+Japanese
+<img class="i-label i-label-right open" src="/assets/img/icons/ic_tri_down.svg" alt="言語切替メニューを開く">
+<img class="i-label i-label-right close" src="/assets/img/icons/ic_tri_up.svg" alt="言語切替メニューを閉じる">
+</a>
+<div class="g-headerLang_content" data-js-dropdown-content aria-hidden="true">
+<ul class="g-headerLang_list">
+<li class="g-headerLang_listItem"><a class="g-headerLang_listItemLink" href="#">English</a></li>
+<li class="g-headerLang_listItem"><a class="g-headerLang_listItemLink" href="#">Spanish</a></li>
+<li class="g-headerLang_listItem"><a class="g-headerLang_listItemLink is-active" href="#">Japanese</a></li>
+<li class="g-headerLang_listItem"><a class="g-headerLang_listItemLink" href="#">Chinese</a></li>
+<li class="g-headerLang_listItem"><a class="g-headerLang_listItemLink" href="#">Korean</a></li>
+</ul><!-- /.g-headerLang_list -->
+</div><!-- /.g-headerLang_content -->
+</div><!-- /.g-headerLang_selector -->
+</div><!-- /.g-headerLang -->
+</div><!-- /.g-headerMenu_root -->
+</div><!-- /.g-headerMenu_inner -->
+</div><!-- /.g-headerMenu -->
+</div><!-- /.g-header_root -->
+</div><!-- /.g-header_inner -->
+</header><!-- /.g-header -->
+```
+
+### グローバルヘッダー パターン２
+
+```html
+<header role="banner" class="g-header g-header-02" data-js-hamburger data-js-header>
+<div class="g-header_inner">
+<div class="g-header_root">
+<div class="g-headerTitle">
+<div class="g-headerLogo">
+<a class="g-headerLogo_link" href="/">
+<div class="g-headerLogo_tagline">サイトショルダー</div>
+<div class="g-headerLogo_img">
+<img src="/assets/img/logo.svg" alt="サイトタイトル" width="143" height="27">
+</div>
+</a>
+</div><!-- /.g-headerLogo -->
+<div class="g-headerSwitch" data-js-hamburger-switch>
+<p class="g-headerSwitch_icon">
+<a class="g-headerSwitch_iconLink g-headerSwitch_iconLink-search" href="#" data-js-hamburger-trigger="lang" aria-haspopup="false" aria-expanded="false">
+<img class="i-button is-close" src="/assets/img/icons/ic_globe.svg" alt="言語切替メニューを開く">
+<img class="i-button is-open" src="/assets/img/icons/ic_close.svg" alt="言語切替メニューを閉じる">
+</a></p>
+<p class="g-headerSwitch_icon">
+<a class="g-headerSwitch_iconLink g-headerSwitch_iconLink-hamburger" href="#" data-js-hamburger-trigger="menu" aria-haspopup="false" aria-expanded="false">
+<img class="i-button is-close" src="/assets/img/icons/ic_menu.svg" alt="メニューを開く">
+<img class="i-button is-open" src="/assets/img/icons/ic_close.svg" alt="メニューを閉じる">
+</a></p>
+</div><!-- /.g-headerSwitch -->
+</div><!-- /.g-headerTitle -->
+<div class="g-headerMenu" data-js-dropdown>
+<div class="g-headerMenu_inner" data-js-hamburger-content="" aria-hidden="false">
+<div class="g-headerMenu_root">
+<nav class="g-headerNav" data-js-hamburger-category="menu">
+<ul class="g-headerNav_list">
+<li class="g-headerNav_listItem">
+<a class="g-headerNav_listItemLink" href="/">TOP</a>
+</li><!-- /.g-headerNav_item -->
+<li class="g-headerNav_listItem">
+<a class="g-headerNav_listItemLink g-headerNav_listItemLink-current" href="#">カテゴリ</a>
+</li><!-- /.g-headerNav_item -->
+<li class="g-headerNav_listItem g-headerNavDropdown" data-js-dropdown-wrapper>
+<a class="g-headerNav_listItemLink g-headerNavDropdown_trigger" href="#" data-js-dropdown-trigger aria-expanded="false">
+ドロップダウンメニュー
+<img class="i-label i-label-right open" src="/assets/img/icons/ic_tri_up.svg" alt="メニューを閉じる">
+<img class="i-label i-label-right close" src="/assets/img/icons/ic_tri_down.svg" alt="メニューを開く"></a>
+<div class="g-headerNavDropdown_content" data-js-dropdown-content aria-hidden="true">
+<div class="g-headerNavDropdown_contentInner">
+<p class="g-headerNavDropdown_link"><a href="#">カテゴリトップ</a></p>
+<div class="g-headerNavDropdown_nav">
+<div class="l-tile l-tile-4">
+<div class="l-tile_item">
+<div class="c-card">
+<a href="#">
+<div class="c-card_img c-img">
+<img src="//picsum.photos/g/600/200/?gravity=north" alt="">
+</div><!-- /.c-card_img -->
+<p class="c-card_title">サブカテゴリ</p>
+</a>
+</div><!-- /.c-card -->
+</div><!-- /.l-tile_item -->
+<div class="l-tile_item">
+<div class="c-card">
+<a href="#">
+<div class="c-card_img c-img">
+<img src="//picsum.photos/g/600/200/?gravity=east" alt="">
+</div><!-- /.c-card_img -->
+<p class="c-card_title">サブカテゴリ</p>
+</a>
+</div><!-- /.c-card -->
+</div><!-- /.l-tile_item -->
+<div class="l-tile_item">
+<div class="c-card">
+<a href="#">
+<div class="c-card_img c-img">
+<img src="//picsum.photos/g/600/200/?gravity=south" alt="">
+</div><!-- /.c-card_img -->
+<p class="c-card_title">サブカテゴリ</p>
+</a>
+</div><!-- /.c-card -->
+</div><!-- /.l-tile_item -->
+<div class="l-tile_item">
+<div class="c-card">
+<a href="#">
+<div class="c-card_img c-img">
+<img src="//picsum.photos/g/600/200/?gravity=west" alt="">
+</div><!-- /.c-card_img -->
+<p class="c-card_title">サブカテゴリ</p>
+</a>
+</div><!-- /.c-card -->
+</div><!-- /.l-tile_item -->
+</div><!-- /.l-tile -->
+</div><!-- /.g-headerNavDropdown_nav -->
+</div><!-- /.headerNavDropdown_contentInner -->
+</div><!-- /.headerNavDropdown_content -->
+</li><!-- /.g-headerNav_item -->
+<li class="g-headerNav_listItem g-headerNavDropdown" data-js-dropdown-wrapper>
+<a class="g-headerNav_listItemLink g-headerNavDropdown_trigger" href="#" data-js-dropdown-trigger aria-expanded="false">
+ドロップダウンメニュー
+<img class="i-label i-label-right open" src="/assets/img/icons/ic_tri_up.svg" alt="メニューを閉じる">
+<img class="i-label i-label-right close" src="/assets/img/icons/ic_tri_down.svg" alt="メニューを開く"></a>
+<div class="g-headerNavDropdown_content" data-js-dropdown-content aria-hidden="true">
+<div class="g-headerNavDropdown_contentInner">
+<p class="g-headerNavDropdown_link"><a href="#">カテゴリトップ</a></p>
+<div class="g-headerNavDropdown_nav">
+<ul class="l-tile l-tile-4 l-gapNone">
+<li class="l-tile_item"><a href="#">サブカテゴリ</a></li>
+<li class="l-tile_item"><a href="#">サブカテゴリ</a></li>
+<li class="l-tile_item"><a href="#">サブカテゴリ</a></li>
+<li class="l-tile_item"><a href="#">サブカテゴリ</a></li>
+<li class="l-tile_item"><a href="#">サブカテゴリ</a></li>
+<li class="l-tile_item"><a href="#">サブカテゴリ</a></li>
+<li class="l-tile_item"><a href="#">サブカテゴリ</a></li>
+<li class="l-tile_item"><a href="#">サブカテゴリ</a></li>
+</ul><!-- /.l-tile -->
+</div><!-- /.g-headerNavDropdown_nav -->
+</div><!-- /.g-headerNavDropdown_contentInner -->
+</div><!-- /.g-headerNavDropdown_content -->
+</li><!-- /.g-headerNav_item -->
+</ul><!-- /.g-headerNav_list -->
+</nav><!-- /.g-headerNav -->
+<div class="g-headerSubNav" data-js-hamburger-category="menu">
+<ul class="g-headerSubNav_list">
+<li class="g-headerSubNav_listItem"><a class="g-headerSubNav_listItemLink" href="#">サブメニュー</a></li>
+<li class="g-headerSubNav_listItem"><a class="g-headerSubNav_listItemLink" href="#">サブメニュー</a></li>
+<li class="g-headerSubNav_listItem"><a class="g-headerSubNav_listItemLink" href="#">サブメニュー</a></li>
+</ul><!-- /.headerSubNav_list -->
+</div><!-- /.g-headerSubNav -->
+<div class="g-headerSearch g-headerSearch-dropdown" data-js-hamburger-category="menu">
+<div class="c-searchBox c-searchBox-mini">
+<form class="c-searchBox_form" action="">
+<input class="c-searchBox_input" type="text" placeholder="Placeholder" data-js-search-input>
+<button type="submit" class="c-searchBox_submit">
+<img class="i-button i-button-small" src="/assets/img/icons/ic_search.svg" alt="検索ボタン">
+</button>
+</form>
+</div><!-- /.c-searchBox -->
+</div><!-- /.g-headerSearch -->
+<div class="g-headerLang" data-js-hamburger-category="lang">
+<div class="g-headerLang_selector g-headerLangDropdown" data-js-dropdown-wrapper>
+<a href="#" class="g-headerLangDropdown_trigger g-headerLang_selected" data-js-dropdown-trigger aria-expanded="false">
+<img class="i-label i-label-left" src="/assets/img/icons/ic_globe.svg" alt="言語切替">
+Japanese
+<img class="i-label i-label-right open" src="/assets/img/icons/ic_tri_down.svg" alt="言語切替メニューを開く">
+<img class="i-label i-label-right close" src="/assets/img/icons/ic_tri_up.svg" alt="言語切替メニューを閉じる">
+</a>
+<div class="g-headerLangDropdown_content g-headerLang_content" data-js-dropdown-content aria-hidden="true">
+<ul class="g-headerLang_list">
+<li class="g-headerLang_listItem"><a class="g-headerLang_listItemLink" href="#">English</a></li>
+<li class="g-headerLang_listItem"><a class="g-headerLang_listItemLink" href="#">Spanish</a></li>
+<li class="g-headerLang_listItem"><a class="g-headerLang_listItemLink is-active" href="#">Japanese</a></li>
+<li class="g-headerLang_listItem"><a class="g-headerLang_listItemLink" href="#">Chinese</a></li>
+<li class="g-headerLang_listItem"><a class="g-headerLang_listItemLink" href="#">Korean</a></li>
+</ul><!-- /.g-headerLang_list -->
+</div><!-- /.g-headerLang_content -->
+</div><!-- /.g-headerLang_selector -->
+</div><!-- /.g-headerLang -->
+</div><!-- /.g-headerMenu_root -->
+</div><!-- /.g-headerMenu_inner -->
+</div><!-- /.g-headerMenu -->
+</div><!-- /.g-header_root -->
+</div><!-- /.g-header_inner -->
+</header><!-- /.g-header -->
+```
+*/
+// g-header
+.g-header {
+  border-bottom: $bd-regular;
+  position: relative;
+  z-index: 1;
+  &_inner {
+    @extend %content;
+    padding-top: $unit * 3;
+    @include bp(medium) {
+      padding-top: 0;
+      padding-bottom: 0;
+      z-index: 1;
+      position: relative;
+      background-color: #fff;
+    }
+  }
+  &_root {
+    z-index: 1;
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+  }
+  [data-js-fixed-html] & {
+    @include bp(medium) {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+      z-index: 10;
+      overflow-y: scroll;
+    }
+  }
+  &_fog {
+    display: none;
+    [data-js-fixed-html] & {
+      @include bp(medium) {
+        display: block;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        background-color: rgba(255,255,255,.8);
+      }
+    }
+  }
+}
+// g-headerTitle
+.g-headerTitle {
+  width: 20%;
+  @include bp(medium) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 75px;
+    position: relative;
+    padding-top: $unit;
+    padding-bottom: $unit;
+  }
+  .g-header-02 & {
+    position: absolute;
+    top: $unit * 3;
+    z-index: 1;
+    @include bp(medium) {
+      position: static;
+    }
+  }
+}
+.g-headerLogo {
+  padding-bottom: $unit * 2;
+  @include bp(medium) {
+    padding-bottom: 0;
+  }
+  &_link {
+    display: inline-block;
+    color: map-get($c-grey,grey600);
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  &_tagline {
+    @include ex($ts-small);
+  }
+  &_img {
+    margin-top: $unit * 2;
+    @include bp(medium) {
+      margin-top: $unit;
+    }
+  }
+}
+// g-headerSwitch
+.g-headerSwitch {
+  display: none;
+  @include bp(medium) {
+    display: flex;
+    z-index: 2;
+    font-size: 0;
+    margin-right: - $ct-padding-large;
+  }
+  @include bp(small) {
+    margin-right: - $ct-padding-small;
+  }
+  &_icon {
+    @include bp(medium) {
+      margin-right: $unit;
+    }
+    &Link {
+      display: block;
+      &.is-active {
+        .is-close {
+          display: none;
+        }
+      }
+      &:not(.is-active) {
+        .is-open {
+          display: none;
+        }
+      }
+    }
+  }
+}
+// g-headerMenu
+.g-headerMenu {
+  width: 80%;
+  @include bp(medium) {
+    display: block;
+    width: auto;
+    margin-left: - $ct-padding-large;
+    margin-right: - $ct-padding-large;
+  }
+  @include bp(small) {
+    margin-left: - $ct-padding-small;
+    margin-right: - $ct-padding-small;
+  }
+  .g-header-02 & {
+    width: 100%;
+    @include bp(medium) {
+      width: auto;
+    }
+  }
+  &_inner {
+    @include bp(large) {
+      display: block!important;
+    }
+    @include bp(medium) {
+      // display: none;
+      position: absolute;
+      // top: 100%;
+      left: 0;
+      right: 0;
+      margin: auto;
+      background-color: #fff;
+      border-top: $bd-regular;
+      border-bottom: $bd-regular;
+    }
+    [data-js-hamburger="fade"] & {
+      @include bp(medium) {
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: auto;
+      }
+    }
+  }
+}
+
+// hamburger出し分け
+[data-js-hamburger-category] {
+  @include bp(medium) {
+    display: none;
+  }
+}
+$_hamburger-categories: lang, menu;
+@each $cat in $_hamburger-categories {
+  [data-js-hamburger-content="#{$cat}"] {
+    [data-js-hamburger-category="#{$cat}"] {
+      @include bp(medium) {
+        display: block;
+      }
+    }
+  }
+}
+
+// g-headerMenu_root & orders
+.g-headerMenu_root {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+  @include bp(medium) {
+    padding-left: $ct-padding-large;
+    padding-right: $ct-padding-large;
+  }
+  @include bp(small) {
+    padding-left: $ct-padding-small;
+    padding-right: $ct-padding-small;
+  }
+  .g-header-02 & {
+    padding-top: $unit * 4;
+    @include bp(medium) {
+      padding-top: 0;
+    }
+  }
+}
+.g-headerNav {
+  order: 3;
+  width: calc(100% - 56px);
+  @include bp(medium) {
+    order: 2;
+    width: 100%;
+  }
+  .g-header-02 & {
+    order: 4;
+    width: 100%;
+    @include bp(medium) {
+      order: 2;
+    }
+  }
+}
+.g-headerSubNav {
+  order: 1;
+  @include bp(medium) {
+    order: 3;
+    width: 100%;
+  }
+}
+.g-headerSearch {
+  order: 4;
+  width: 56px;
+  @include bp(medium) {
+    order: 1;
+    width: 100%;
+  }
+  .g-header-02 & {
+    order: 2;
+    width: auto;
+    @include bp(medium) {
+      order: 1;
+      width: 100%;
+    }
+  }
+}
+.g-headerLang {
+  order: 2;
+  @include bp(medium) {
+    order: 4;
+    width: 100%;
+  }
+  .g-header-02 & {
+    order: 3;
+    @include bp(medium) {
+      order: 4px;
+    }
+  }
+}
+
+
+// g-headerNav
+.g-headerNav {
+  .g-header-02 & {
+    margin-top: $unit * 2;
+    @include bp(medium) {
+      margin-top: 0;
+    }
+    &:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      width: 100%;
+      height: 0;
+      margin: auto;
+      border-top: $bd-regular;
+      @include bp(medium) {
+        display: none;
+      }
+    }
+  }
+  &_list {
+    display: flex;
+    justify-content: flex-end;
+    $_this: &;
+    @include bp(medium) {
+      display: block;
+    }
+    .g-header-02 & {
+      justify-content: space-between;
+    }
+    &:first-child {
+      #{$_this}Item {
+        &:first-child {
+          @include bp(medium) {
+            border-top: 0;
+          }
+        }
+      }
+    }
+    &Item {
+      $_this: &;
+      @include ex($ts-small);
+      padding: 0 ($unit * 3);
+      @include bp(medium) {
+        @include ex($ts-midium);
+        padding: 0;
+        border-top: $bd-regular;
+      }
+      .g-header-02 & {
+        flex: 1;
+        padding: 0;
+      }
+      &Link {
+        display: inline-block;
+        color: $c-text;
+        padding: ($unit * 2) ($unit * 0.5);
+        border-bottom: 2px solid transparent;
+        line-height: 1.5;
+        @include bp(medium) {
+          display: block;
+          padding: ($unit * 2) ($unit * 1);
+          border-bottom: 0;
+        }
+        .g-header-02 & {
+          padding: ($unit * 2)  ($unit * 0.5) ($unit * 2 - 2px);
+          display: block;
+          text-align: center;
+          position: relative;
+          @include bp(medium) {
+            padding: ($unit * 2) ($unit * 1);
+            text-align: left;
+            border-left: 0;
+          }
+        }
+        &:not(.g-headerNavDropdown_trigger) {
+          @include bp(large) {
+            padding-right: 0!important;
+          }
+          &:before {
+            @include bp(large) {
+              display: none!important;
+            }
+          }
+        }
+        &:hover,
+        &-current {
+          color: #c62828;
+          text-decoration: none;
+        }
+        &-current {
+          border-color: #c62828;
+          border-top: 0;
+          @include bp(medium) {
+            border-bottom: 0;
+          }
+        }
+        &.is-active {
+          color: #c62828;
+        }
+      }
+    }
+  }
+}
+// g-headerNavDropdown
+.g-headerNavDropdown {
+  &:last-child {
+    @include bp(medium) {
+      padding-right: 0;
+    }
+  }
+  &_trigger {
+    position: relative;
+    // &:before {
+    //   content: "";
+    //   vertical-align: middle;
+    //   display: inline-block;
+    //   width: 1.5em;
+    //   height: 1.5em;
+    //   background-size: 1.5em 1.5em;
+    //   background-position: 0 0;
+    //   background-repeat: no-repeat;
+    //   background-image: url(#{$ic-rootPath}#{map-get($ic-paths,triDown)});
+    //   position: absolute;
+    //   top: 0;
+    //   bottom: 0;
+    //   margin: auto;
+    //   right: -1.5em;
+    //   @include bp(medium) {
+    //     right: $unit;
+    //   }
+    //   .g-header-02 & {
+    //     right: $unit;
+    //   }
+    // }
+    &.is-active {
+      .close {
+        display: none;
+      }
+    }
+    &:not(.is-active) {
+      .open {
+        display: none;
+      }
+    }
+  }
+  &_content {
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: calc(100% + 1px);
+    z-index: 1;
+    border-bottom: $bd-regular;
+    background-color: #fff;
+    @include bp(medium) {
+      position: static;
+      border-bottom: 0;
+    }
+    &Inner {
+      @extend %content;
+      background: #fff;
+      padding-top: $unit * 2;
+      padding-bottom: $unit * 2;
+      overflow: hidden;
+      @include bp(medium) {
+        border: 0;
+        padding: 0;
+      }
+    }
+    .c-linkarea {
+      &_text {
+        @include bp(medium) {
+          padding: ($unit * 1.5) ($unit * 2);
+        }
+      }
+    }
+  }
+  &_link,
+  &_nav {
+    @include ex($ts-midium);
+    a {
+      display: inline-block;
+      padding: ($unit * 0.5) 0;
+      &::before {
+        content: '';
+        display: inline-block;
+        width: $ic-baseSize;
+        height: $ic-baseSize;
+        margin-top: $ic-baseSize * -1;
+        vertical-align: baseline;
+        background-image: url(#{$ic-rootPath}#{map-get($ic-paths,chevronRight)});
+        background-repeat: no-repeat;
+        background-size: 100%;
+        transform: translateY( calc((#{$ic-baseSize} - #{$ic-capheight}) / 2) );
+      }
+      @include bp(medium) {
+        display: block;
+        border-top: $bd-regular;
+        padding: ($unit * 1.5) ($unit * 2);
+        border-bottom: 0;
+      }
+    }
+    .c-card {
+      border: 0;
+      > a{
+        padding: 0;
+        &::before {
+          display: none;
+        }
+      }
+    }
+  }
+}
+// g-headerSubNav
+.g-headerSubNav {
+  @include bp(medium) {
+    border-top: $bd-regular;
+  }
+  .g-header-02 & {
+    padding-left: 200px;
+    @include bp(medium) {
+      padding-left: 0;
+    }
+  }
+  &_list {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    @include bp(medium) {
+      margin-bottom: -1px;
+      align-items: inherit;
+    }
+    &Item {
+      margin-left: $unit * 3;
+      @include ex($ts-xsmall);
+      @include bp(medium) {
+        border-bottom: $bd-regular;
+        width: 50%;
+        margin-left: 0;
+        @include ex($ts-midium);
+      }
+      &Link {
+        @include bp(medium) {
+          display: block;
+          padding: ($unit * 1.5) ($unit * 1);
+        }
+        &:not(.g-headerNavDropdown_trigger) {
+          &:before {
+            @include bp(large) {
+              display: none!important;
+            }
+          }
+        }
+      }
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+  }
+}
+[data-js-dropdown-content] {
+  display: none;
+  overflow: hidden;
+  &.c-dropdown-open {
+    display: block;
+  }
+  &.c-dropdown-opened {
+    /* overflow: visible; */
+  }
+  &.c-dropdown-notransition {
+    transition: none;
+  }
+}
+// g-headerSearch
+.g-headerSearch {
+  padding-left: 32px;
+  @include bp(medium) {
+    padding: 0;
+    width: 100%;
+    padding-left: 0;
+    padding-top: $unit * 2;
+    padding-bottom: $unit * 2;
+  }
+  &_inner {
+    height: 100%;
+    width: 24px;
+    @include bp(medium) {
+      height: auto;
+      width: auto;
+    }
+  }
+  &_trigger {
+    height: 100%;
+    width: 24px;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    @include bp(medium) {
+      display: none;
+    }
+  }
+  &_body {
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    background-color: #fff;
+    border-bottom: $bd-regular;
+    margin-top: 1px;
+    @include bp(medium) {
+      display: block!important;
+      position: static;
+      border-bottom: 0;
+    }
+    &Inner {
+      @extend %content;
+      position: relative;
+      padding-top: $unit * 2;
+      padding-bottom: $unit * 2;
+      @include bp(medium) {
+        padding: 0;
+      }
+      &:before,
+      &:after {
+        content: "";
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 6px 10px 6px;
+        border-color: transparent transparent map-get($c-grey,grey400) transparent;
+        position: absolute;
+        right: 20px;
+        bottom: 100%;
+        @include bp(medium) {
+          display: none;
+        }
+      }
+      &:after {
+        bottom: calc(100% - 2px);
+        border-color: transparent transparent #fff transparent;
+      }
+    }
+  }
+}
+// g-headerLang
+.g-headerLang {
+  padding-left: $unit * 3;
+  @include ex($ts-xsmall);
+  @include bp(medium) {
+    width: 100%;
+    padding: 0;
+  }
+  &_selector {
+    position: relative;
+  }
+  &_selected {
+    display: inline-block;
+    @include bp(medium) {
+      display: none;
+      border: 0;
+      border-radius: 0;
+      padding: 0;
+      cursor: default;
+    }
+    &Icon {
+      vertical-align: bottom;
+      margin-right: 4px;
+    }
+    &.is-active {
+      .open {
+        display: none;
+      }
+    }
+    &:not(.is-active) {
+      .close {
+        display: none;
+      }
+    }
+  }
+  &_content {
+    display: none;
+    width: 300px;
+    position: absolute;
+    top: calc(100% + 16px);
+    right: 0;
+    margin: auto;
+    border: $bd-regular;
+    background-color: #fff;
+    padding: 0 $unit;
+    @include bp(medium) {
+      position: static;
+      border: 0;
+      width: 100%;
+    }
+    &:before,
+    &:after {
+      content: "";
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0 6px 10px 6px;
+      border-color: transparent transparent map-get($c-grey,grey400) transparent;
+      position: absolute;
+      right: 4px;
+      bottom: 100%;
+      @include bp(medium) {
+        display: none;
+      }
+    }
+    &:after {
+      bottom: calc(100% - 2px);
+      border-color: transparent transparent #fff transparent;
+    }
+    @include bp(medium) {
+      padding: 0;
+      display: block!important;
+      position: relative;
+      background: none;
+      left: auto;
+      right: auto;
+      margin: 0;
+    }
+  }
+  &_list {
+    @include bp(medium) {
+      padding: 0;
+    }
+    &Item {
+      border-top: $bd-regular;
+      @include bp(medium) {
+      }
+      &:first-child {
+        border-top: 0;
+        @include bp(medium) {
+        }
+      }
+      &Link {
+        display: block;
+        padding: ($unit * 1.5) 0;
+        padding-left: $unit * 3;
+        position: relative;
+        @include bp(medium) {
+          padding: ($unit * 2) 0;
+          padding-left: $unit * 3;
+        }
+        &:before,
+        &:after {
+          content: "";
+          position: absolute;
+          display: inline-block;
+        }
+        &:before {
+          z-index: 1;
+          opacity: 0;
+          top: 0;
+          bottom: 0;
+          left: 5px;
+          margin: auto;
+          width: 7px;
+          height: 12px;
+          border-right: 2px solid #fff;
+          border-bottom: 2px solid #fff;
+          transform: rotate(45deg) translate(-1px,-1px);
+        }
+        &:after {
+          left: 0;
+          top: 0;
+          bottom: 0;
+          margin: auto;
+          width: 18px;
+          height: 18px;
+          border: 2px solid #000;
+          border-radius: 2px;
+          background-color: transparent;
+        }
+        &.is-active {
+          &:before {
+            opacity: 1;
+          }
+          &:after {
+            background-color: #000;
+          }
+        }
+      }
+    }
+  }
+}

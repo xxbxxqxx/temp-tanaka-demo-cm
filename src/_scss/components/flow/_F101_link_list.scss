@@ -1,0 +1,55 @@
+/*
+---
+name: F101 Link list
+flow:
+  - F1 Navigate
+  - F1 Navigate/F101 Link list
+tag:
+  - Navigate
+---
+
+ページ遷移させたい場合に使用。掲載個数はレイアウトによって異なる。単体の利用可。必要に応じてアイコンとの組み合わせ可。  
+横並びには<a href="/_styleguide/layout/Layout/L104-Tile/index.html">タイルコンポーネント</a>を利用しているため、デバイスごとの表示割合の切り替えなど、各オプションを利用できる。
+
+## Vertical
+```html
+<ul class="l-stack">
+<li class="l-stack_item"><a href="#">リンクテキスト<img class="i-label i-label-right -chevron" src="/assets/img/icons/ic_chevron_right_harf.svg" alt=""></a></li>
+<li class="l-stack_item"><a href="#">リンクテキスト<img class="i-label i-label-right -chevron" src="/assets/img/icons/ic_chevron_right_harf.svg" alt=""></a></li>
+<li class="l-stack_item"><a href="#">リンクテキスト<img class="i-label i-label-right -chevron" src="/assets/img/icons/ic_chevron_right_harf.svg" alt=""></a></li>
+<li class="l-stack_item"><a href="#">リンクテキスト<img class="i-label i-label-right -chevron" src="/assets/img/icons/ic_chevron_right_harf.svg" alt=""></a></li>
+</ul><!-- /.l-stack -->
+```
+
+## Horizontal
+### 2列
+
+```html
+<ul class="l-tile l-tile-2">
+<li class="l-tile_item"><a href="#">リンクテキスト<img class="i-label i-label-right -chevron" src="/assets/img/icons/ic_chevron_right_harf.svg" alt=""></a></li>
+<li class="l-tile_item"><a href="#">リンクテキスト<img class="i-label i-label-right -chevron" src="/assets/img/icons/ic_chevron_right_harf.svg" alt=""></a></li>
+<li class="l-tile_item"><a href="#">リンクテキスト<img class="i-label i-label-right -chevron" src="/assets/img/icons/ic_chevron_right_harf.svg" alt=""></a></li>
+<li class="l-tile_item"><a href="#">リンクテキスト<img class="i-label i-label-right -chevron" src="/assets/img/icons/ic_chevron_right_harf.svg" alt=""></a></li>
+</ul><!-- /.l-tile -->
+```
+
+### 3列
+
+```html
+<ul class="l-tile l-tile-3">
+<li class="l-tile_item"><a href="#">リンクテキスト<img class="i-label i-label-right -chevron" src="/assets/img/icons/ic_chevron_right_harf.svg" alt=""></a></li>
+<li class="l-tile_item"><a href="#">リンクテキスト<img class="i-label i-label-right -chevron" src="/assets/img/icons/ic_chevron_right_harf.svg" alt=""></a></li>
+<li class="l-tile_item"><a href="#">リンクテキスト<img class="i-label i-label-right -chevron" src="/assets/img/icons/ic_chevron_right_harf.svg" alt=""></a></li>
+</ul><!-- /.l-tile -->
+```
+### 4列
+
+```html
+<ul class="l-tile l-tile-4">
+<li class="l-tile_item"><a href="#">リンクテキスト<img class="i-label i-label-right -chevron" src="/assets/img/icons/ic_chevron_right_harf.svg" alt=""></a></li>
+<li class="l-tile_item"><a href="#">リンクテキスト<img class="i-label i-label-right -chevron" src="/assets/img/icons/ic_chevron_right_harf.svg" alt=""></a></li>
+<li class="l-tile_item"><a href="#">リンクテキスト<img class="i-label i-label-right -chevron" src="/assets/img/icons/ic_chevron_right_harf.svg" alt=""></a></li>
+<li class="l-tile_item"><a href="#">リンクテキスト<img class="i-label i-label-right -chevron" src="/assets/img/icons/ic_chevron_right_harf.svg" alt=""></a></li>
+</ul><!-- /.l-tile -->
+```
+*/

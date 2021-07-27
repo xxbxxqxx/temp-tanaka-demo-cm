@@ -1,0 +1,323 @@
+/*
+---
+name: A207 Form
+action:
+  - A2 Input
+  - A2 Input/A207 Form
+tag:
+  - Input
+---
+
+フォーム画面の実装に<a href="/_styleguide/layout/Layout/L102-Grid/index.html">グリッドコンポーネント</a>、  
+並列する要素の横並び表示の実装に<a href="/_styleguide/layout/Layout/L104-Tile/index.html">タイルコンポーネント</a>を利用しているため、  
+各コンポーネントのオプションが利用可能。
+
+## 項目名
+
+```html
+<div class="c-form">
+<div class="c-form_row">
+<div class="l-grid">
+<div class="l-grid_item l-grid_item-3">
+<div class="c-form_col">
+<p class="c-form_title"><span class="c-form_titleLabel">タイトル</span><span class="c-form_tag">必須</span></p>
+</div><!-- /.c-form_col  -->
+</div><!-- /.l-grid_item -->
+<div class="l-grid_item l-grid_item-9">
+<div class="c-form_col">
+<p class="c-form_message">メッセージ文が入ります</p>
+{フォーム要素}
+</div><!-- /.c-form_col  -->
+</div><!-- /.l-grid_item -->
+</div><!-- /.l-grid -->
+</div><!-- /.c-form_row -->
+<div class="c-form_row">
+<div class="l-grid">
+<div class="l-grid_item l-grid_item-3">
+<div class="c-form_col">
+<p class="c-form_title"><span class="c-form_titleLabel">タイトル</span><span class="c-form_tag">必須</span></p>
+</div><!-- /.c-form_col  -->
+</div><!-- /.l-grid_item -->
+<div class="l-grid_item l-grid_item-9">
+<div class="c-form_col">
+<p class="c-form_message">メッセージ文が入ります</p>
+{フォーム要素}
+<p class="c-form_message c-form_message-error">エラー文が入ります</p>
+</div><!-- /.c-form_col  -->
+</div><!-- /.l-grid_item -->
+</div><!-- /.l-grid -->
+</div><!-- /.c-form_row -->
+</div><!-- /.c-form -->
+```
+
+## 項目名＋チェックボックス
+
+```html
+<div class="c-form">
+<div class="c-form_row">
+<div class="l-grid">
+<div class="l-grid_item l-grid_item-3">
+<div class="c-form_col">
+<p class="c-form_title"><span class="c-form_titleLabel">チェックボックス群</span><span class="c-form_tag">必須</span></p>
+</div><!-- /.c-form_col  -->
+</div><!-- /.l-grid_item -->
+<div class="l-grid_item l-grid_item-9">
+<div class="c-form_col">
+<ul class="l-tile l-tile-4-lg l-tile-2-md l-tile-1-sm">
+<li class="l-tile_item">
+<label class="c-checkbox">
+<input class="c-checkbox_input" type="checkbox">
+<span class="c-checkbox_text">チェックボックス</span>
+</label>
+</li>
+<li class="l-tile_item">
+<label class="c-checkbox">
+<input class="c-checkbox_input" type="checkbox">
+<span class="c-checkbox_text">チェックボックス</span>
+</label>
+</li>
+<li class="l-tile_item">
+<label class="c-checkbox">
+<input class="c-checkbox_input" type="checkbox">
+<span class="c-checkbox_text">チェックボックス</span>
+</label>
+</li>
+<li class="l-tile_item">
+<label class="c-checkbox">
+<input class="c-checkbox_input" type="checkbox">
+<span class="c-checkbox_text">チェックボックス</span>
+</label>
+</li>
+<li class="l-tile_item">
+<label class="c-checkbox">
+<input class="c-checkbox_input" type="checkbox">
+<span class="c-checkbox_text">チェックボックス</span>
+</label>
+</li>
+<li class="l-tile_item">
+<label class="c-checkbox">
+<input class="c-checkbox_input" type="checkbox">
+<span class="c-checkbox_text">チェックボックス</span>
+</label>
+</li>
+<li class="l-tile_item">
+<label class="c-checkbox">
+<input class="c-checkbox_input" type="checkbox">
+<span class="c-checkbox_text">チェックボックス</span>
+</label>
+</li>
+<li class="l-tile_item">
+<label class="c-checkbox">
+<input class="c-checkbox_input" type="checkbox">
+<span class="c-checkbox_text">チェックボックス</span>
+</label>
+</li>
+</ul>
+</div><!-- /.c-form_col  -->
+</div><!-- /.l-grid_item -->
+</div><!-- /.l-grid -->
+</div><!-- /.c-form_row -->
+</div><!-- /.c-form -->
+```
+## 項目名＋ラジオボタン
+
+```html
+<div class="c-form">
+<div class="c-form_row">
+<div class="l-grid">
+<div class="l-grid_item l-grid_item-3">
+<div class="c-form_col">
+<p class="c-form_title"><span class="c-form_titleLabel">ラジオボタン群</span><span class="c-form_tag">必須</span></p>
+</div><!-- /.c-form_col  -->
+</div><!-- /.l-grid_item -->
+<div class="l-grid_item l-grid_item-9">
+<div class="c-form_col">
+<ul class="l-tile l-tile-4-lg l-tile-2-md l-tile-1-sm">
+<li class="l-tile_item">
+<label class="c-radioButton">
+<input class="c-radioButton_input" type="radio" name="radioSample02" checked>
+<span class="c-radioButton_text">ラジオボタン</span>
+</label>
+</li>
+<li class="l-tile_item">
+<label class="c-radioButton">
+<input class="c-radioButton_input" type="radio" name="radioSample02">
+<span class="c-radioButton_text">ラジオボタン</span>
+</label>
+</li>
+<li class="l-tile_item">
+<label class="c-radioButton">
+<input class="c-radioButton_input" type="radio" name="radioSample02">
+<span class="c-radioButton_text">ラジオボタン</span>
+</label>
+</li>
+<li class="l-tile_item">
+<label class="c-radioButton">
+<input class="c-radioButton_input" type="radio" name="radioSample02">
+<span class="c-radioButton_text">ラジオボタン</span>
+</label>
+</li>
+<li class="l-tile_item">
+<label class="c-radioButton">
+<input class="c-radioButton_input" type="radio" name="radioSample02">
+<span class="c-radioButton_text">ラジオボタン</span>
+</label>
+</li>
+<li class="l-tile_item">
+<label class="c-radioButton">
+<input class="c-radioButton_input" type="radio" name="radioSample02">
+<span class="c-radioButton_text">ラジオボタン</span>
+</label>
+</li>
+<li class="l-tile_item">
+<label class="c-radioButton">
+<input class="c-radioButton_input" type="radio" name="radioSample02">
+<span class="c-radioButton_text">ラジオボタン</span>
+</label>
+</li>
+<li class="l-tile_item">
+<label class="c-radioButton">
+<input class="c-radioButton_input" type="radio" name="radioSample02">
+<span class="c-radioButton_text">ラジオボタン</span>
+</label>
+</li>
+</ul>
+</div><!-- /.c-form_col  -->
+</div><!-- /.l-grid_item -->
+</div><!-- /.l-grid -->
+</div><!-- /.c-form_row -->
+</div><!-- /.c-form -->
+```
+
+## 項目名＋セレクトボックス
+
+```html
+<div class="c-form">
+<div class="c-form_row">
+<div class="l-grid">
+<div class="l-grid_item l-grid_item-3">
+<div class="c-form_col">
+<p class="c-form_title"><span class="c-form_titleLabel">セレクトボックス</span><span class="c-form_tag">必須</span></p>
+</div><!-- /.c-form_col  -->
+</div><!-- /.l-grid_item -->
+<div class="l-grid_item l-grid_item-9">
+<div class="c-form_col">
+<div class="c-selectBox">
+<select>
+<option>ラベル1</option>
+<option>ラベル2</option>
+<option>ラベル3</option>
+<option>ラベル4</option>
+<option>ラベル5</option>
+</select>
+</div><!-- /.c-selectBox  -->
+</div><!-- /.c-form_col  -->
+</div><!-- /.l-grid_item -->
+</div><!-- /.l-grid -->
+</div><!-- /.c-form_row -->
+</div><!-- /.c-form -->
+```
+
+## 項目名＋テキストフィールド
+
+```html
+<div class="c-form">
+<div class="c-form_row">
+<div class="l-grid">
+<div class="l-grid_item l-grid_item-3">
+<div class="c-form_col">
+<p class="c-form_title"><span class="c-form_titleLabel">インプットテキスト</span><span class="c-form_tag">必須</span></p>
+</div><!-- /.c-form_col  -->
+</div><!-- /.l-grid_item -->
+<div class="l-grid_item l-grid_item-9">
+<div class="c-form_col">
+<p class="c-textField_description">説明文が入ります</p>
+<input class="c-textField" type="text" placeholder="内容を入力してください">
+</div><!-- /.c-form_col  -->
+</div><!-- /.l-grid_item -->
+</div><!-- /.l-grid -->
+</div><!-- /.c-form_row -->
+<div class="c-form_row">
+<div class="l-grid">
+<div class="l-grid_item l-grid_item-3">
+<div class="c-form_col">
+<p class="c-form_title">インプットテキスト エラー <span class="c-form_tag">必須</span></p>
+</div><!-- /.c-form_col  -->
+</div><!-- /.l-grid_item -->
+<div class="l-grid_item l-grid_item-9">
+<div class="c-form_col">
+<p class="c-textField_description">説明文が入ります</p>
+<input class="c-textField c-textField-error" type="text" placeholder="内容を入力してください">
+<p class="c-form_message c-form_message-error">エラー文が入ります</p>
+</div><!-- /.c-form_col  -->
+</div><!-- /.l-grid_item -->
+</div><!-- /.l-grid -->
+</div><!-- /.c-form_row -->
+</div><!-- /.c-form -->
+```
+
+## 項目名＋テキストエリア
+
+```html
+<div class="c-form">
+<div class="c-form_row">
+<div class="l-grid">
+<div class="l-grid_item l-grid_item-3">
+<div class="c-form_col">
+<p class="c-form_title"><span class="c-form_titleLabel">テキストエリア</span><span class="c-form_tag">必須</span></p>
+</div><!-- /.c-form_col  -->
+</div><!-- /.l-grid_item -->
+<div class="l-grid_item l-grid_item-9">
+<div class="c-form_col">
+<p class="c-textField_description">説明文が入ります</p>
+<textarea class="c-textarea c-textarea-autoWidth" rows="3" placeholder="内容を入力してください"></textarea>
+</div><!-- /.c-form_col  -->
+</div><!-- /.l-grid_item -->
+</div><!-- /.l-grid -->
+</div><!-- /.c-form_row -->
+</div><!-- /.c-form -->
+```
+
+## 送信ボタン
+
+```html
+<button class="c-btn c-btn-primary">送信する</button>
+```
+*/
+
+
+.c-form {
+  @include dfm(medium);
+  &_row {
+    @include bp(small) {
+      @include dfm(medium);
+    }
+  }
+  &_col {
+    padding: ($unit * 2) 0;
+    @include bp(small) {
+      padding: 0;
+    }
+  }
+  &_title {
+    @include ex($ts-midium);
+    &Label {
+      margin-right: $unit * 3;
+      display: inline-block;
+    }
+  }
+  &_tag {
+    @include ex($ts-xsmall);
+    padding: 0 ($unit * 2);
+    display: inline-block;
+    position: relative;
+    top: -0.1em;
+    border: 1px solid #000;
+    font-weight: bold;
+  }
+  &_message {
+    &-error {
+      color: #e65100;
+    }
+  }
+}

@@ -1,0 +1,55 @@
+<nav class="sg-sidemenu" role="navigation">
+  <ul class="sg-sidemenu_list">
+    <li class="sg-sidemenu_filter"><input class="sg-sidemenu_filterInput" type="text" placeholder="Filter"></li>
+    <% if (config.collection.document.length) { %>
+    <li>
+      <span class="sg-sidemenu_heading">ドキュメント</span>
+      <div class="sg-sidemenu_inner sg-categoryList" data-side-nav>
+        <%- helper.renderCollectionTree('document') %>
+      </div>
+    </li>
+    <% } %>
+    <li>
+      <span class="sg-sidemenu_heading">Layout</span>
+      <div class="sg-sidemenu_inner sg-categoryList" data-side-nav>
+        <%- helper.renderCollectionTree('layout') %>
+      </div>
+    </li>
+    <li>
+      <span class="sg-sidemenu_heading">Part</span>
+      <div class="sg-sidemenu_inner sg-categoryList" data-side-nav>
+        <%- helper.renderCollectionTree('part') %>
+      </div>
+    </li>
+    <li>
+      <span class="sg-sidemenu_heading">Flow component</span>
+      <div class="sg-sidemenu_inner sg-categoryList" data-side-nav>
+        <%- helper.renderCollectionTree('flow') %>
+      </div>
+    </li>
+    <li>
+      <span class="sg-sidemenu_heading">Content component</span>
+      <div class="sg-sidemenu_inner sg-categoryList" data-side-nav>
+        <%- helper.renderCollectionTree('content') %>
+      </div>
+    </li>
+    <li>
+      <span class="sg-sidemenu_heading">Action component</span>
+      <div class="sg-sidemenu_inner sg-categoryList" data-side-nav>
+        <%- helper.renderCollectionTree('action') %>
+      </div>
+    </li>
+    <li>
+      <span class="sg-sidemenu_heading">Icon</span>
+      <div class="sg-sidemenu_inner sg-categoryList" data-side-nav>
+        <%- helper.renderCollectionTree('icon') %>
+      </div>
+    </li>
+    <li>
+      <span class="sg-sidemenu_heading">Utility</span>
+      <div class="sg-sidemenu_inner sg-categoryList" data-side-nav>
+        <%- helper.renderCollectionTree('utility') %>
+      </div>
+    </li>
+  </ul>
+</nav>

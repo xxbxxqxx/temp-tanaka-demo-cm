@@ -1,0 +1,72 @@
+name: Build Test
+
+on:
+  pull_request:
+    branches: [ main, production, staging, development ]
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '12.x'
+
+      # 開発中はpackage.jsonが更新されるためnode_modulesはキャッシュせずビルド毎にインストールする
+      #- name: node_modules キャッシュ取得
+      #  id: node_modules_cache_id
+      #  uses: actions/cache@v2
+      #  with:
+      #    path: node_modules
+      #    key: ${{ matrix.os }}-node-v${{ matrix.node }}-deps-${{ hashFiles(format('{0}{1}', github.workspace, '/yarn.lock')) }}
+
+      #- name: node_modules インストール
+      #  if: steps.node_modules_cache_id.outputs.cache-hit != 'true'
+      #  run: yarn --check-files --frozen-lockfile --non-interactive
+
+      - name: node_modules インストール
+        run: yarn install
+
+      - name: contentful 環境変数設定
+        run: echo "${{ secrets.ENV_PROD }}" > .env
+
+      - name: Gatsby.js ビルド
+        run: yarn build
+
+      - name: htmlhint
+        run: yarn htmlhint
+        id: htmlhint
+      - name: htmlhint エラーログ
+        if: failure() && steps.htmlhint.outcome == 'failure'
+        env:
+          REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.REVIEWDOG_GITHUB_API_TOKEN }}
+        run: |
+          cat ./test/htmlhint.log
+
+      - name: stylelint エラーチェック
+        run: yarn stylelint
+        id: stylelint
+      - name: stylelint ログ出力
+        if: failure() && steps.stylelint.outcome == 'failure'
+        run: |
+          cat ./test/stylelint.log
+
+      - name: eslint エラーチェック
+        run: yarn eslint
+        id: eslint
+      - name: eslint ログ出力
+        if: failure() && steps.eslint.outcome == 'failure'
+        run: |
+          cat ./test/eslint.log
+
+      - name: eslint Warningチェック
+        run: yarn eslint_warning
+        id: eslint_warning
+      - name: eslint Warningログ出力
+        if: hashFiles('./test/eslint_warning.log') != ''
+        run: |
+          cat ./test/eslint_warning.log

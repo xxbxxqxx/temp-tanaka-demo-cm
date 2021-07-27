@@ -1,0 +1,47 @@
+name: Visual Regression Test
+
+on:
+  pull_request:
+    branches: [ staging, development ]
+
+jobs:
+  visual-regression-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '12.x'
+
+      # 開発中はpackage.jsonが更新されるためnode_modulesはキャッシュせずビルド毎にインストールする
+      #- name: node_modules キャッシュ取得
+      #  id: node_modules_cache_id
+      #  uses: actions/cache@v2
+      #  with:
+      #    path: node_modules
+      #    key: ${{ matrix.os }}-node-v${{ matrix.node }}-deps-${{ hashFiles(format('{0}{1}', github.workspace, '/yarn.lock')) }}
+
+      #- name: node_modules インストール
+      #  if: steps.node_modules_cache_id.outputs.cache-hit != 'true'
+      #  run: yarn --check-files --frozen-lockfile --non-interactive
+
+      - name: node_modules インストール
+        run: yarn install
+
+      - name: contentful 環境変数設定
+        run: echo "${{ secrets.ENV_PROD }}" > .env
+
+      - name: Gatsby.js ビルド
+        run: yarn build
+
+      - name: Cypress run
+        uses: cypress-io/github-action@v2
+        with:
+          start: yarn serve
+          wait-on: 'http://localhost:9000/'
+          command-prefix: 'percy exec -- yarn'
+        env:
+          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}

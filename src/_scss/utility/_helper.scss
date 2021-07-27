@@ -1,0 +1,710 @@
+/*
+---
+name: Align
+utility:
+  - Align
+tag:
+  - Utility
+---
+## text-align
+
+テキストの横揃え  
+`-imp`を各クラスの最後に付与することで、`!important`指定が可能  
+
+### `.u-ta-center`
+text-align:center  
+```html
+<p class="c-paragraph u-ta-center">テキストを揃える</p>
+```
+
+### `.u-ta-left`
+text-align:left  
+```html
+<p class="c-paragraph u-ta-left">テキストを揃える</p>
+```
+
+### `.u-ta-right`
+text-align:right  
+```html
+<p class="c-paragraph u-ta-right">テキストを揃える</p>
+```
+
+### `.u-ta-center-md`
+ミディアムウインドウ時 text-align:center  
+```html
+<p class="c-paragraph u-ta-center-md">テキストを揃える</p>
+```
+
+### `.u-ta-left-md`
+ミディアムウインドウ時 text-align:left  
+```html
+<p class="c-paragraph u-ta-left-md">テキストを揃える</p>
+```
+
+### `.u-ta-right-md`
+ミディアムウインドウ時 text-align:right  
+```html
+<p class="c-paragraph u-ta-right-md">テキストを揃える</p>
+```
+
+### `.u-ta-center-sm`
+スモールウインドウ時 text-align:center  
+```html
+<p class="c-paragraph u-ta-center-sm">テキストを揃える</p>
+```
+
+### `.u-ta-left-sm`
+スモールウインドウ時 text-align:left  
+```html
+<p class="c-paragraph u-ta-left-sm">テキストを揃える</p>
+```
+
+### `.u-ta-right-sm`
+スモールウインドウ時 text-align:right  
+```html
+<p class="c-paragraph u-ta-right-sm">テキストを揃える</p>
+```
+
+### `.u-ta-center-imp`
+text-align:center!important  
+```html
+<p class="c-paragraph u-ta-center-imp">テキストを揃える</p>
+```
+
+## vertical-align
+
+水平位置揃え  
+`-imp`を各クラスの最後に付与することで、`!important`指定が可能
+
+### `.u-va-top`
+vertical-align:top  
+```html
+<p class="c-paragraph"><img class="u-va-top" src="//picsum.photos/128/100/">水平位置を揃える</p>
+```
+
+### `.u-va-middle`
+vertical-align:middle  
+```html
+<p class="c-paragraph"><img class="u-va-middle" src="//picsum.photos/128/100/">水平位置を揃える</p>
+```
+
+### `.u-va-bottom`
+vertical-align:bottom  
+```html
+<p class="c-paragraph"><img class="u-va-bottom" src="//picsum.photos/128/100/">水平位置を揃える</p>
+```
+
+### `.u-va-top-md`
+ミディアムウインドウ時 vertical-align:top  
+```html
+<p class="c-paragraph"><img class="u-va-top-md" src="//picsum.photos/128/100/">水平位置を揃える</p>
+```
+
+### `.u-va-middle-md`
+ミディアムウインドウ時 vertical-align:middle  
+```html
+<p class="c-paragraph"><img class="u-va-middle-md" src="//picsum.photos/128/100/">水平位置を揃える</p>
+```
+
+### `.u-va-bottom-md`
+ミディアムウインドウ時 vertical-align:bottom  
+```html
+<p class="c-paragraph"><img class="u-va-bottom-md" src="//picsum.photos/128/100/">水平位置を揃える</p>
+```
+
+### `.u-va-top-sm`
+スモールウインドウ時 vertical-align:top  
+```html
+<p class="c-paragraph"><img class="u-va-top-sm" src="//picsum.photos/128/100/">水平位置を揃える</p>
+```
+
+### `.u-va-middle-sm`
+スモールウインドウ時 vertical-align:middle  
+```html
+<p class="c-paragraph"><img class="u-va-middle-sm" src="//picsum.photos/128/100/">水平位置を揃える</p>
+```
+
+### `.u-va-bottom-sm`
+スモールウインドウ時 vertical-align:bottom  
+```html
+<p class="c-paragraph"><img class="u-va-bottom-sm" src="//picsum.photos/128/100/">水平位置を揃える</p>
+```
+
+### `.u-va-top-imp`
+vertical-align:top!important  
+```html
+<p class="c-paragraph"><img class="u-va-top-imp" src="//picsum.photos/128/100/">水平位置を揃える</p>
+```
+*/
+.u-ta {
+  &-center{ 
+    @include imp(text-align,center);
+    &-md {
+      @include bp(medium) {
+        @include imp(text-align,center);
+      }
+    }
+    &-sm {
+      @include bp(small) {
+        @include imp(text-align,center);
+      }
+    }
+  }
+  &-left{ 
+    @include imp(text-align,left);
+    &-md {
+      @include bp(medium) {
+        @include imp(text-align,left);
+      }
+    }
+    &-sm {
+      @include bp(small) {
+        @include imp(text-align,left);
+      }
+    }
+  }
+  &-right{ 
+    @include imp(text-align,right);
+    &-md {
+      @include bp(medium) {
+        @include imp(text-align,right);
+      }
+    }
+    &-sm {
+      @include bp(small) {
+        @include imp(text-align,right);
+      }
+    }
+  }
+}
+
+.u-va {
+  &-top{
+    @include imp(vertical-align,top);
+    &-md {
+      @include bp(medium) {
+        @include imp(vertical-align,top);
+      }
+    }
+    &-sm {
+      @include bp(small) {
+        @include imp(vertical-align,top);
+      }
+    }
+  }
+  &-middle{
+    @include imp(vertical-align,middle);
+    &-md {
+      @include bp(medium) {
+        @include imp(vertical-align,middle);
+      }
+    }
+    &-sm {
+      @include bp(small) {
+        @include imp(vertical-align,middle);
+      }
+    }
+  }
+  &-bottom{
+    @include imp(vertical-align,bottom);
+    &-md {
+      @include bp(medium) {
+        @include imp(vertical-align,bottom);
+      }
+    }
+    &-sm {
+      @include bp(small) {
+        @include imp(vertical-align,bottom);
+      }
+    }
+  }
+}
+
+/*
+---
+name: Text
+utility:
+  - Text
+tag:
+  - Utility
+---
+
+## text-format
+
+書式を変更  
+`-imp`を各クラスの最後に付与することで、`!important`指定が可能  
+_foundation.scssで定義された各書式を適用する  
+
+### `.u-ts-lv1`
+```html
+<p class="u-ts-lv1">文字の書式を設定する</p>
+```
+### `.u-ts-lv2`
+```html
+<p class="u-ts-lv2">文字の書式を設定する</p>
+```
+### `.u-ts-lv3`
+```html
+<p class="u-ts-lv3">文字の書式を設定する</p>
+```
+### `.u-ts-lv4`
+```html
+<p class="u-ts-lv4">文字の書式を設定する</p>
+```
+### `.u-ts-headline`
+```html
+<p class="u-ts-headline">文字の書式を設定する</p>
+```
+### `.u-ts-paragraph`
+```html
+<p class="u-ts-paragraph">文字の書式を設定する</p>
+```
+### `.u-ts-xlarge`
+```html
+<p class="u-ts-xlarge">文字の書式を設定する</p>
+```
+### `.u-ts-large`
+```html
+<p class="u-ts-large">文字の書式を設定する</p>
+```
+### `.u-ts-regular`
+```html
+<p class="u-ts-regular">文字の書式を設定する</p>
+```
+### `.u-ts-small`
+```html
+<p class="u-ts-small">文字の書式を設定する</p>
+```
+### `.u-ts-xsmall`
+```html
+<p class="u-ts-xsmall">文字の書式を設定する</p>
+```
+### `.u-ts-large-imp`
+```html
+<p class="u-ts-large-imp">文字の書式を設定する</p>
+```
+
+## color
+
+文字の色を変更  
+`-imp`を各クラスの最後に付与することで、`!important`指定が可能  
+_foundation.scss で指定したカラーを文字色に適用
+
+### `.u-tc-black`
+color: $c-grey.black  
+```html
+<p class="c-paragraph u-tc-black">文字の色を変更する</p>
+```
+
+### `.u-tc-grey900`
+color: $c-grey.grey900  
+```html
+<p class="c-paragraph u-tc-grey900">文字の色を変更する</p>
+```
+
+### `.u-tc-grey800`
+color: $c-grey.grey800  
+```html
+<p class="c-paragraph u-tc-grey800">文字の色を変更する</p>
+```
+
+### `.u-tc-grey700`
+color: $c-grey.grey700  
+```html
+<p class="c-paragraph u-tc-grey700">文字の色を変更する</p>
+```
+
+### `.u-tc-grey600`
+color: $c-grey.grey600  
+```html
+<p class="c-paragraph u-tc-grey600">文字の色を変更する</p>
+```
+
+### `.u-tc-grey500`
+color: $c-grey.grey500  
+```html
+<p class="c-paragraph u-tc-grey500">文字の色を変更する</p>
+```
+
+### `.u-tc-grey400`
+color: $c-grey.grey400  
+```html
+<p class="c-paragraph u-tc-grey400">文字の色を変更する</p>
+```
+
+### `.u-tc-grey300`
+color: $c-grey.grey300  
+```html
+<p class="c-paragraph u-tc-grey300">文字の色を変更する</p>
+```
+
+### `.u-tc-grey200`
+color: $c-grey.grey200  
+```html
+<p class="c-paragraph u-tc-grey200">文字の色を変更する</p>
+```
+
+### `.u-tc-grey100`
+color: $c-grey.grey100  
+```html
+<p class="c-paragraph u-tc-grey100">文字の色を変更する</p>
+```
+
+### `.u-tc-grey50`
+color: $c-grey.grey50  
+```html
+<p class="c-paragraph u-tc-grey50">文字の色を変更する</p>
+```
+
+### `.u-tc-white`
+color: $c-grey.white  
+```html
+<p class="c-paragraph u-tc-white">文字の色を変更する</p>
+```
+
+### `.u-tc-{colorName}`
+color: $c-projext.{colorName}  
+```html
+<p class="c-paragraph u-tc-noname">文字の色を変更する</p>
+```
+
+### `.u-tc-black-imp`
+color: $c-grey.black!important  
+```html
+<p class="c-paragraph u-tc-black-imp">文字の色を変更する</p>
+```
+*/
+.u-ts {
+  &-lv1 { @include exImp($ts-lv1) }
+  &-lv2 { @include exImp($ts-lv2) }
+  &-lv3 { @include exImp($ts-lv3) }
+  &-lv4 { @include exImp($ts-lv4) }
+  &-headline { @include exImp($ts-headline) }
+  &-paragraph { @include exImp($ts-paragraph) }
+  &-xlarge { @include exImp($ts-xlarge) }
+  &-large { @include exImp($ts-large) }
+  &-midium { @include exImp($ts-midium) }
+  &-small { @include exImp($ts-small) }
+  &-xsmall { @include exImp($ts-xsmall) }
+}
+.u-tc {
+  @each $cb-name, $cb-color in $c-grey {
+    &-#{$cb-name} {
+      @include imp(color,$cb-color);
+    }
+  }
+  @each $cp-name, $cp-color in $c-project {
+    &-#{$cp-name} {
+      @include imp(color,$cp-color);
+    }
+  }
+}
+
+/*
+---
+name: Background
+utility:
+  - Background
+tag:
+  - Utility
+---
+## background-color
+
+背景色を変更  
+`-imp`を各クラスの最後に付与することで、`!important`指定が可能  
+_foundation.scss で指定したカラーを背景に適用
+
+### `.u-bgc-black`
+background-color: $c-grey.black  
+```html
+<div class="l-grid">
+<div class="l-grid_item l-grid_item-12">
+<div class="u-bgc-black">
+<div class="sg-dummy">背景色を変更する</div>
+</div>
+</div><!-- /.l-grid_item -->
+</div><!-- /.l-grid -->
+```
+
+### `.u-bgc-grey900`
+background-color: $c-grey.grey900  
+```html
+<div class="l-grid">
+<div class="l-grid_item l-grid_item-12">
+<div class="u-bgc-grey900">
+<div class="sg-dummy">背景色を変更する</div>
+</div>
+</div><!-- /.l-grid_item -->
+</div><!-- /.l-grid -->
+```
+
+### `.u-bgc-grey800`
+background-color: $c-grey.grey800  
+```html
+<div class="l-grid">
+<div class="l-grid_item l-grid_item-12">
+<div class="u-bgc-grey800">
+<div class="sg-dummy">背景色を変更する</div>
+</div>
+</div><!-- /.l-grid_item -->
+</div><!-- /.l-grid -->
+```
+
+### `.u-bgc-grey700`
+background-color: $c-grey.grey700  
+```html
+<div class="l-grid">
+<div class="l-grid_item l-grid_item-12">
+<div class="u-bgc-grey700">
+<div class="sg-dummy">背景色を変更する</div>
+</div>
+</div><!-- /.l-grid_item -->
+</div><!-- /.l-grid -->
+```
+
+### `.u-bgc-grey600`
+background-color: $c-grey.grey600  
+```html
+<div class="l-grid">
+<div class="l-grid_item l-grid_item-12">
+<div class="u-bgc-grey600">
+<div class="sg-dummy">背景色を変更する</div>
+</div>
+</div><!-- /.l-grid_item -->
+</div><!-- /.l-grid -->
+```
+
+### `.u-bgc-grey500`
+background-color: $c-grey.grey500  
+```html
+<div class="l-grid">
+<div class="l-grid_item l-grid_item-12">
+<div class="u-bgc-grey500">
+<div class="sg-dummy">背景色を変更する</div>
+</div>
+</div><!-- /.l-grid_item -->
+</div><!-- /.l-grid -->
+```
+
+### `.u-bgc-grey400`
+background-color: $c-grey.grey400  
+```html
+<div class="l-grid">
+<div class="l-grid_item l-grid_item-12">
+<div class="u-bgc-grey400">
+<div class="sg-dummy">背景色を変更する</div>
+</div>
+</div><!-- /.l-grid_item -->
+</div><!-- /.l-grid -->
+```
+
+### `.u-bgc-grey300`
+background-color: $c-grey.grey300  
+```html
+<div class="l-grid">
+<div class="l-grid_item l-grid_item-12">
+<div class="u-bgc-grey300">
+<div class="sg-dummy">背景色を変更する</div>
+</div>
+</div><!-- /.l-grid_item -->
+</div><!-- /.l-grid -->
+```
+
+### `.u-bgc-grey200`
+background-color: $c-grey.grey200  
+```html
+<div class="l-grid">
+<div class="l-grid_item l-grid_item-12">
+<div class="u-bgc-grey200">
+<div class="sg-dummy">背景色を変更する</div>
+</div>
+</div><!-- /.l-grid_item -->
+</div><!-- /.l-grid -->
+```
+
+### `.u-bgc-grey100`
+background-color: $c-grey.grey100  
+```html
+<div class="l-grid">
+<div class="l-grid_item l-grid_item-12">
+<div class="u-bgc-grey100">
+<div class="sg-dummy">背景色を変更する</div>
+</div>
+</div><!-- /.l-grid_item -->
+</div><!-- /.l-grid -->
+```
+
+### `.u-bgc-grey50`
+background-color: $c-grey.grey50  
+```html
+<div class="l-grid">
+<div class="l-grid_item l-grid_item-12">
+<div class="u-bgc-grey50">
+<div class="sg-dummy">背景色を変更する</div>
+</div>
+</div><!-- /.l-grid_item -->
+</div><!-- /.l-grid -->
+```
+
+### `.u-bgc-white`
+background-color: $c-grey.white  
+```html
+<div class="l-grid">
+<div class="l-grid_item l-grid_item-12">
+<div class="u-bgc-white">
+<div class="sg-dummy">背景色を変更する</div>
+</div>
+</div><!-- /.l-grid_item -->
+</div><!-- /.l-grid -->
+```
+
+### `.u-bgc-{colorName}`
+background-color: $c-projext.{colorName}  
+```html
+<div class="l-grid">
+<div class="l-grid_item l-grid_item-12">
+<div class="u-bgc-noname">
+<div class="sg-dummy">背景色を変更する</div>
+</div>
+</div><!-- /.l-grid_item -->
+</div><!-- /.l-grid -->
+```
+
+### `.u-bgc-black-imp`
+background-color: $c-grey.black!important  
+```html
+<div class="l-grid">
+<div class="l-grid_item l-grid_item-12">
+<div class="u-bgc-black-imp">
+<div class="sg-dummy">背景色を変更する</div>
+</div>
+</div><!-- /.l-grid_item -->
+</div><!-- /.l-grid -->
+```
+*/
+.u-bgc {
+  @each $cb-name, $cb-color in $c-grey {
+    &-#{$cb-name} {
+      @include imp(background,$cb-color);
+    }
+  }
+  @each $cp-name, $cp-color in $c-project {
+    &-#{$cp-name} {
+      @include imp(background,$cp-color);
+    }
+  }
+}
+
+/*
+---
+name: Border
+utility:
+  - Border
+tag:
+  - Utility
+---
+
+## border-color
+
+ボーダーカラーを変更  
+`-imp`を各クラスの最後に付与することで、`!important`指定が可能  
+_foundation.scss で指定したカラーをボーダーカラーに適用
+
+
+### `.u-bdc-black`
+border-color: $c-grey.black
+```html
+<button class="c-btn u-bdc-black">ボーダーカラーを変更する</button>
+```
+
+### `.u-bdc-grey900`
+border-color: $c-grey.grey900  
+```html
+<button class="c-btn u-bdc-grey900">ボーダーカラーを変更する</button>
+```
+
+### `.u-bdc-grey800`
+border-color: $c-grey.grey800  
+```html
+<button class="c-btn u-bdc-grey800">ボーダーカラーを変更する</button>
+```
+
+### `.u-bdc-grey700`
+border-color: $c-grey.grey700  
+```html
+<button class="c-btn u-bdc-grey700">ボーダーカラーを変更する</button>
+```
+
+### `.u-bdc-grey600`
+border-color: $c-grey.grey600  
+```html
+<button class="c-btn u-bdc-grey600">ボーダーカラーを変更する</button>
+```
+
+### `.u-bdc-grey500`
+border-color: $c-grey.grey500  
+```html
+<button class="c-btn u-bdc-grey500">ボーダーカラーを変更する</button>
+```
+
+### `.u-bdc-grey400`
+border-color: $c-grey.grey400  
+```html
+<button class="c-btn u-bdc-grey400">ボーダーカラーを変更する</button>
+```
+
+### `.u-bdc-grey300`
+border-color: $c-grey.grey300  
+```html
+<button class="c-btn u-bdc-grey300">ボーダーカラーを変更する</button>
+```
+
+### `.u-bdc-grey200`
+border-color: $c-grey.grey200  
+```html
+<button class="c-btn u-bdc-grey200">ボーダーカラーを変更する</button>
+```
+
+### `.u-bdc-grey100`
+border-color: $c-grey.grey100  
+```html
+<button class="c-btn u-bdc-grey100">ボーダーカラーを変更する</button>
+```
+
+### `.u-bdc-grey50`
+border-color: $c-grey.grey50  
+```html
+<button class="c-btn u-bdc-grey50">ボーダーカラーを変更する</button>
+```
+
+### `.u-bdc-white`
+border-color: $c-grey.white  
+```html
+<button class="c-btn u-bdc-white">ボーダーカラーを変更する</button>
+```
+
+### `.u-bdc-{colorName}`
+border-color: $c-projext.{colorName}  
+```html
+<button class="c-btn u-bdc-noname">ボーダーカラーを変更する</button>
+```
+
+### `.u-bdc-black-imp`
+border-color: $c-grey.black!important  
+```html
+<button class="c-btn u-bdc-black-imp">ボーダーカラーを変更する</button>
+```
+*/
+.u-bdc {
+  @each $cb-name, $cb-color in $c-grey {
+    &-#{$cb-name} {
+      @include imp(border-color,$cb-color);
+    }
+  }
+  @each $cp-name, $cp-color in $c-project {
+    &-#{$cp-name} {
+      @include imp(border-color,$cp-color);
+    }
+  }
+}
+

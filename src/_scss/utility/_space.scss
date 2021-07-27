@@ -1,0 +1,135 @@
+/*
+---
+name: Space
+utility:
+  - Space
+tag:
+  - Utility
+---
+
+## margin-top
+
+要素に`.u-mt-x{n}`を付与することで上余⽩を上書きできる。classの最後に`-imp`を追記すると`!important`となる。  
+
+`_foundation.scss`で設定した`$unit`値を`{n}`倍した上マージンが指定される。`{n}`の値は0〜20 (0.5刻み)。  
+`.u-mt-x0`は上余白なし、`.u-mt-x2_5`は基準値の2.5倍、`.u-mt-x5`は基準値の5倍の上余白となる。  
+
+```html
+<div class="u-mt-x0">
+<div class="sg-dummy">margin-top:$unit x 0</div>
+</div>
+<div class="u-mt-x2_5">
+<div class="sg-dummy">margin-top:$unit x 2.5</div>
+</div>
+<div class="u-mt-x5">
+<div class="sg-dummy">margin-top:$unit x 5</div>
+</div>
+```
+
+```html
+<div class="u-mt-x0-imp">
+<div class="sg-dummy">margin-top:0 !important</div>
+</div>
+<div class="u-mt-x2_5-imp">
+<div class="sg-dummy">margin-top:$unit x 2.5 !important</div>
+</div>
+<div class="u-mt-x5-imp">
+<div class="sg-dummy">margin-top:$unit x 5 !important</div>
+</div>
+```
+
+### medium screen以下の設定
+
+medium screen以下で適用する場合は、`.u-mt-x{n}-md`を付与する。
+
+```html
+<div class="u-mt-x2_5 u-mt-x1_5-md">
+<div class="sg-dummy">margin-top:$unit x 2.5 (md 1.5)</div>
+</div>
+<div class="u-mt-x5 u-mt-x3-md">
+<div class="sg-dummy">margin-top:$unit x 5 (md 3)</div>
+</div>
+```
+
+```html
+<div class="u-mt-x2_5 u-mt-x1_5-md-imp">
+<div class="sg-dummy">margin-top:$unit x 2.5 (md 1.5 !important)</div>
+</div>
+<div class="u-mt-x5 u-mt-x3-md-imp">
+<div class="sg-dummy">margin-top:$unit x 5 (md 3 !important)</div>
+</div>
+```
+
+### small screen以下の設定
+
+small screen以下で適用する場合は、<code>.u-mt-x{n}-sm</code>を付与する。
+
+```html
+<div class="u-mt-x2_5 u-mt-x1_5-md u-mt-x0_5-sm">
+<div class="sg-dummy">margin-top:$unit x 2.5 (md 1.5, sm 0.5)</div>
+</div>
+<div class="u-mt-x5 u-mt-x3-md u-mt-x1-sm">
+<div class="sg-dummy">margin-top:$unit x 5 (md 3, sm 1)</div>
+</div>
+```
+
+```html
+<div class="u-mt-x2_5 u-mt-x1_5-md u-mt-x0_5-sm-imp">
+<div class="sg-dummy">margin-top:$unit x 2.5 (md 1.5, sm 0.5 !important)</div>
+</div>
+<div class="u-mt-x5 u-mt-x3-md u-mt-x1-sm-imp">
+<div class="sg-dummy">margin-top:$unit x 5 (md 3, sm 1 !important)</div>
+</div>
+```
+*/
+
+.u-mt {
+  @for $multi from 0 through 20 {
+    &-x#{$multi} {
+      @include imp(margin-top,$unit * $multi);
+    }
+  }
+  @for $multi from 0 through 20 {
+    &-x#{$multi}_5 {
+      @include imp(margin-top,($unit * $multi) + ($unit * 0.5));
+    }
+  }
+}
+
+.u-mt {
+  @include bp(medium) {
+    @for $multi from 0 through 20 {
+      &-x#{$multi} {
+        &-md {
+          @include imp(margin-top,$unit * $multi);
+        }
+      }
+    }
+    @for $multi from 0 through 20 {
+      &-x#{$multi}_5 {
+        &-md {
+          @include imp(margin-top,($unit * $multi) + ($unit * 0.5));
+        }
+      }
+    }
+  }
+}
+
+.u-mt {
+  @include bp(small) {
+    @for $multi from 0 through 20 {
+      &-x#{$multi} {
+        &-sm {
+          @include imp(margin-top,$unit * $multi);
+        }
+      }
+    }
+    @for $multi from 0 through 20 {
+      &-x#{$multi}_5 {
+        &-sm {
+          @include imp(margin-top,($unit * $multi) + ($unit * 0.5));
+        }
+      }
+    }
+  }
+}

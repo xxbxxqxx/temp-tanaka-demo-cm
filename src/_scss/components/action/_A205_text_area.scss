@@ -1,0 +1,52 @@
+/*
+---
+name: A205 Text area
+action:
+  - A2 Input
+  - A2 Input/A205 Text area
+tag:
+  - Input
+---
+
+フォーム画面の実装に<a href="/_styleguide/layout/Layout/L102-Grid/index.html">グリッドコンポーネント</a>、  
+並列する要素の横並び表示の実装に<a href="/_styleguide/layout/Layout/L104-Tile/index.html">タイルコンポーネント</a>を利用しているため、  
+各コンポーネントのオプションが利用可能。
+
+
+```html
+<textarea class="c-textarea" rows="3" placeholder="内容を入力してください"></textarea>
+```
+
+### 幅成り行き
+`.c-textarea-autoWidth`を付与することで幅が成り行きとなる。
+
+```html
+<textarea class="c-textarea c-textarea-autoWidth" rows="3" placeholder="内容を入力してください"></textarea>
+```
+
+### エラー時
+`.c-textarea-error`を付与することでエラー時の表示となる。
+
+```html
+<textarea class="c-textarea c-textarea-error" rows="3" placeholder="内容を入力してください"></textarea>
+```
+*/
+
+.c-textarea {
+  @include dfm(medium);
+  @include ex($ts-midium);
+  display: inline-block;
+  padding: ($unit * 1.5) ($unit * 2);
+  border: 1px solid #000;
+  border-radius: 4px;
+  line-height: 1;
+  width: 100%;
+  &:focus {
+  }
+  &-error {
+    border-color: #e65100;
+  }
+  &-autoWidth {
+    width: auto;
+  }
+}

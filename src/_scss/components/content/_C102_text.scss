@@ -1,0 +1,123 @@
+/*! Text */
+/*
+---
+name: C102 Text
+content:
+  - C1 Element
+  - C1 Element/C102 Text
+tag:
+  - Element
+---
+### Paragraph
+
+```html
+<p class="c-paragraph">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</p>
+<p class="c-paragraph">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</p>
+```
+
+### XLarge
+
+```html
+<p class="c-textXLarge">テキストが入ります。テキストが入ります。テキストが入ります。</p>
+```
+
+### Large
+
+```html
+<p class="c-textLarge">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</p>
+```
+
+### Small
+
+```html
+<p class="c-textSmall">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</p>
+```
+
+## テキスト オプション
+
+文脈やデザイン再現のために利用できる開発用のオプション。
+
+
+### 強調
+
+文脈によって`<em>`でテキストを強調する必要がある際に利用する。
+
+```html
+<p class="c-paragraph">テキストが入ります。テキストが入ります。<em class="c-emphasisText">テキストが入ります。テキストが入ります。</em>テキストが入ります。</p>
+```
+
+### 重要性
+
+文脈によって`<strong>`でテキストの重要性を示す必要がある際に利用する。
+
+```html
+<p class="c-paragraph">テキストが入ります。テキストが入ります。<strong class="c-strongText">テキストが入ります。テキストが入ります。</strong>テキストが入ります。</p>
+```
+
+### 細目
+
+文脈によって`<small>`でテキスト内の注釈や細目として表す必要がある際に利用する。
+
+```html
+<p class="c-paragraph">テキストが入ります。テキストが入ります。<small class="c-smallText">テキストが入ります。テキストが入ります。</small>テキストが入ります。</p>
+```
+
+### 下付き文字
+
+化学記号などを記述する際に`<sub>`で下付き文字を表現するために利用する。
+
+```html
+<p class="c-paragraph">テキストが入ります。テキストが入ります。<sub class="c-subscriptText">テキストが入ります。</sub>テキストが入ります。</p>
+```
+
+### 上付き文字
+数式における乗算などを記述する際に`<sup>`で上付き文字を表現するために利用する。
+
+```html
+<p class="c-paragraph">テキストが入ります。テキストが入ります。<sup class="c-superscriptText">テキストが入ります。</sup>テキストが入ります。</p>
+```
+*/
+
+.c-paragraph {
+  @include ex($ts-paragraph);
+  @include dfm(medium);
+}
+
+.c-textXLarge {
+  @include ex($ts-xlarge);
+  @include dfm(medium);
+}
+
+.c-textLarge {
+  @include ex($ts-large);
+  @include dfm(medium);
+}
+
+.c-textSmall {
+  @include ex($ts-small);
+  @include dfm(medium);
+}
+
+.c-emphasisText {
+  font-weight: bold;
+}
+
+.c-strongText {
+  font-weight: bold;
+}
+
+.c-smallText {
+  font-size: 0.75em;
+}
+
+.c-subscriptText {
+  @include ex($ts-xsmall);
+  vertical-align: sub;
+  font-size: 0.75em;
+}
+
+.c-superscriptText {
+  @include ex($ts-xsmall);
+  vertical-align: super;
+  font-size: 0.75em;
+}

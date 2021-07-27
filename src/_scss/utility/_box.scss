@@ -1,0 +1,65 @@
+/*
+---
+name: 囲い
+utility:
+  - Box
+tag:
+  - Utility
+---
+### 囲い
+
+主となるコンテンツの関連情報や注意喚起など、特に強調して見せたい情報がある場合に、それらの情報をグルーピングするための背景地（枠）として使用
+
+```html
+<div class="u-box">
+<p class="c-paragraph">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</p>
+</div><!-- /.u-box -->
+```
+
+### 囲いバリエーション
+
+`.u-box-strong` - 強調  
+`.u-box-dark` - 暗  
+`.u-box-shadow` - 影付き  
+`.u-box-strong.u-box-shadow` - 強調・影付き  
+
+```html
+<div class="u-box u-box-strong">
+<p class="c-paragraph">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</p>
+</div><!-- /.u-box -->
+```
+```html
+<div class="u-box u-box-dark">
+<p class="c-paragraph">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</p>
+</div><!-- /.u-box -->
+```
+```html
+<div class="u-box u-box-shadow">
+<p class="c-paragraph">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</p>
+</div><!-- /.u-box -->
+```
+```html
+<div class="u-box u-box-strong u-box-shadow">
+<p class="c-paragraph">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</p>
+</div><!-- /.u-box -->
+```
+*/
+.u-box {
+  padding: $unit * 3;
+  border: 1px solid #cfd8dc;
+  background: #fff;
+  color: map-get($c-grey,black);
+  &-strong {
+    background: #eceff1;
+    border-color: #eceff1;
+  }
+  &-dark {
+    color: #fff;
+    background: #263238;
+    border-color: #263238;
+  }
+  &-shadow {
+    border: 1px solid #cfd8dc;
+    box-shadow: $bxs-lv2;
+  }
+}

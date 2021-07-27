@@ -1,0 +1,61 @@
+/*
+---
+name: F202 Banner
+flow:
+  - F2 Lead
+  - F2 Lead/F202 Banner
+tag:
+  - Lead
+---
+
+横並び表示の実装に<a href="/_styleguide/layout/Layout/L102-Grid/index.html">グリッドコンポーネント</a>を利用しているため、  
+デバイスごとの表示割合の切り替えなど、<a href="/_styleguide/layout/Layout/L102-Grid/index.html">グリッドコンポーネント</a>が持つ各オプションが利用可能。
+
+### 画像（リンク）2列
+
+```html
+<div class="l-grid">
+<div class="l-grid_item l-grid_item-6">
+<a class="c-img" href="#"><img src="//picsum.photos/g/1280/500/?gravity=north" alt=""></a>
+</div><!-- /.l-grid_item -->
+<div class="l-grid_item l-grid_item-6">
+<a class="c-img" href="#"><img src="//picsum.photos/g/1280/500/?gravity=south" alt=""></a>
+</div><!-- /.l-grid_item -->
+</div><!-- /.l-grid -->
+```
+### 画像（リンク）3列
+
+```html
+<div class="l-grid">
+<div class="l-grid_item l-grid_item-4">
+<a class="c-img" href="#"><img src="//picsum.photos/g/1280/500/?gravity=north" alt=""></a>
+</div><!-- /.l-grid_item -->
+<div class="l-grid_item l-grid_item-4">
+<a class="c-img" href="#"><img src="//picsum.photos/g/1280/500/?gravity=south" alt=""></a>
+</div><!-- /.l-grid_item -->
+<div class="l-grid_item l-grid_item-4">
+<a class="c-img" href="#"><img src="//picsum.photos/g/1280/500/?gravity=east" alt=""></a>
+</div><!-- /.l-grid_item -->
+</div><!-- /.l-grid -->
+```
+*/
+
+.c-img {
+  @include dfm(medium);
+  display: inline-block;
+  width: 100%;
+  > img {
+    width: 100%;
+    height: auto;
+    vertical-align: bottom;
+  }
+}
+.c-img {
+  &:link {
+    &:hover {
+      img {
+        opacity: $op-hover;
+      }
+    }
+  }
+}

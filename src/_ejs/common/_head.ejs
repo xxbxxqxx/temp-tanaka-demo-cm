@@ -1,0 +1,33 @@
+<%
+  var _default = meta.default;
+  // 指定されたキーに一致する値がなければデフォルトデータを格納
+  for ( var key in _default ) {
+    if ( typeof page[key] === 'undefined' ) {
+      page[key] = _default[key];
+    }
+  }
+-%>
+<head>
+<%- include('./_ga', {set: 'head'}) -%>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title><%= page.title %></title>
+<meta name="description" content="<%= page.description %>">
+<!-- OGP -->
+<meta property="og:title" content="<%= page.og_title %>">
+<meta property="og:type" content="<%= page.og_type %>">
+<meta property="og:description" content="<%= page.description %>">
+<meta property="og:url" content="<%= page.url %>">
+<meta property="og:site_name" content="<%= page.site_name %>">
+<meta property="og:image" content="<%= page.og_image %>">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="<%= page.tw_cardType %>">
+<meta name="twitter:site" content="<%= page.tw_userName %>">
+
+<link rel="icon" href="/assets/img/meta/favicon.ico">
+<link rel="icon" href="/assets/img/meta/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/img/meta/apple-touch-icon.png">
+<link rel="manifest" href="/assets/img/meta/manifest.webmanifest">
+<link rel="stylesheet" href="/assets/css/style.css" type="text/css">
+</head>

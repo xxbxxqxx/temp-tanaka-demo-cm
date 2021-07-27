@@ -1,0 +1,238 @@
+/*
+---
+name: F104 Card
+flow:
+  - F1 Navigate
+  - F1 Navigate/F104 Card
+tag:
+  - Navigate
+---
+
+
+画像とテキストなどをセットでエリアリンクとして表示したい場合に利用。画像のみ、テキストのみも可。  
+横並び表示の実装に<a href="/_styleguide/layout/Layout/L104-Tile/index.html">タイルコンポーネント</a>利用しているため、  
+デバイスごとの表示割合の切り替えなど、<a href="/_styleguide/layout/Layout/L104-Tile/index.html">タイルコンポーネント</a>が持つ各オプションが利用可能。
+
+## Vertical
+
+### カード (縦型)
+
+```html
+<div class="c-card">
+<a class="c-card_link" href="#">
+<div class="c-card_img c-img">
+<img src="//picsum.photos/g/1280/500/" alt="">
+</div><!-- /.c-card_img -->
+<p class="c-card_title">カードタイトル</p>
+<p class="c-card_text">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</p>
+</a>
+</div><!-- /.c-card -->
+```
+
+### カード縦型 (2列)
+
+```html
+<div class="l-tile l-tile-2">
+<div class="l-tile_item">
+<div class="c-card">
+<a class="c-card_link" href="#">
+<div class="c-card_img c-img">
+<img src="//picsum.photos/g/1280/500/" alt="">
+</div><!-- /.c-card_img -->
+<p class="c-card_title">カードタイトル</p>
+<p class="c-card_text">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</p>
+</a>
+</div><!-- /.c-card -->
+</div><!-- /.l-tile_item -->
+<div class="l-tile_item">
+<div class="c-card">
+<a class="c-card_link" href="#">
+<div class="c-card_img c-img">
+<img src="//picsum.photos/g/1280/500/" alt="">
+</div><!-- /.c-card_img -->
+<p class="c-card_title">カードタイトル</p>
+<p class="c-card_text">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</p>
+</a>
+</div><!-- /.c-card -->
+</div><!-- /.l-tile_item -->
+</div><!-- /.l-tile -->
+```
+
+### カード縦型 (3列)
+
+```html
+<div class="l-tile l-tile-3">
+<div class="l-tile_item">
+<div class="c-card">
+<a class="c-card_link" href="#">
+<div class="c-card_img c-img">
+<img src="//picsum.photos/g/1280/500/" alt="">
+</div><!-- /.c-card_img -->
+<p class="c-card_title">カードタイトル</p>
+</a>
+</div><!-- /.c-card -->
+</div><!-- /.l-tile_item -->
+<div class="l-tile_item">
+<div class="c-card">
+<a class="c-card_link" href="#">
+<div class="c-card_img c-img">
+<img src="//picsum.photos/g/1280/500/" alt="">
+</div><!-- /.c-card_img -->
+<p class="c-card_title">カードタイトル</p>
+<p class="c-card_text">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</p>
+</a>
+</div><!-- /.c-card -->
+</div><!-- /.l-tile_item -->
+<div class="l-tile_item">
+<div class="c-card">
+<a class="c-card_link" href="#">
+<div class="c-card_img c-img">
+<img src="//picsum.photos/g/1280/500/" alt="">
+</div><!-- /.c-card_img -->
+<p class="c-card_text">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</p>
+</a>
+</div><!-- /.c-card -->
+</div><!-- /.l-tile_item -->
+</div><!-- /.l-tile -->
+```
+
+### カード縦型 (4列)
+
+```html
+<div class="l-tile l-tile-4">
+<div class="l-tile_item">
+<div class="c-card">
+<a class="c-card_link" href="#">
+<div class="c-card_img c-img">
+<img src="//picsum.photos/g/1280/500/?gravity=north" alt="">
+</div><!-- /.c-card_img -->
+<p class="c-card_title">カードタイトル</p>
+<p class="c-card_text">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</p>
+</a>
+</div><!-- /.c-card -->
+</div><!-- /.l-tile_item -->
+<div class="l-tile_item">
+<div class="c-card">
+<a class="c-card_link" href="#">
+<div class="c-card_img c-img">
+<img src="//picsum.photos/g/1280/500/?gravity=east" alt="">
+</div><!-- /.c-card_img -->
+<p class="c-card_title">カードタイトル</p>
+<p class="c-card_text">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</p>
+</a>
+</div><!-- /.c-card -->
+</div><!-- /.l-tile_item -->
+<div class="l-tile_item">
+<div class="c-card">
+<a class="c-card_link" href="#">
+<div class="c-card_img c-img">
+<img src="//picsum.photos/g/1280/500/?gravity=south" alt="">
+</div><!-- /.c-card_img -->
+<p class="c-card_title">カードタイトル</p>
+<p class="c-card_text">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</p>
+</a>
+</div><!-- /.c-card -->
+</div><!-- /.l-tile_item -->
+<div class="l-tile_item">
+<div class="c-card">
+<a class="c-card_link" href="#">
+<div class="c-card_img c-img">
+<img src="//picsum.photos/g/1280/500/?gravity=west" alt="">
+</div><!-- /.c-card_img -->
+<p class="c-card_title">カードタイトル</p>
+<p class="c-card_text">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</p>
+</a>
+</div><!-- /.c-card -->
+</div><!-- /.l-tile_item -->
+</div><!-- /.l-tile -->
+```
+
+## Horizontal
+
+### カード横型
+
+```html
+<div class="c-card">
+<a class="c-card_link" href="#">
+<div class="l-grid l-gapSmall">
+<div class="l-grid_item l-grid_item-50per">
+<div class="c-card_img c-img">
+<img src="//picsum.photos/g/1280/500/" alt="">
+</div><!-- /.c-card_img -->
+</div><!-- /.l-grid_item -->
+<div class="l-grid_item l-grid_item-50per">
+<p class="c-card_title">カードタイトル</p>
+<p class="c-card_text">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</p>
+</div><!-- /.l-grid_item -->
+</div><!-- /.l-grid -->
+</a>
+</div><!-- /.c-card -->
+```
+
+### カード横型 (2列)
+
+```html
+<div class="l-tile l-tile-2">
+<div class="l-tile_item">
+<div class="c-card">
+<a class="c-card_link" href="#">
+<div class="l-grid l-gapSmall">
+<div class="l-grid_item l-grid_item-50per">
+<div class="c-card_img c-img">
+<img src="//picsum.photos/g/1280/500/" alt="">
+</div><!-- /.c-card_img -->
+</div><!-- /.l-grid_item -->
+<div class="l-grid_item l-grid_item-50per">
+<p class="c-card_title">カードタイトル</p>
+<p class="c-card_text">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</p>
+</div><!-- /.l-grid_item -->
+</div><!-- /.l-grid -->
+</a>
+</div><!-- /.c-card -->
+</div><!-- /.l-tile_item -->
+<div class="l-tile_item">
+<div class="c-card">
+<a class="c-card_link" href="#">
+<div class="l-grid l-gapSmall">
+<div class="l-grid_item l-grid_item-50per">
+<div class="c-card_img c-img">
+<img src="//picsum.photos/g/1280/500/" alt="">
+</div><!-- /.c-card_img -->
+</div><!-- /.l-grid_item -->
+<div class="l-grid_item l-grid_item-50per">
+<p class="c-card_title">カードタイトル</p>
+<p class="c-card_text">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</p>
+</div><!-- /.l-grid_item -->
+</div><!-- /.l-grid -->
+</a>
+</div><!-- /.c-card -->
+</div><!-- /.l-tile_item -->
+</div><!-- /.l-tile -->
+```
+*/
+
+.c-card {
+  @include dfm(medium);
+  border: $bd-regular;
+  height: 100%;
+  &_link {
+    display: block;
+    padding: $gr-gutter / 2;
+    color: #000;
+    &:hover {
+      text-decoration: none;
+      opacity: $op-hover;
+    }
+  }
+  &_title {
+    @include ex($ts-headline);
+    @include dfm(small);
+  }
+  &_text {
+    @include ex($ts-small);
+    @include dfm(small);
+  }
+  .c-img {
+    @include dfm(small);
+  }
+}

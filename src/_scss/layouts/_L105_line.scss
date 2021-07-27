@@ -1,0 +1,57 @@
+/*! Line */
+/*
+---
+name: L105 Line
+layout:
+  - Layout
+  - Layout/L105 Line
+tag:
+  - Layout
+---
+
+ラインは並列要素を横分割するためのレイアウト要素。  
+
+## ラインコンポーネント
+
+```html
+<ul class="l-line">
+<li class="l-line_item">テキストが入ります。</li>
+<li class="l-line_item">テキストが入ります。テキストが入ります。</li>
+<li class="l-line_item">テキストが入ります。</li>
+<li class="l-line_item">テキストが入ります。テキストが入ります。</li>
+</ul><!-- /.l-line -->
+```
+
+## nowrapの設定
+
+`.l-line-nowrap`を付与することで段落ちさせない設定になる。
+
+```html
+<ul class="l-line l-line-nowrap">
+<li class="l-line_item">テキストが入ります。</li>
+<li class="l-line_item">テキストが入ります。テキストが入ります。</li>
+<li class="l-line_item">テキストが入ります。</li>
+<li class="l-line_item">テキストが入ります。テキストが入ります。</li>
+</ul><!-- /.l-line -->
+```
+*/
+
+$li-gap: 16px;
+
+.l-line {
+  @include dfm(medium);
+  margin-left: -($li-gap / 2);
+  margin-right: -($li-gap / 2);
+  margin-bottom: - $li-gap;
+  display: flex;
+  flex-wrap: wrap;
+  & > &_item {
+    padding-left: $li-gap / 2;
+    padding-right: $li-gap / 2;
+    margin-bottom: $li-gap;
+  }
+}
+
+.l-line-nowrap {
+  flex-wrap: nowrap;
+}

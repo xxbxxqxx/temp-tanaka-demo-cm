@@ -1,0 +1,259 @@
+/*
+---
+name: C107 Table
+content:
+  - C1 Element
+  - C1 Element/C107 Table
+tag:
+  - Element
+---
+## 表組み（th上）
+
+```html
+<div class="c-table">
+<table class="c-table_content">
+<thead class="c-table_head">
+<tr>
+<th>テキストが入ります。</th>
+<th>テキストが入ります。</th>
+<th>テキストが入ります。</th>
+</tr>
+</thead>
+<tbody class="c-table_contentBody">
+<tr>
+<td>テキストが入ります。</td>
+<td>テキストが入ります。テキストが入ります。テキストが入ります。</td>
+<td>テキストが入ります。テキストが入ります。</td>
+</tr>
+<tr>
+<td>テキストが入ります。</td>
+<td>テキストが入ります。テキストが入ります。テキストが入ります。</td>
+<td>テキストが入ります。テキストが入ります。</td>
+</tr>
+<tr>
+<td>テキストが入ります。</td>
+<td>テキストが入ります。テキストが入ります。テキストが入ります。</td>
+<td>テキストが入ります。テキストが入ります。</td>
+</tr>
+<tr>
+<td>テキストが入ります。</td>
+<td>テキストが入ります。テキストが入ります。テキストが入ります。</td>
+<td>テキストが入ります。テキストが入ります。</td>
+</tr>
+</tbody>
+</table><!-- /.c-table_content" -->
+</div><!-- /.c-table -->
+```
+
+## 表組み（th左）
+
+```html
+<div class="c-table">
+<table class="c-table_content">
+<tbody class="c-table_contentBody">
+<tr>
+<th class="c-table_headCell">テキストが入ります。</th>
+<td>テキストが入ります。</td>
+<td>テキストが入ります。テキストが入ります。テキストが入ります。</td>
+<td>テキストが入ります。テキストが入ります。</td>
+</tr>
+<tr>
+<th class="c-table_headCell">テキストが入ります。</th>
+<td>テキストが入ります。</td>
+<td>テキストが入ります。テキストが入ります。テキストが入ります。</td>
+<td>テキストが入ります。テキストが入ります。</td>
+</tr>
+<tr>
+<th class="c-table_headCell">テキストが入ります。</th>
+<td>テキストが入ります。</td>
+<td>テキストが入ります。テキストが入ります。テキストが入ります。</td>
+<td>テキストが入ります。テキストが入ります。</td>
+</tr>
+</tbody>
+</table><!-- /.c-table_content" -->
+</div><!-- /.c-table -->
+```
+
+## 表組み（th上・左）
+
+```html
+<div class="c-table">
+<table class="c-table_content">
+<thead class="c-table_head">
+<tr>
+<th></th>
+<th>テキストが入ります。</th>
+<th>テキストが入ります。</th>
+</tr>
+</thead>
+<tbody class="c-table_contentBody">
+<tr>
+<th class="c-table_headCell">テキストが入ります。</th>
+<td>テキストが入ります。テキストが入ります。テキストが入ります。</td>
+<td>テキストが入ります。テキストが入ります。</td>
+</tr>
+<tr>
+<th class="c-table_headCell">テキストが入ります。</th>
+<td>テキストが入ります。テキストが入ります。テキストが入ります。</td>
+<td>テキストが入ります。テキストが入ります。</td>
+</tr>
+<tr>
+<th class="c-table_headCell">テキストが入ります。</th>
+<td>テキストが入ります。テキストが入ります。テキストが入ります。</td>
+<td>テキストが入ります。テキストが入ります。</td>
+</tr>
+<tr>
+<th class="c-table_headCell">テキストが入ります。</th>
+<td>テキストが入ります。テキストが入ります。テキストが入ります。</td>
+<td>テキストが入ります。テキストが入ります。</td>
+</tr>
+</tbody>
+</table><!-- /.c-table_content" -->
+</div><!-- /.c-table -->
+```
+
+## 表組みのmedium screen時スクロール
+
+`.c-table`に`.c-table-scroll`を付与することで、medium screen以下で横スクロールするテーブルとなる  
+列数の多いテーブルなど利用。
+
+```html
+<div class="c-table c-table-scroll">
+<table class="c-table_content">
+<thead class="c-table_head">
+<tr>
+<th>テキストが入ります。</th>
+<th>テキストが入ります。</th>
+<th>テキストが入ります。</th>
+</tr>
+</thead>
+<tbody class="c-table_contentBody">
+<tr>
+<td>テキストが入ります。</td>
+<td>テキストが入ります。テキストが入ります。テキストが入ります。</td>
+<td>テキストが入ります。テキストが入ります。</td>
+</tr>
+<tr>
+<td>テキストが入ります。</td>
+<td>テキストが入ります。テキストが入ります。テキストが入ります。</td>
+<td>テキストが入ります。テキストが入ります。</td>
+</tr>
+<tr>
+<td>テキストが入ります。</td>
+<td>テキストが入ります。テキストが入ります。テキストが入ります。</td>
+<td>テキストが入ります。テキストが入ります。</td>
+</tr>
+<tr>
+<td>テキストが入ります。</td>
+<td>テキストが入ります。テキストが入ります。テキストが入ります。</td>
+<td>テキストが入ります。テキストが入ります。</td>
+</tr>
+</tbody>
+</table><!-- /.c-table_content" -->
+</div><!-- /.c-table -->
+```
+
+```html
+<div class="c-table c-table-scroll">
+<table class="c-table_content">
+<tbody class="c-table_contentBody">
+<tr>
+<th class="c-table_headCell">テキストが入ります。</th>
+<td>テキストが入ります。</td>
+<td>テキストが入ります。テキストが入ります。テキストが入ります。</td>
+<td>テキストが入ります。テキストが入ります。</td>
+</tr>
+<tr>
+<th class="c-table_headCell">テキストが入ります。</th>
+<td>テキストが入ります。</td>
+<td>テキストが入ります。テキストが入ります。テキストが入ります。</td>
+<td>テキストが入ります。テキストが入ります。</td>
+</tr>
+<tr>
+<th class="c-table_headCell">テキストが入ります。</th>
+<td>テキストが入ります。</td>
+<td>テキストが入ります。テキストが入ります。テキストが入ります。</td>
+<td>テキストが入ります。テキストが入ります。</td>
+</tr>
+</tbody>
+</table><!-- /.c-table_content" -->
+</div><!-- /.c-table -->
+```
+
+```html
+<div class="c-table c-table-scroll">
+<table class="c-table_content">
+<thead class="c-table_head">
+<tr>
+<th></th>
+<th>テキストが入ります。</th>
+<th>テキストが入ります。</th>
+</tr>
+</thead>
+<tbody class="c-table_contentBody">
+<tr>
+<th class="c-table_headCell">テキストが入ります。</th>
+<td>テキストが入ります。テキストが入ります。テキストが入ります。</td>
+<td>テキストが入ります。テキストが入ります。</td>
+</tr>
+<tr>
+<th class="c-table_headCell">テキストが入ります。</th>
+<td>テキストが入ります。テキストが入ります。テキストが入ります。</td>
+<td>テキストが入ります。テキストが入ります。</td>
+</tr>
+<tr>
+<th class="c-table_headCell">テキストが入ります。</th>
+<td>テキストが入ります。テキストが入ります。テキストが入ります。</td>
+<td>テキストが入ります。テキストが入ります。</td>
+</tr>
+<tr>
+<th class="c-table_headCell">テキストが入ります。</th>
+<td>テキストが入ります。テキストが入ります。テキストが入ります。</td>
+<td>テキストが入ります。テキストが入ります。</td>
+</tr>
+</tbody>
+</table><!-- /.c-table_content" -->
+</div><!-- /.c-table -->
+```
+
+*/
+
+.c-table {
+  text-align: left;
+  @include dfm(medium);
+  $_root: &;
+  &_caption {
+    text-align: left;
+    padding-bottom: $unit * 0.5;
+  }
+  &_content {
+    width: 100%;
+    th, td {
+      padding: $unit ($unit * 2);
+      word-wrap : break-word;
+      overflow-wrap : break-word;
+      font-weight: normal;
+      border: $bd-regular;
+    }
+  }
+  &_head {
+    th,td,
+    #{$_root} &Cell {
+      font-weight: normal;
+      background-color: map-get($c-grey,grey200);
+      border: $bd-regular;
+    }
+  }
+  &-scroll {
+    @include bp(medium) {
+      overflow: auto;
+      white-space: nowrap;
+      #{$_root}_content {
+        width: auto;
+        min-width: 100%;
+      }
+    }
+  }
+}
+
+

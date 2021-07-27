@@ -1,0 +1,85 @@
+/*
+---
+name: P201 Modal area
+part:
+  - P2 Modal
+  - P2 Modal/P201 Modal area
+tag:
+  - Modal
+---
+
+通知エリアを表示するためのコンポーネント。  
+通常のコンポーネントとは異なり、グローバルヘッダー`.g-header`の直前に配置し、情報を提供・通知するコンポーネントとして利用する。  
+`.c-outsideContainer`内には既存の各コンポーネントの挿入を可能とする。
+
+```html
+<div class="c-outsideContainer" data-js-outside aria-hidden="false">
+<div class="c-outsideContainer_inner">
+<div class="c-outsideContainer_header">
+<p class="c-titleText">通知エリアタイトル</p>
+</div><!-- /.c-outsideContainer_header -->
+<div class="c-outsideContainer_body">
+<p class="c-paragraph">テキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入ります</p>
+<a class="c-btn c-btn-autoWidth" href="#">ボタンラベル</a>
+</div><!-- /.c-outsideContainer_body -->
+<div class="c-outsideContainer_close">
+<a href="#" data-js-outside-close><img class="i-button" src="/assets/img/icons/ic_close.svg" alt="閉じる"></a>
+</div><!-- /.c-outsideContainer_close -->
+</div><!-- /.c-outsideContainer_inner -->
+</div><!-- /.c-outsideContainer -->
+```
+
+```js
+// 通知エリア
+// cnt.outside.tsを利用
+// /src/assets/ts/main.tsにて初期化
+
+const outsideContainer = document.querySelectorAll('[data-js-outside]');
+
+Array.from(outsideContainer).forEach((container: HTMLElement) => {
+  new Outside(container, {
+    closeSelector: '[data-js-outside-close]', //閉じるアクションを付与するセレクタ名
+    contentTransitionClass: 'c-outsideContainer-close', //コンテンツにCSSアニメーションを適用するクラス
+    contentTransitionEndClass: 'c-outsideContainer-closed', //コンテンツのCSSアニメーション後に適用するクラス
+    contentNoTransitionClass: 'c-outsideContainer-notransition', //コンテンツのCSSアニメーションをオフにするクラス
+    transitionType: 'slide', //トランジションタイプ（'slide' or 'none'）
+    accessibilityFlag: true, // アクセシビリティ対応するか否か
+    beforeClose: null, //閉じる前の処理
+    endClose: null //閉じた後の処理
+  });
+});
+```
+*/
+
+.c-outsideContainer {
+  $_root: &;
+  border-bottom: $bd-regular;
+  &_close {
+    font-size: 0;
+    position: absolute;
+    top: 24px;
+    right: 16px;
+  }
+  &_inner {
+    @extend %content;
+    position: relative;
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+  &_body {
+    margin-top: 24px;
+  }
+  &[data-js-outside] {
+    transition: height 0.4s ease;
+    overflow: visible;
+    &#{$_root}-close {
+      overflow: hidden;
+    }
+    &#{$_root}-closed {
+      display: none;
+    }
+    &#{$_root}-notransition {
+      transition: none;
+    }
+  }
+}

@@ -1,0 +1,166 @@
+/*
+---
+name: P202 Modal window
+part:
+  - P2 Modal
+  - P2 Modal/P202 Modal window
+tag:
+  - Modal
+---
+
+モーダルウィンドウを利用するためのコンポーネント。  
+モーダルを起動するトリガーとなる`data-js-modal-open`を持つ`<a>`を配置し、クリック時にトリガーの`href`で指定されたID要素をモーダルウインドウで表示する。  
+`.c-modal`内には既存の各コンポーネントの挿入を可能とする。
+
+```html
+<p class="c-paragraph"><a href="#modal" data-js-modal-open>モーダルを開く</a></p>
+<div id="modal">
+<div class="c-modal">
+<div class="c-modal_inner">
+<div class="c-modal_header">
+<p class="c-titleText">モーダルタイトル</p>
+</div><!-- /.c-modal_header -->
+<div class="c-modal_body">
+<p class="c-paragraph">テキストが入りますテキストが入りますテキストが入りますテキストが入ります
+テキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入ります
+テキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入ります
+テキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入ります
+テキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入ります
+テキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入ります
+テキストが入りますテキストが入りますテキストが入りますテキストが入ります</p>
+<a class="c-btn c-btn-autoWidth" href="#">ボタンラベル</a>
+</div><!-- /.c-modal_body -->
+<div class="c-modal_close">
+<a href="#" data-js-modal-close><img class="i-button" src="/assets/img/icons/ic_close.svg" alt="閉じる"></a>
+</div><!-- /.c-modal_close -->
+</div><!-- /.c-modal_inner -->
+</div><!-- /.c-modal -->
+</div><!-- /#modal -->
+```
+
+```js
+// モーダル
+// cnt.simplemodal.tsを利用
+// /src/assets/ts/main.tsにて初期化
+
+const modalTrigger = document.querySelectorAll('[data-js-modal-open]');
+
+Array.from(modalTrigger).forEach((trigger: HTMLElement, index: number) => {
+  const modalModule = new SimpleModal(trigger, {
+    closeSelector: '[data-js-modal-close]', //閉じるアクションを付与するセレクタ名
+    duration: 400, //アニメーション時間をミリ秒単位で指定
+    easing: 'swing', //切り替えアニメーションのeasing設定（'swing' or 'linear'）
+    bgFadeFlag: true, //背景も一緒にフェードアニメーションするか否か
+    bgClickCloseFlag: true, //背景クリックで閉じるか否か
+    fixedContentFlag: true, //背景をfixedで表示するか否か
+    modalWindowMarginTopMin: 40, //data-js-modal_containerのtopの値
+    ajaxContentFlag: false, //コンテンツをAjaxで取得するか否か
+    accessibilityFlag: true, //アクセシビリティ対応するか否か
+    beforeShowContent: function () {
+      //タイミングによっては位置がズレるので、手動呼び出しでポジション補正
+      this.modalSetPos();
+    }, //表示前の処理
+    afterShowContent: null, //表示後の処理
+    beforeHideContent: null, //非表示前の処理
+    afterHideContent: null //非表示前の処理
+  });
+});
+```
+
+`ajaxContentFlag`を`true`にしてコンテンツをAjaxで取得する場合、
+トリガーの`data-js-ajax-content`属性に取得URLを、モーダルコンテンツの挿入先に`data-js-ajax-container`属性を設定する
+
+```html
+<p class="c-paragraph"><a href="#modal_ajax" data-js-ajax-content="modal_contents.html" data-js-modal-open>モーダルを開く</a></p>
+<div id="modal_ajax">
+<div class="c-modal">
+<div class="c-modal_inner">
+<div class="c-modal_header">
+<p class="c-titleText">モーダルタイトル</p>
+</div><!-- /.c-modal_header -->
+<div class="c-modal_body" data-js-ajax-container>
+<p class="c-paragraph">Ajaxコンテンツ挿入エリア</p>
+</div><!-- /.c-modal_body -->
+<div class="c-modal_close">
+<a href="#" class="u-ic u-ic_size-32 u-ic-close" data-js-modal-close>閉じる</a>
+</div><!-- /.c-modal_close -->
+</div><!-- /.c-modal_inner -->
+</div><!-- /.c-modal -->
+</div><!-- /#modal -->
+```
+
+*/
+
+#modal {
+  display:none;
+}
+#modal_ajax {
+  display:none;
+}
+
+.c-modal {
+  &_inner {
+    @extend %content;
+    position: relative;
+    margin: auto;
+    padding: 48px 32px;
+    background-color: #ffffff;
+    max-width: 1024px;
+    border: solid 1px #333;
+  }
+  &_close {
+    font-size: 0;
+    position: absolute;
+    top: 12px;
+    right: 30px;
+  }
+  &_body {
+    margin-top: 24px;
+  }
+}
+
+[data-js-modal] {
+  display:none;
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  z-index:5000;
+}
+
+[data-js-modal_bg] {
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.8);
+  &.is-modalFixed {
+    overflow-y:scroll;
+  }
+}
+
+[data-js-modal_container] {
+  position:relative;
+  opacity:0;
+  margin: 0 auto;
+  width: 75%;
+  max-width: $ct-maxW;
+  @include bp(small) {
+    width: 90%;
+  }
+}
+
+[data-js-modal_correct_right] {
+  margin-right:15px;
+}
+
+[data-js-modal_fixed] {
+  overflow:hidden !important;
+  [data-js-modal_bg] {
+    position:fixed;
+    overflow-x:hidden;
+    -webkit-overflow-scrolling:touch;
+  }
+}

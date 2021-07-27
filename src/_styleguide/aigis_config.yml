@@ -1,0 +1,42 @@
+# The directory containing the source files to parse recursively
+source: 
+- ../_scss
+- ../_connect
+
+source_type:
+- .scss
+- .css
+- .md
+
+transform:
+- html
+
+output_collection:
+- layout
+- part
+- flow
+- content
+- action
+- icon
+- utility
+- document
+
+# The directory that aigis will build to
+dest: ../../static/_styleguide
+
+# The assets needed to build the docs
+# You may put doc related assets here too: images, css, etc.
+dependencies:
+  - ./styleguide_assets
+
+# The directory containing the tempalte files to generate pages
+# It must contain 'layout.xxx' and 'index.xxx' (.ejs or .jade or .hbs)
+template_dir: ./template
+template_engine: ejs
+
+# Index page created from markdown file
+index: ../../README.md
+
+preview_class: sg-preview
+
+name: 'CONNECT Styleguide'

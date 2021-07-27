@@ -1,0 +1,19 @@
+{
+  "default": {
+    "title": "ページタイトル",
+    "description": "ディスクリプション",
+    "url": "サイトURL",
+    "site_name": "サイト名",
+    "og_title": "",
+    "og_type": "website",
+    "og_image": "ogp画像",
+    "tw_cardType": "summary_large_image",
+    "tw_userName": ""
+  },
+  "top": {
+    "title": "CONCENT Standard | 標準化パッケージ"
+  },
+  "category": {
+    "title": "カテゴリトップ"
+  }
+}

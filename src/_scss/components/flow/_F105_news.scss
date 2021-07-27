@@ -1,0 +1,81 @@
+/*
+---
+name: F105 News
+flow:
+  - F1 Navigate
+  - F1 Navigate/F105 News
+tag:
+  - Navigate
+---
+日付とテキストでお知らせをしたい場合に利用
+
+```html
+<ul class="c-news">
+<li class="c-news_item">
+<a href="#" class="c-news_itemLink">
+<time class="c-news_itemDate" datetime="2018-12-31">2018.12.31</time>
+<span class="c-news_itemContent">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</span>
+</a><!-- /.c-news_itemLink -->
+</li><!-- /.c-news_item -->
+<li class="c-news_item">
+<a href="#" class="c-news_itemLink">
+<time class="c-news_itemDate" datetime="2018-08-31">2018.8.31</time>
+<span class="c-news_itemContent">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</span>
+</a><!-- /.c-news_itemLink -->
+</li><!-- /.c-news_item -->
+<li class="c-news_item">
+<a href="#" class="c-news_itemLink">
+<time class="c-news_itemDate" datetime="2018-01-12">2018.1.11</time>
+<span class="c-news_itemContent">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</span>
+</a><!-- /.c-news_itemLink -->
+</li><!-- /.c-news_item -->
+<li class="c-news_item">
+<a href="#" class="c-news_itemLink">
+<time class="c-news_itemDate" datetime="2018-01-01">2018.1.1</time>
+<span class="c-news_itemContent">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</span>
+</a><!-- /.c-news_itemLink -->
+</li><!-- /.c-news_item -->
+</ul><!-- /.c-news -->
+```
+*/
+
+.c-news {
+  @include dfm(medium);
+  width: 100%;
+  border-bottom: $bd-light;
+  @include bp(small) {
+    display: block;
+  }
+  &_item {
+    @include ex($ts-midium);
+    border-top: $bd-light;
+    &Link {
+      display: flex;
+      padding: $unit * 2;
+      color: #000;
+      @include bp(small) {
+        display: block;
+      }
+      &:hover {
+        text-decoration: none;
+      }
+    }
+    &Date {
+      white-space: nowrap;
+      min-width: 16%;
+      padding-right: 2em;
+      min-width: 7em;
+      color: $c-text;
+      @include bp(small) {
+        display: block;
+      }
+    }
+    &Content {
+      vertical-align: top;
+      flex: 1;
+      @include bp(small) {
+        display: block;
+      }
+    }
+  }
+}

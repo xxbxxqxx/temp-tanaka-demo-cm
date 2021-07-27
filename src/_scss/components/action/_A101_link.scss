@@ -1,0 +1,54 @@
+/*
+---
+name: A101 Link
+action:
+  - A1 Control
+  - A1 Control/A101 Link
+tag:
+  - Control
+---
+
+<a href="/_styleguide/layout/Layout/L104-Tile/index.html">タイルコンポーネント</a>や  
+<a href="/_styleguide/content/C1-Element/C105-List/index.html">リストコンポーネント</a>を利用することで横並び表示も可能となり、デバイスごとの表示割合の切り替えなど、各オプションを利用できる。
+
+## リンク
+
+ページ遷移させたい場合に使用。  
+掲載個数はレイアウトによって異なる。必要に応じてアイコンとの組み合わせ可。  
+
+```html
+<a class="c-link" href="#">リンクテキスト<img class="i-label i-label-right -chevron" src="/assets/img/icons/ic_chevron_right_harf.svg" alt=""></a>
+```
+
+## 文中リンク
+ページ遷移させたい場合に使用。文中リンク  
+文中リンクの場合、classは指定しない。
+
+```html
+<p class="c-paragraph">テキストテキスト<a href="#">リンクテキスト</a>テキスト</p>
+<p class="c-paragraph">テキストテキスト<a href="#">リンクテキスト</a>テキスト</p>
+<p class="c-textSmall">テキストテキスト<a href="#">リンクテキスト</a>テキストテキスト</p>
+```
+
+必要に応じてアイコンとの組み合わせ可。  
+
+```html
+<p class="c-paragraph">テキストテキスト<a href="#">リンクテキスト<img class="i-label" src="/assets/img/icons/ic_link_blank.svg" alt="外部サイト"></a>テキスト</p>
+<p class="c-paragraph">テキストテキスト<a href="#">リンクテキスト<img class="i-label" src="/assets/img/icons/ic_link_blank.svg" alt="外部サイト"></a>テキスト</p>
+<p class="c-textSmall">テキストテキスト<a href="#">リンクテキスト<img class="i-label" src="/assets/img/icons/ic_link_blank.svg" alt="外部サイト"></a>テキストテキスト</p>
+```
+
+## アンカーリンク
+
+```html
+<ul class="l-line l-line-autoWidth" data-js-localscroll>
+<li class="l-line_item"><a href="#top"><img class="i-label i-label-left" src="/assets/img/icons/ic_chevron_bottom.svg" alt="">Lorem</a></li>
+</ul><!-- /.l-line -->
+```
+*/
+
+.c-link {
+  display: inline-block;
+  @include dfm(medium);
+  @include ex($ts-midium);
+}

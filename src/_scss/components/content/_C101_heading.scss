@@ -1,0 +1,74 @@
+/*! Heading */
+/*
+---
+name: C101 Heading
+content:
+  - C1 Element
+  - C1 Element/C101 Heading
+tag:
+  - Element
+---
+
+ページタイトル、見出し  
+見出しとして掲載したいタイトルに使用。重要度によってh1〜h4まで設定可能。
+
+### Page title
+
+```html
+<h1 class="c-headingLv1">Heading Lv1</h1>
+```
+
+### Heading 2
+
+```html
+<h2 class="c-headingLv2">Heading Lv2</h2>
+```
+
+### Heading 3
+
+```html
+<h3 class="c-headingLv3">Heading Lv3</h3>
+```
+
+### Heading 4
+
+```html
+<h4 class="c-headingLv4">Heading Lv4</h4>
+```
+
+### Headline
+
+```html
+<p class="c-titleText">テキストが入ります。テキストが入ります。</p>
+```
+
+*/
+
+.c-headingLv1 {
+  @include ex($ts-lv1);
+}
+
+.c-headingLv2 {
+  @include ex($ts-lv2);
+  @include dfm(large);
+}
+
+.c-headingLv3 {
+  @include ex($ts-lv3);
+  @include dfm(large);
+}
+.c-headingLv4 {
+  @include ex($ts-lv4);
+  @include dfm(large);
+}
+
+.c-titleText {
+  @include ex($ts-headline);
+  @include dfm(medium);
+}
+
+[class*="c-heading"] {
+  & + & {
+    margin-top: $sp-medium;
+  }
+}

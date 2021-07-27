@@ -1,0 +1,9 @@
+{
+  "source": "./src/assets",
+  "destination": "./static/_esdoc",
+  "index": "./README_JS.md",
+  "plugins": [
+    {"name": "esdoc-standard-plugin"},
+    {"name": "esdoc-typescript-plugin"}
+  ]
+}

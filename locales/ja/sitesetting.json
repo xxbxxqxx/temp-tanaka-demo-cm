@@ -1,0 +1,29 @@
+{
+  "sitesetting": {
+    "meta": {
+      "sitename": "リクルートホールディングス - Recruit Holdings",
+      "description": "株式会社リクルートホールディングス（Recruit Holdings）の企業情報サイトです。リクルートグループの事業・サービス紹介や、投資家の方へ向けたIR情報などをご案内しております。一人ひとりに「まだ、ここにない、出会い。」を提供していきます。",
+      "keyword": "リクルートホールディングス,Recruit Holdings,企業情報,サステナビリティ,ガバナンス,投資家情報",
+      "og_type": "article",
+      "og_image": "https://recruit-holdings.co.jp/who/img/who_ogp.png"
+    },
+    "header": {
+      "sitename": "リクルートホールディングス",
+      "siteshoulder": "デモサイト",
+      "home": "HOME",
+      "who": "企業情報",
+      "what": "事業紹介",
+      "sustainability": "サステナビリティ",
+      "ir": "IR (投資家情報)",
+      "newsroom": "ニュース",
+      "contact": "お問い合わせ"
+    },
+    "text": {
+      "pagetop": "ページトップ",
+      "home": "HOME",
+      "switch": "言語切替",
+      "ja": "日本語",
+      "en": "英語"
+    }
+  }
+}

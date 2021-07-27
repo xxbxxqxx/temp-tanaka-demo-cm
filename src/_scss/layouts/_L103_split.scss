@@ -1,0 +1,224 @@
+/*! Split */
+/*
+---
+name: L103 Split
+layout:
+  - Layout
+  - Layout/L103 Split
+tag:
+  - Layout
+---
+
+スプリットはGridをシンプルに二分割にしたレイアウト。  
+グリッド数の指定を、子要素ではなく親要素に指定する。
+
+## 分割コンポーネント
+
+スプリットの包括要素。  
+行を分割して表示したい場合に利用する。  
+子要素として`.l-split_item`が必要となる。
+
+```html
+<div class="l-split">
+</div><!-- /.l-split -->
+```
+
+## 分割指定
+
+`.l-split-{n}-{n}`の子要素として`.l-split_item`を追加する。  
+割合を指定する数値`{n}`の最大値は `_foundation.scss` で指定したグリッドのカラム数（`$gr-cols`）となる。  
+各`.l-split_item`の幅を、最大値`$gr-cols`のうち何カラム数分利用するかを決め、その値を`{n}`に割り当てる。  
+`{n}-{n}` を足した合計がカラム数（`$gr-cols`）になるよう指定する。  
+ギャップの値は `_foundation.scss` で指定した数値（`$gr-gutter`）となる。  
+
+```html
+<div class="l-split l-split-8-4">
+<div class="l-split_item">
+<div class="sg-dummy">8</div>
+</div><!-- /.l-split_item -->
+<div class="l-split_item">
+<div class="sg-dummy">4</div>
+</div><!-- /.l-split_item -->
+</div><!-- /.l-split -->
+```
+
+### 各screenの設定
+large screen、medium screen、small screen、セットで利用する。
+
+#### large screen時の設定
+
+large screenの表示については、`.l-split-{n}-{n}-lg`を付与することで変更可能。  
+※ medium screen以下には継承されない
+
+#### medium screen時の設定
+
+medium screenの表示については、`.l-split-{n}-{n}-md`を付与することで変更可能。  
+※ small screenには継承されない
+
+#### small screen時の設定
+
+small screenの表示については、`.l-split-{n}-{n}-sm`を付与することで変更可能。
+
+```html
+<div class="l-split l-split-4-8-lg l-split-6-6-md l-split-2-10-sm">
+<div class="l-split_item">
+<div class="sg-dummy">4(md6,sm2)</div>
+</div><!-- /.l-split_item -->
+<div class="l-split_item">
+<div class="sg-dummy">8(md6,sm10)</div>
+</div><!-- /.l-split_item -->
+</div><!-- /.l-split -->
+```
+
+## 水平方向の反転
+
+`.l-split`に`.l-split-hreverse`を付与することで、`flex-direction:row-reverse`指定を追加する。
+
+```html
+<div class="l-split l-split-4-8 l-split-hreverse">
+<div class="l-split_item">
+<div class="sg-dummy">1</div>
+</div><!-- /.l-split_item -->
+<div class="l-split_item">
+<div class="sg-dummy">2</div>
+</div><!-- /.l-split_item -->
+</div><!-- /.l-split -->
+```
+
+### 各screenの設定
+
+#### large screen時の設定
+
+large screenの表示については、`.l-split-hreverse-lg`を付与することで逆順になる。  
+※ medium screen以下には継承されない
+
+```html
+<div class="l-split l-split-4-8 l-split-hreverse-lg">
+<div class="l-split_item">
+<div class="sg-dummy">1</div>
+</div><!-- /.l-split_item -->
+<div class="l-split_item">
+<div class="sg-dummy">2</div>
+</div><!-- /.l-split_item -->
+</div><!-- /.l-split -->
+```
+
+#### medium screen時の設定
+
+medium screenの表示については、`.l-split-hreverse-md`を付与することで逆順になる。  
+※ small screenには継承されない
+
+```html
+<div class="l-split l-split-4-8 l-split-hreverse-md">
+<div class="l-split_item">
+<div class="sg-dummy">1</div>
+</div><!-- /.l-split_item -->
+<div class="l-split_item">
+<div class="sg-dummy">2</div>
+</div><!-- /.l-split_item -->
+</div><!-- /.l-split -->
+```
+
+#### small screen時の設定
+
+small screenの表示については、`.l-split-hreverse-sm`を付与することで逆順になる。  
+
+```html
+<div class="l-split l-split-4-8 l-split-hreverse-sm">
+<div class="l-split_item">
+<div class="sg-dummy">1</div>
+</div><!-- /.l-split_item -->
+<div class="l-split_item">
+<div class="sg-dummy">2</div>
+</div><!-- /.l-split_item -->
+</div><!-- /.l-split -->
+```
+*/
+.l-split {
+  @include dfm(medium);
+  margin-left: -($gr-gutter / 2);
+  margin-right: -($gr-gutter / 2);
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: -$unit * 2;
+}
+
+/*
+.l-split-{n}-{n}
+*/
+.l-split {
+  $_root: &;
+  & > &_item {
+    width: 100%;
+    padding-left: $gr-gutter / 2;
+    padding-right: $gr-gutter / 2;
+    margin-bottom: $unit * 2;
+    min-height: 0%;
+  }
+  @at-root {
+    @for $base from 1 through $gr-cols - 1 {
+      $count: $gr-cols - $base;
+      #{$_root}-#{$base}-#{$count} {
+        & > #{$_root}_item:nth-child(odd) {
+          width: 100% / $gr-cols * $base;
+        }
+        & > #{$_root}_item:nth-child(even) {
+          width: 100% / $gr-cols * $count;
+        }
+        &-lg {
+          @include bp(large) {
+            & > #{$_root}_item:nth-child(odd) {
+              width: 100% / $gr-cols * $base;
+            }
+            & > #{$_root}_item:nth-child(even) {
+              width: 100% / $gr-cols * $count;
+            }
+          }
+        }
+        &-md {
+          @include bp(medium-only) {
+            & > #{$_root}_item:nth-child(odd) {
+              width: 100% / $gr-cols * $base;
+            }
+            & > #{$_root}_item:nth-child(even) {
+              width: 100% / $gr-cols * $count;
+            }
+          }
+        }
+        &-sm {
+          @include bp(small) {
+            & > #{$_root}_item:nth-child(odd) {
+              width: 100% / $gr-cols * $base;
+            }
+            & > #{$_root}_item:nth-child(even) {
+              width: 100% / $gr-cols * $count;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/*
+.l-split-hreverse
+*/
+
+.l-split-hreverse {
+  flex-direction: row-reverse;
+  &-lg {
+    @include bp(large) {
+      flex-direction: row-reverse;
+    }
+  }
+  &-md {
+    @include bp(medium-only) {
+      flex-direction: row-reverse;
+    }
+  }
+  &-sm {
+    @include bp(small) {
+      flex-direction: row-reverse;
+    }
+  }
+}

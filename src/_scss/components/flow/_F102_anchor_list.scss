@@ -1,0 +1,59 @@
+/*
+---
+name: F102 Anchor list
+flow:
+  - F1 Navigate
+  - F1 Navigate/F102 Anchor list
+tag:
+  - Navigate
+---
+
+ページ内リンクをさせたい場合に使用。掲載個数はレイアウトによって異なる。単体の利用可。必要に応じてアイコンとの組み合わせ可。  
+横並びには<a href="/_styleguide/layout/Layout/L104-Tile/index.html">タイルコンポーネント</a>を利用しているため、デバイスごとの表示割合の切り替えなど、各オプションを利用できる。  
+文脈やデザインによって、`.c-list`や`.l-line`に変更する。
+
+## Vertical
+
+```html
+<ul class="l-stack" data-js-localscroll>
+<li class="l-stack_item"><a href="#top"><img class="i-label i-label-left" src="/assets/img/icons/ic_tri_down.svg" alt="">Lorem</a></li>
+<li class="l-stack_item"><a href="#top"><img class="i-label i-label-left" src="/assets/img/icons/ic_tri_down.svg" alt="">ipsum</a></li>
+<li class="l-stack_item"><a href="#top"><img class="i-label i-label-left" src="/assets/img/icons/ic_tri_down.svg" alt="">dolor</a></li>
+<li class="l-stack_item"><a href="#top"><img class="i-label i-label-left" src="/assets/img/icons/ic_tri_down.svg" alt="">sit</a></li>
+</ul><!-- /.l-stack -->
+```
+
+## Horizontal
+
+### 2列
+
+```html
+<ul class="l-tile l-tile-2" data-js-localscroll>
+<li class="l-tile_item"><a href="#top"><img class="i-label i-label-left" src="/assets/img/icons/ic_tri_down.svg" alt="">Lorem</a></li>
+<li class="l-tile_item"><a href="#top"><img class="i-label i-label-left" src="/assets/img/icons/ic_tri_down.svg" alt="">ipsum</a></li>
+<li class="l-tile_item"><a href="#top"><img class="i-label i-label-left" src="/assets/img/icons/ic_tri_down.svg" alt="">dolor</a></li>
+<li class="l-tile_item"><a href="#top"><img class="i-label i-label-left" src="/assets/img/icons/ic_tri_down.svg" alt="">sit</a></li>
+</ul><!-- /.l-tile -->
+```
+
+### 3列
+
+```html
+<ul class="l-tile l-tile-3" data-js-localscroll>
+<li class="l-tile_item"><a href="#top"><img class="i-label i-label-left" src="/assets/img/icons/ic_tri_down.svg" alt="">Lorem</a></li>
+<li class="l-tile_item"><a href="#top"><img class="i-label i-label-left" src="/assets/img/icons/ic_tri_down.svg" alt="">ipsum</a></li>
+<li class="l-tile_item"><a href="#top"><img class="i-label i-label-left" src="/assets/img/icons/ic_tri_down.svg" alt="">dolor</a></li>
+</ul><!-- /.l-tile -->
+```
+
+### 4列
+
+```html
+<ul class="l-tile l-tile-4" data-js-localscroll>
+<li class="l-tile_item"><a href="#top"><img class="i-label i-label-left" src="/assets/img/icons/ic_tri_down.svg" alt="">Lorem</a></li>
+<li class="l-tile_item"><a href="#top"><img class="i-label i-label-left" src="/assets/img/icons/ic_tri_down.svg" alt="">ipsum</a></li>
+<li class="l-tile_item"><a href="#top"><img class="i-label i-label-left" src="/assets/img/icons/ic_tri_down.svg" alt="">dolor</a></li>
+<li class="l-tile_item"><a href="#top"><img class="i-label i-label-left" src="/assets/img/icons/ic_tri_down.svg" alt="">sit</a></li>
+</ul><!-- /.l-tile -->
+```
+*/

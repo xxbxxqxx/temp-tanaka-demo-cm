@@ -1,0 +1,72 @@
+/*! Container */
+/*
+---
+name: L101 Container
+layout:
+  - Layout
+  - Layout/L101 Container
+tag:
+  - Layout
+---
+
+## コンテンツ最大幅
+`.l-container`を設置することで、`_foundation.scss`で指定したコンテンツ最大幅（$ct-maxW）にコンテンツを収めることができる。
+
+コンテンツ最大幅を反映させるためのレイアウト要素。  
+コンテンツが指定した最大幅よりウインドウサイズが大きくなった場合は中央揃えになる。  
+基本的には`.g-pageMain`の子要素として配置する。  
+
+```html
+<div class="l-container">
+<div class="sg-dummy"><!-- Dummy --></div>
+</div><!-- /.l-container -->
+```
+
+## 左右に余白無し
+`.l-container`に`.l-container-nogutter`を付与することで、左右のpaddingが0になる。
+```html
+<div class="l-container l-container-nogutter">
+<div class="sg-dummy"><!-- Dummy --></div>
+</div><!-- /.l-container -->
+```
+
+## 横幅100%
+`.l-container`に`.l-container-stretch`を付与することで、横幅が100%になる。
+```html
+<div class="l-container l-container-stretch">
+<div class="sg-dummy"><!-- Dummy --></div>
+</div><!-- /.l-container -->
+```
+
+### 横幅100%（左右に余白無し）
+`.l-container`に`.l-container-stretch`と.`l-container-nogutter`を付与することで、横幅が100%で、左右に余白無しになる。
+```html
+<div class="l-container l-container-stretch l-container-nogutter">
+<div class="sg-dummy"><!-- Dummy --></div>
+</div><!-- /.l-container -->
+```
+*/
+
+.l-container {
+  @extend %content; // _extend.scss %content を継承
+}
+
+/*
+.l-container-nogutter
+*/
+.l-container-nogutter {
+  max-width: $ct-maxW;
+  padding-right: 0;
+  padding-left: 0;
+  @include bp(small) {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+/*
+.l-container-stretch
+*/
+.l-container-stretch {
+  max-width: none;
+}

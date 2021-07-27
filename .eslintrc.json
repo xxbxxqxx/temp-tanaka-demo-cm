@@ -1,0 +1,39 @@
+{
+  "env": {
+    "browser": true,
+    "jquery": true,
+    "es6": true
+  },
+  "plugins": [
+      "@typescript-eslint"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended",
+    "prettier/@typescript-eslint"
+  ],
+  "root": true,
+  "rules": {
+    "prettier/prettier": [
+      "error",
+      {
+        "singleQuote": true,
+        "useTabs": false
+      }
+    ],
+    "no-unused-vars": "warn",
+    "no-undef": "warn",
+    "no-console": "error",
+    "no-alert": "error",
+    "no-empty": "warn",
+    "no-empty-character-class": "warn",
+    "no-extra-semi": "warn",
+    "valid-jsdoc": "off",
+    "eqeqeq": "warn",
+    "no-case-declarations": "off",
+    "no-implicit-globals": "error",
+    "no-warning-comments": "warn",
+    "no-shadow-restricted-names": "warn"
+  }
+}

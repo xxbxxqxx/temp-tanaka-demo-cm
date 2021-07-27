@@ -1,0 +1,175 @@
+/*
+---
+name: A102 Button
+action:
+  - A1 Control
+  - A1 Control/A102 Button
+tag:
+  - Control
+---
+
+テキストリンクよりも強調してページ遷移させたい場合に使用。掲載個数はレイアウトによって異なる。単体の利用可。必要に応じてアイコンとの組み合わせ可。  
+`<a>`もしくは`<button>`に`.c-btn`を付与する。  
+デフォルトの幅は親要素に対して100%となる。
+
+## Primary
+
+```html
+<a class="c-btn c-btn-primary" href="#">ボタンラベル</a>
+```
+
+```html
+<button type="button" class="c-btn c-btn-primary">ボタンラベル</button>
+```
+
+## Secondary
+
+```html
+<a class="c-btn c-btn-sub" href="#">ボタンラベル</a>
+```
+
+```html
+<button type="button" class="c-btn c-btn-sub">ボタンラベル</button>
+```
+
+## ボタンのカスタマイズ
+
+### 幅成り行き
+`c-btn-autoWidth`を付与することでボタンの幅が成り行きとなる。
+
+```html
+<a class="c-btn c-btn-autoWidth" href="#">ボタンラベル</a>
+```
+
+```html
+<button type="button" class="c-btn c-btn-autoWidth">ボタンラベル</button>
+```
+
+### ボタンの幅
+
+<a href="/_styleguide/layout/Layout/L102-Grid/index.html">グリッドコンポーネント</a>を利用したボタン幅や位置の制御が可能。
+
+```html
+<div class="l-grid">
+<div class="l-grid_item l-grid_item-4">
+<a class="c-btn" href="#">4</a>
+</div><!-- /.l-grid_item -->
+</div><!-- /.l-grid -->
+```
+
+グリッドコンポーネントのオプションを利用することで、デバイスごとの幅切り替えも可能。
+
+```html
+<div class="l-grid l-grid-center">
+<div class="l-grid_item l-grid_item-6-lg l-grid_item-10-md l-grid_item-8-sm">
+<a class="c-btn" href="#">6(md10,sm8)</a>
+</div><!-- /.l-grid_item -->
+</div><!-- /.l-grid -->
+```
+
+### 中央揃え
+オプション：センターグリッド
+
+```html
+<div class="l-grid l-grid-center">
+<div class="l-grid_item l-grid_item-4">
+<a class="c-btn" href="#">4</a>
+</div><!-- /.l-grid_item -->
+</div><!-- /.l-grid -->
+```
+
+### 右揃え
+オプション：水平方向の反転
+
+```html
+<div class="l-grid l-grid-hreverse">
+<div class="l-grid_item l-grid_item-4">
+<a class="c-btn" href="#">4</a>
+</div><!-- /.l-grid_item -->
+</div><!-- /.l-grid -->
+```
+
+### 入れ子
+オプション：グリッドコンポーネントの入れ子
+
+```html
+<div class="l-grid l-grid-center">
+<div class="l-grid_item l-grid_item-8">
+<div class="l-grid">
+<div class="l-grid_item l-grid_item-4-8">
+<a class="c-btn c-btn-primary" href="#">送信</a>
+</div><!-- /.l-grid_item -->
+<div class="l-grid_item l-grid_item-4-8">
+<a class="c-btn c-btn-sub" href="#">キャンセル</a>
+</div><!-- /.l-grid_item -->
+</div><!-- /.l-grid -->
+</div><!-- /.l-grid_item -->
+</div><!-- /.l-grid -->
+```
+
+### アイコン
+
+<a href="/_styleguide/icon/icon/index.html">アイコンコンポーネント</a>を用いてカスタマイズしたボタン。バリエーションについてはアイコンコンポーネントを参照する。  
+エリアに対してアイコンを配置する場合は、`.c-btn`に`.c-btn-hasIcon`を付与する。  
+アイコンサイズが`.i-area`のmodifierで変化するので、アイコンサイズに合わせて`.c-btn_hasIcon`にもmodifierを付与する。
+```html
+<a class="c-btn c-btn-autoWidth c-btn-primary" href="#" style="min-width:250px;">お問い合わせ<img class="i-label i-label-right" src="/assets/img/icons/dark/ic_link_blank.svg" alt="外部サイト"></a>
+<a class="c-btn c-btn-sub c-btn-hasIcon c-btn-hasIcon-large" href="#"><img class="i-area i-area-large i-area-left" src="/assets/img/icons/ic_chevron_left.svg" alt="">トップに戻る</a>
+```
+*/
+@mixin btn_hasIcon($size: $ic-baseSize) {
+  position: relative;
+  padding-right: calc(#{$size} + (#{$ic-padding} * 2));
+  padding-left: calc(#{$size} + (#{$ic-padding} * 2));
+}
+.c-btn {
+  @include dfm(medium);
+  @include ex($ts-midium);
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  padding: $unit 1em;
+  border-radius: $rd-01;
+  color: #000;
+  border: $bd-regular;
+  background-color: map-get($c-grey,grey300);
+  &:link, &:hover, &:visited, &:active {
+    color: #000;
+  }
+  &:hover,
+  &:active {
+    opacity: $op-hover;
+    text-decoration: none;
+  }
+  &-autoWidth {
+    width: auto;
+  }
+  &-hasIcon {
+    @include btn_hasIcon;
+    &-small {
+      @include btn_hasIcon(#{$ic-baseSize} * 0.7);
+    }
+    &-large {
+      @include btn_hasIcon(#{$ic-baseSize} * 1.3);
+    }
+  }
+}
+.c-btn {
+  &-sub {
+    border: 1px solid #000;
+    background-color: transparent;
+    &:link,&:visited,&:hover,&:active {
+      color: #000;
+    }
+  }
+}
+.c-btn {
+  &-primary {
+    color: #fff;
+    border: 1px solid #000;
+    background-color: #000;
+    &:link,&:visited,&:hover,&:active {
+      color: #fff;
+    }
+  }
+}

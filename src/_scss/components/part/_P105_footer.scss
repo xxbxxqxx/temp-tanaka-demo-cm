@@ -1,0 +1,264 @@
+/*! Footer */
+/*
+---
+name: P105 Footer
+part:
+  - P1 Area
+  - P1 Area/P105 Footer
+tag:
+  - Area
+---
+グローバルフッター周辺のコンポーネント
+
+必要最低限の要素を用意しているが、基本的にプロジェクトの要件に応じてカスタマイズが必要という認識。  
+デフォルトではmedium screen時の表示はsmall screen時と同じものとなる。  
+
+```html
+<footer class="g-footer" role="contentinfo">
+<div class="g-footerNav">
+<div class="g-footer_inner">
+<div class="l-tile l-tile-4-lg l-tile-1-md l-tile-1-sm">
+<div class="l-tile_item">
+<p class="g-footerNav_parent"><a class="g-footerNav_parentLink" href="#">カテゴリラベル</a></p>
+<ul class="g-footerNav_list">
+<li class="g-footerNav_listItem"><a class="g-footerNav_listItemLink" href="#">リンク</a></li>
+<li class="g-footerNav_listItem"><a class="g-footerNav_listItemLink" href="#">リンク</a></li>
+<li class="g-footerNav_listItem"><a class="g-footerNav_listItemLink" href="#">リンク</a></li>
+<li class="g-footerNav_listItem"><a class="g-footerNav_listItemLink" href="#">リンク</a></li>
+<li class="g-footerNav_listItem"><a class="g-footerNav_listItemLink" href="#">リンク</a></li>
+</ul>
+</div><!-- /.l-tile_item -->
+<div class="l-tile_item">
+<p class="g-footerNav_parent"><a class="g-footerNav_parentLink" href="#">カテゴリラベル</a></p>
+<p class="g-footerNav_parent"><a class="g-footerNav_parentLink" href="#">カテゴリラベル</a></p>
+<p class="g-footerNav_parent"><a class="g-footerNav_parentLink" href="#">カテゴリラベル</a></p>
+<ul class="g-footerNav_list">
+<li class="g-footerNav_listItem"><a class="g-footerNav_listItemLink" href="#">リンク</a></li>
+<li class="g-footerNav_listItem"><a class="g-footerNav_listItemLink" href="#">リンク</a></li>
+<li class="g-footerNav_listItem"><a class="g-footerNav_listItemLink" href="#">リンク</a></li>
+</ul>
+</div><!-- /.l-tile_item -->
+<div class="l-tile_item">
+<p class="g-footerNav_parent"><a class="g-footerNav_parentLink" href="#">カテゴリラベル</a></p>
+<ul class="g-footerNav_list">
+<li class="g-footerNav_listItem"><a class="g-footerNav_listItemLink" href="#">リンク</a></li>
+<li class="g-footerNav_listItem"><a class="g-footerNav_listItemLink" href="#">リンク</a></li>
+<li class="g-footerNav_listItem"><a class="g-footerNav_listItemLink" href="#">リンク</a></li>
+</ul>
+</div><!-- /.l-tile_item -->
+<div class="l-tile_item">
+<p class="g-footerNav_parent"><a class="g-footerNav_parentLink" href="#">カテゴリラベル</a></p>
+<p class="g-footerNav_parent"><a class="g-footerNav_parentLink" href="#">カテゴリラベル</a></p>
+<p class="g-footerNav_parent"><a class="g-footerNav_parentLink" href="#">カテゴリラベル</a></p>
+</div><!-- /.l-tile_item -->
+</div><!-- /.l-tile -->
+</div><!-- /.g-footer_inner -->
+</div><!-- /.g-footer_nav -->
+<div class="g-footer_separator">
+<div class="g-footer_inner">
+<div class="g-footerSubNav">
+<ul class="g-footerSubNav_list">
+<li class="g-footerSubNav_listItem"><a class="g-footerSubNav_listItemLink" href="#">リンク</a></li>
+<li class="g-footerSubNav_listItem"><a class="g-footerSubNav_listItemLink" href="#">リンク</a></li>
+<li class="g-footerSubNav_listItem"><a class="g-footerSubNav_listItemLink" href="#">リンク</a></li>
+</ul><!-- /.g-footerSubNav_list -->
+</div><!-- /.g-footerSubNav -->
+<p class="g-footer_copyright"><small class="g-footer_copyrightText">© Company Name., All Rights Reserved.</small></p><!-- /.g-footer_copyright -->
+</div><!-- /.g-footer_inner -->
+</div><!-- /.g-footer_separator -->
+</footer><!-- /.g-footer -->
+```
+
+### グローバルフッター アイコンあり
+
+```html
+<footer class="g-footer" role="contentinfo">
+<div class="g-footerNav">
+<div class="g-footer_inner">
+<div class="l-tile l-tile-4-lg l-tile-1-md l-tile-1-sm">
+<div class="l-tile_item">
+<p class="g-footerNav_parent"><a class="g-footerNav_parentLink g-footerNav_parentLink-ic" href="#">カテゴリラベル</a></p>
+<ul class="g-footerNav_list">
+<li class="g-footerNav_listItem"><a class="g-footerNav_listItemLink g-footerNav_listItemLink-ic" href="#">リンク</a></li>
+<li class="g-footerNav_listItem"><a class="g-footerNav_listItemLink g-footerNav_listItemLink-ic" href="#">リンク</a></li>
+<li class="g-footerNav_listItem"><a class="g-footerNav_listItemLink g-footerNav_listItemLink-ic" href="#">リンク</a></li>
+<li class="g-footerNav_listItem"><a class="g-footerNav_listItemLink g-footerNav_listItemLink-ic" href="#">リンク</a></li>
+<li class="g-footerNav_listItem"><a class="g-footerNav_listItemLink g-footerNav_listItemLink-ic" href="#">リンク</a></li>
+</ul>
+</div><!-- /.l-tile_item -->
+<div class="l-tile_item">
+<p class="g-footerNav_parent"><a class="g-footerNav_parentLink g-footerNav_parentLink-ic" href="#">カテゴリラベル</a></p>
+<p class="g-footerNav_parent"><a class="g-footerNav_parentLink g-footerNav_parentLink-ic" href="#">カテゴリラベル</a></p>
+<p class="g-footerNav_parent"><a class="g-footerNav_parentLink g-footerNav_parentLink-ic" href="#">カテゴリラベル</a></p>
+<ul class="g-footerNav_list">
+<li class="g-footerNav_listItem"><a class="g-footerNav_listItemLink g-footerNav_listItemLink-ic" href="#">リンク</a></li>
+<li class="g-footerNav_listItem"><a class="g-footerNav_listItemLink g-footerNav_listItemLink-ic" href="#">リンク</a></li>
+<li class="g-footerNav_listItem"><a class="g-footerNav_listItemLink g-footerNav_listItemLink-ic" href="#">リンク</a></li>
+</ul>
+</div><!-- /.l-tile_item -->
+<div class="l-tile_item">
+<p class="g-footerNav_parent"><a class="g-footerNav_parentLink g-footerNav_parentLink-ic" href="#">カテゴリラベル</a></p>
+<ul class="g-footerNav_list">
+<li class="g-footerNav_listItem"><a class="g-footerNav_listItemLink g-footerNav_listItemLink-ic" href="#">リンク</a></li>
+<li class="g-footerNav_listItem"><a class="g-footerNav_listItemLink g-footerNav_listItemLink-ic" href="#">リンク</a></li>
+<li class="g-footerNav_listItem"><a class="g-footerNav_listItemLink g-footerNav_listItemLink-ic" href="#">リンク</a></li>
+</ul>
+</div><!-- /.l-tile_item -->
+<div class="l-tile_item">
+<p class="g-footerNav_parent"><a class="g-footerNav_parentLink g-footerNav_parentLink-ic" href="#">カテゴリラベル</a></p>
+<p class="g-footerNav_parent"><a class="g-footerNav_parentLink g-footerNav_parentLink-ic" href="#">カテゴリラベル</a></p>
+<p class="g-footerNav_parent"><a class="g-footerNav_parentLink g-footerNav_parentLink-ic" href="#">カテゴリラベル</a></p>
+</div><!-- /.l-tile_item -->
+</div><!-- /.l-tile -->
+</div><!-- /.g-footer_inner -->
+</div><!-- /.g-footer_nav -->
+<div class="g-footer_separator">
+<div class="g-footer_inner">
+<div class="g-footerSubNav">
+<ul class="g-footerSubNav_list">
+<li class="g-footerSubNav_listItem"><a class="g-footerSubNav_listItemLink" href="#">リンク</a></li>
+<li class="g-footerSubNav_listItem"><a class="g-footerSubNav_listItemLink" href="#">リンク</a></li>
+<li class="g-footerSubNav_listItem"><a class="g-footerSubNav_listItemLink" href="#">リンク</a></li>
+</ul><!-- /.g-footerSubNav_list -->
+</div><!-- /.g-footerSubNav -->
+<p class="g-footer_copyright"><small class="g-footer_copyrightText">© Company Name., All Rights Reserved.</small></p>
+</div><!-- /.g-footer_inner -->
+</div><!-- /.g-footer_separator -->
+</footer><!-- /.g-footer -->
+```
+*/
+
+.g-footer {
+  border-top: $bd-regular;
+  @include bp(medium) {
+    border-top: 0;
+  }
+  &_inner {
+    @extend %content;
+  }
+  &_separator {
+    border-top: $bd-regular;
+    padding-top: $unit * 3;
+    padding-bottom: $unit * 3;
+  }
+  &_copyright {
+    @include ex($ts-xsmall);
+    @include dfm(small);
+    @include bp(medium) {
+      margin-top: $unit * 6;
+    }
+  }
+}
+.g-footerNav {
+  padding: ($unit * 3) 0;
+  @include bp(medium) {
+    padding: 0;
+  }
+  .g-footer_inner {
+    @include bp(medium) {
+      padding: 0;
+    }
+  }
+  .l-tile {
+    @include bp(medium) {
+      margin: 0;
+    }
+  }
+  .l-tile_item {
+    @include bp(medium) {
+      margin-bottom: 0;
+      padding: 0;
+
+    }
+  }
+  &_parent {
+    font-weight: bold;
+    @include bp(medium) {
+      @include ex($ts-midium);
+      font-weight: normal;
+      border-top: $bd-regular;
+    }
+    & + & {
+      margin-top: $unit + 2;
+      @include bp(medium) {
+        margin-top: 0;
+      }
+    }
+    &Link {
+      &-ic {
+        @include bp(large) {
+          &::before {
+            content: '';
+            display: inline-block;
+            width: $ic-baseSize;
+            height: $ic-baseSize;
+            margin-top: $ic-baseSize * -1;
+            vertical-align: baseline;
+            background-image: url(#{$ic-rootPath}#{map-get($ic-paths,chevronRight)});
+            background-repeat: no-repeat;
+            background-size: 100%;
+            transform: translateY( calc((#{$ic-baseSize} - #{$ic-capheight}) / 2) );
+          }
+        }
+      }
+      @include bp(medium) {
+        display: block;
+        padding: $unit * 2;
+        padding-right: calc(#{$ic-baseSize} + (#{$unit} * 2));
+        position: relative;
+        &::after {
+          content: "";
+          vertical-align: middle;
+          display: inline-block;
+          width: $ic-baseSize;
+          height: $ic-baseSize;
+          vertical-align: baseline;
+          background-size: 100%;
+          background-image: url(#{$ic-rootPath}#{map-get($ic-paths,chevronRight)});
+          position: absolute;
+          top: calc(50% - (#{$ic-baseSize} * 0.5));
+          right: $unit;
+        }
+      }
+    }
+  }
+  &_list {
+    @include bp(medium) {
+      display: none;
+    }
+    &Item {
+      @include ex($ts-xsmall);
+      margin-top: $unit;
+      &Link {
+        &-ic {
+          @include bp(over-medium) {
+            &::before {
+              content: '';
+              display: inline-block;
+              width: $ic-baseSize;
+              height: $ic-baseSize;
+              margin-top: $ic-baseSize * -1;
+              vertical-align: baseline;
+              background-image: url(#{$ic-rootPath}#{map-get($ic-paths,chevronRight)});
+              background-repeat: no-repeat;
+              background-size: 100%;
+              transform: translateY( calc((#{$ic-baseSize} - #{$ic-capheight}) / 2) );
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.g-footerSubNav {
+  @include dfm(medium);
+  &_list {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    &Item {
+      @include ex($ts-xsmall);
+      margin-right: $unit * 3;
+    }
+  }
+}

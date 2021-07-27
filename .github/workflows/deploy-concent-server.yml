@@ -1,0 +1,61 @@
+name: Deploy Concent Server
+
+on:
+  push:
+    #branches: [ staging, development ]
+    branches: [ example ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '12.x'
+
+      # 開発中はpackage.jsonが更新されるためnode_modulesはキャッシュせずビルド毎にインストールする
+      #- name: node_modules キャッシュ取得
+      #  id: node_modules_cache_id
+      #  uses: actions/cache@v2
+      #  with:
+      #    path: node_modules
+      #    key: ${{ matrix.os }}-node-v${{ matrix.node }}-deps-${{ hashFiles(format('{0}{1}', github.workspace, '/yarn.lock')) }}
+
+      #- name: node_modules インストール
+      #  if: steps.node_modules_cache_id.outputs.cache-hit != 'true'
+      #  run: yarn --check-files --frozen-lockfile --non-interactive
+
+      - name: node_modules インストール
+        run: yarn install
+
+      - name: contentful 環境変数設定
+        run: echo "${{ secrets.ENV_PROD }}" > .env
+
+      - name: Gatsby.js ビルド
+        run: yarn build
+
+      - name: デプロイ 実行(staging)
+        if: github.ref == 'refs/heads/staging'
+        uses: Creepios/sftp-action@v1.0.1
+        with:
+          host: 'sftp.s7.p.concentinc.jp'
+          port: 29022
+          username: ${{ secrets.FTP_CNT_STAGING_USERNAME }}
+          password: ${{ secrets.FTP_CNT_STAGING_PASSWORD }}
+          localPath:  './public/'
+          remotePath: 'htdocs/'
+
+      - name: デプロイ 実行(development)
+        if: github.ref == 'refs/heads/development'
+        uses: Creepios/sftp-action@v1.0.1
+        with:
+          host: 'sftp.s7.p.concentinc.jp'
+          port: 29022
+          username: ${{ secrets.FTP_CNT_DEVELOP_USERNAME }}
+          password: ${{ secrets.FTP_CNT_DEVELOP_PASSWORD }}
+          localPath:  './public/'
+          remotePath: 'htdocs/'

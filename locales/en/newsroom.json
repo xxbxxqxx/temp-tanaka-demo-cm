@@ -1,0 +1,18 @@
+{
+  "newsroom": {
+    "title": "Newsroom",
+    "meta": {
+      "description": "description",
+      "keyword": "keyword",
+      "og_type": "article",
+      "og_image": "image"
+    },
+    "body": {
+      "press": "Press release",
+      "financial": "financial statement",
+      "business": "Business report",
+      "other": "Other",
+      "no_entry": "There is no entry."
+    }
+  }
+}

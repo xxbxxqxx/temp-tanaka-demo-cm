@@ -1,0 +1,45 @@
+/*! Header */
+/*
+---
+name: P102 Breadcrumb list
+part:
+  - P1 Area
+  - P1 Area/P102 Breadcrumb list
+tag:
+  - Area
+---
+グローバルヘッダー周辺のコンポーネント
+
+
+```html
+<div class="c-breadcrumb">
+<ul class="c-breadcrumb_list">
+<li class="c-breadcrumb_listItem"><a class href="#">home</a></li>
+<li class="c-breadcrumb_listItem"><a class href="#">dummy</a></li>
+<li class="c-breadcrumb_listItem"><a class href="#">dummy</a></li>
+<li class="c-breadcrumb_listItem">dummy</li>
+</ul><!-- /.c-breadcrumb_list -->
+</div><!-- /.c-breadcrumb -->
+```
+*/
+// c-breadcrumb
+.c-breadcrumb {
+  &_list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    &Item {
+      @include ex($ts-xsmall);
+      &:before {
+        content: ">";
+        display: inline-block;
+        margin: 0 $unit;
+      }
+      &:first-child {
+        &:before {
+          display: none;
+        }
+      }
+    }
+  }
+}

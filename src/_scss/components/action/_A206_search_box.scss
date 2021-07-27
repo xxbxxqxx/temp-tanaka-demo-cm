@@ -1,0 +1,77 @@
+/*
+---
+name: A206 Search box
+action:
+  - A2 Input
+  - A2 Input/A206 Search box
+tag:
+  - Input
+---
+
+フォーム画面の実装に<a href="/_styleguide/layout/Layout/L102-Grid/index.html">グリッドコンポーネント</a>、  
+並列する要素の横並び表示の実装に<a href="/_styleguide/layout/Layout/L104-Tile/index.html">タイルコンポーネント</a>を利用しているため、  
+各コンポーネントのオプションが利用可能。
+
+```html
+<div class="c-searchBox">
+<form class="c-searchBox_form" action="">
+<input class="c-searchBox_input" type="text" placeholder="Placeholder" data-js-search-input>
+<button type="submit" class="c-searchBox_submit">
+<img class="i-button" src="/assets/img/icons/ic_search.svg" alt="検索ボタン">
+</button>
+</form>
+</div><!-- /.c-searchBox -->
+```
+
+### サイズ小
+
+`c-searchBox-mini`を付与。グローバルヘッダーなどに直接検索窓を挿入する場合などに利用する。
+
+```html
+<div class="c-searchBox c-searchBox-mini">
+<form class="c-searchBox_form" action="">
+<input class="c-searchBox_input" type="text" placeholder="Placeholder" data-js-search-input>
+<button type="submit" class="c-searchBox_submit">
+<img class="i-button i-button-small" src="/assets/img/icons/ic_search.svg" alt="検索ボタン"></button>
+</form>
+</div><!-- /.c-searchBox -->
+```
+
+*/
+
+.c-searchBox {
+  width: 100%;
+  @include ex($ts-midium);
+  $_root: &;
+  &_form {
+    display: flex;
+  }
+  &_input {
+    flex: 1;
+    border: 1px solid map-get($c-grey, grey400);
+    padding: ($unit * 1.5) ($unit * 2);
+    border-radius: 4px 0 0 4px;
+    line-height: 1;
+    background-color: #fff;
+    #{$_root}-mini & {
+      padding: ($unit * 0.5) ($unit * 1.5);
+      @include bp(medium) {
+        padding: ($unit * 1.5) ($unit * 2);
+      }
+    }
+  }
+  &_submit {
+    border: 1px solid map-get($c-grey, grey400);
+    border-left: 0;
+    line-height: 1;
+    border-radius: 0 4px 4px 0;
+    padding: ($unit) ($unit * 3);
+    background-color: map-get($c-grey,grey300);
+    #{$_root}-mini & {
+      padding: 0 ($unit * 1.5);
+      @include bp(medium) {
+        padding: ($unit) ($unit * 3);
+      }
+    }
+  }
+}

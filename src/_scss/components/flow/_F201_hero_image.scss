@@ -1,0 +1,388 @@
+/*
+---
+name: F201 Hero image
+flow:
+  - F2 Lead
+  - F2 Lead/F201 Hero image
+tag:
+  - Lead
+---
+
+## ヒーローイメージ（カルーセル）
+
+サービス紹介、キャンペーン訴求など複数の画像を切り替えて表示したい場合に利用。
+
+JSで操作する要素のdata属性に`data-js-vi(-**)`を追加し、各オプションを設定してカルーセルのJSを初期化する。（ページ下部のカルーセルJS初期化設定参照）
+
+表示中のメインビジュアルに aria-hidden="false"、非表示のメインビジュアルに aria-hidden="true"を指定し、アクティブなナビゲーションに aria-selected="true" 、非アクティブなナビゲーションに aria-selected="false" を指定する。
+
+```html
+<div class="c-carousel" data-js-vi>
+<div class="c-carousel_body" data-js-vi_body>
+<ul class="c-carousel_main"  data-js-vi_main>
+<li class="c-carousel_item c-visual" aria-hidden="false">
+<div class="c-visual_image">
+<img src="//picsum.photos/2560/1000/?gravity=north" alt="">
+</div><!-- /.c-visual_image -->
+</li><!-- /.c-carousel_item -->
+<li class="c-carousel_item c-visual" aria-hidden="true">
+<div class="c-visual_image">
+<img src="//picsum.photos/2560/1000/?gravity=east" alt="">
+</div><!-- /.c-visual_image -->
+</li><!-- /.c-carousel_item -->
+<li class="c-carousel_item c-visual" aria-hidden="true">
+<div class="c-visual_image">
+<img src="//picsum.photos/2560/1000/?gravity=south" alt="">
+</div><!-- /.c-visual_image -->
+</li><!-- /.c-carousel_item -->
+<li class="c-carousel_item c-visual" aria-hidden="true">
+<div class="c-visual_image">
+<img src="//picsum.photos/2560/1000/?gravity=west" alt="">
+</div><!-- /.c-visual_image -->
+</li><!-- /.c-carousel_item -->
+</ul><!-- /.c-carousel_main -->
+</div><!-- /.c-carousel_body -->
+<div class="c-carousel_footer">
+<div class="c-carousel_arrow c-carousel_arrow-prev">
+<button data-js-vi_prev><img class="i-button" src="/assets/img/icons/ic_chevron_left.svg" alt="前へ"></button>
+</div>
+<ul class="c-carousel_dots" data-js-vi_nav>
+<li class="c-carousel_dot c-carousel_dot-active" aria-selected="true"><a href="#">1</a></li>
+<li class="c-carousel_dot" aria-selected="false"><a href="#">2</a></li>
+<li class="c-carousel_dot" aria-selected="false"><a href="#">3</a></li>
+<li class="c-carousel_dot" aria-selected="false"><a href="#">4</a></li>
+</ul><!-- /.c-carousel_dots -->
+<button class="c-carousel_pause" data-js-vi_pause>
+<img class="i-button i-button-small is-play" src="/assets/img/icons/ic_pause.svg" alt="一時停止する">
+<img class="i-button i-button-small is-pause" src="/assets/img/icons/ic_play.svg" alt="再生する">
+</button>
+<div class="c-carousel_arrow c-carousel_arrow-next">
+<button data-js-vi_next><img class="i-button" src="/assets/img/icons/ic_chevron_right.svg" alt="次へ"></button>
+</div>
+</div><!-- /.c-carousel_footer -->
+</div><!-- /.c-carousel -->
+```
+
+### フェード切替え
+
+`,c-carousel`のdata属性`data-js-vi`の値に`fade`を指定すると、  
+スライドではなくフェードアニメーションによるカルーセル表示が可能。
+
+```html
+<div class="c-carousel" data-js-vi="fade">
+<div class="c-carousel_body" data-js-vi_body>
+<ul class="c-carousel_main"  data-js-vi_main>
+<li class="c-carousel_item c-visual" aria-hidden="false">
+<div class="c-visual_image">
+<img src="//picsum.photos/2560/1000/?gravity=north" alt="">
+</div><!-- /.c-visual_image -->
+</li><!-- /.c-carousel_item -->
+<li class="c-carousel_item c-visual" aria-hidden="true">
+<div class="c-visual_image">
+<img src="//picsum.photos/2560/1000/?gravity=east" alt="">
+</div><!-- /.c-visual_image -->
+</li><!-- /.c-carousel_item -->
+<li class="c-carousel_item c-visual" aria-hidden="true">
+<div class="c-visual_image">
+<img src="//picsum.photos/2560/1000/?gravity=south" alt="">
+</div><!-- /.c-visual_image -->
+</li><!-- /.c-carousel_item -->
+<li class="c-carousel_item c-visual" aria-hidden="true">
+<div class="c-visual_image">
+<img src="//picsum.photos/2560/1000/?gravity=west" alt="">
+</div><!-- /.c-visual_image -->
+</li><!-- /.c-carousel_item -->
+<li class="c-carousel_item c-visual" aria-hidden="true">
+<div class="c-visual_image">
+<img src="//picsum.photos/2560/1000/?gravity=center" alt="">
+</div><!-- /.c-visual_image -->
+</li><!-- /.c-carousel_item -->
+</ul><!-- /.c-carousel_main -->
+</div><!-- /.c-carousel_body -->
+<div class="c-carousel_footer">
+<div class="c-carousel_arrow c-carousel_arrow-prev">
+<button data-js-vi_prev><img class="i-button" src="/assets/img/icons/ic_chevron_left.svg" alt="前へ"></button>
+</div>
+<ul class="c-carousel_dots" data-js-vi_nav>
+<li class="c-carousel_dot c-carousel_dot-active" aria-selected="true"><a href="#">1</a></li>
+<li class="c-carousel_dot" aria-selected="false"><a href="#">2</a></li>
+<li class="c-carousel_dot" aria-selected="false"><a href="#">3</a></li>
+<li class="c-carousel_dot" aria-selected="false"><a href="#">4</a></li>
+<li class="c-carousel_dot" aria-selected="false"><a href="#">5</a></li>
+</ul><!-- /.c-carousel_dots -->
+<button class="c-carousel_pause" data-js-vi_pause>
+<img class="i-button i-button-small is-play" src="/assets/img/icons/ic_pause.svg" alt="一時停止する">
+<img class="i-button i-button-small is-pause" src="/assets/img/icons/ic_play.svg" alt="再生する">
+</button>
+<div class="c-carousel_arrow c-carousel_arrow-next">
+<button data-js-vi_next><img class="i-button" src="/assets/img/icons/ic_chevron_right.svg" alt="次へ"></button>
+</div>
+</div><!-- /.c-carousel_footer -->
+</div><!-- /.c-carousel -->
+```
+
+```js
+// カルーセル
+// cnt.vichanger.tsを利用
+// /src/assets/ts/main.jsにて初期化
+
+const viContainer = document.querySelectorAll('[data-js-vi]');
+
+Array.from(viContainer).forEach(container => {
+  let viChangeType = container.getAttribute('data-js-vi');
+  viChangeType = viChangeType === 'fade' ? 'fade' : 'slide';
+
+  new ViChanger(container, {
+    mainViewAreaSelector: '[data-js-vi_body]', // 表示エリアの横幅を取得するためのセレクタ(changeType: 'slide'の場合は必須)
+    mainWrapperSelector: '[data-js-vi_main]', // メイン画像のラッパーセレクタ
+    naviWrapperSelector: '[data-js-vi_nav]', // ナビゲーションのラッパーセレクタ
+    prevBtnSelector: '[data-js-vi_prev]', // PREVボタンのラッパーセレクタ
+    nextBtnSelector: '[data-js-vi_next]', // NEXTボタンのラッパーセレクタ
+    pauseBtnSelector: '[data-js-vi_pause]', // 一時停止ボタンのラッパーセレクタ
+    changeType: viChangeType, // メイン画像切り替えタイプ（'slide' or 'fade'）
+    fadeType: '03', // フェードタイプ（changeTypeがfadeの場合に有効）'01': クロスフェード、'02': カレントを非表示にしてからフェードイン、'03': カレントの上にかぶせてフェードイン、'04': カレントがフェードアウトしてからフェードイン
+    naviTriggerEvent: 'click', // ナビゲーションのトリガイベント（'click' or 'mouseover' or null）
+    naviActiveClassName: 'c-carousel_dot-active', // ナビゲーションのアクティブ状態を表すクラス名
+    mainActiveClassName: 'is-active', // メインリストのアクティブ状態を表すクラス名（nullの場合はクラス付与なし）
+    pauseActiveClassName: 'c-carousel_pause-active', // 一時停止ボタンのアクティブ状態を表すクラス名
+    btnDisabledClassName: 'is-disabled', // NEXT・PREVボタン非活性化状態を表すクラス名（circularがfalseの場合に有効）
+    duration: 400, // アニメーション時間をミリ秒単位で指定
+    easing: 'swing', // 切り替えアニメーションのeasing設定（'swing' or 'linear'）
+    auto: 5000, // 自動切り替えまでの時間をミリ秒単位で指定。nullの場合は自動切り替えなし。Arrayで個別設定も可能。
+    circular: true, // 切り替えループ処理
+    startIndex: 0, // 初期表示画像インデックス
+    hoverTimerStop: true, // ホバーアクションによるタイマー停止処理をするか否か
+    swipeFlag: true, // スワイプ機能
+    visible: 1, // スライドエリアに表示する数
+    scroll: 1, // スライドする数
+    centerMode: false, // カレントをセンターに配置するか否か（circularがtrueの場合に有効）
+    liquidLayoutFlag: true, // リキッドレイアウトにするか否か（メディアクエリ別に設定するoptions.responsiveがnullの場合に有効）
+    responsive: null, // メディアクエリ別の設定をArrayで指定
+    accessibilityFlag: true // アクセシビリティ対応するか否か
+  });
+});
+```
+
+### ナビと連動
+
+`data-js-sync-slide`の中に`.c-carousel`を2つ設置。  
+メインビジュアルは`.c-carousel`のdata属性`data-js-sync-slide-vi`の値に`slide_for`を指定。  
+サムネイルのナビは`.c-carousel`のdata属性`data-js-sync-slide-vi`の値に`slide_nav`を指定。 
+
+```html
+<div data-js-sync-slide>
+<div class="c-carousel" data-js-sync-slide-vi="slide_for">
+<div class="c-carousel_body" data-js-vi_body>
+<ul class="c-carousel_main"  data-js-vi_main>
+<li class="c-carousel_item c-visual" aria-hidden="false">
+<div class="c-visual_image">
+<img src="//picsum.photos/2560/1000/?gravity=north" alt="">
+</div><!-- /.c-visual_image -->
+</li><!-- /.c-carousel_item -->
+<li class="c-carousel_item c-visual" aria-hidden="true">
+<div class="c-visual_image">
+<img src="//picsum.photos/2560/1000/?gravity=east" alt="">
+</div><!-- /.c-visual_image -->
+</li><!-- /.c-carousel_item -->
+<li class="c-carousel_item c-visual" aria-hidden="true">
+<div class="c-visual_image">
+<img src="//picsum.photos/2560/1000/?gravity=south" alt="">
+</div><!-- /.c-visual_image -->
+</li><!-- /.c-carousel_item -->
+<li class="c-carousel_item c-visual" aria-hidden="true">
+<div class="c-visual_image">
+<img src="//picsum.photos/2560/1000/?gravity=west" alt="">
+</div><!-- /.c-visual_image -->
+</li><!-- /.c-carousel_item -->
+<li class="c-carousel_item c-visual" aria-hidden="false">
+<div class="c-visual_image">
+<img src="//picsum.photos/2560/1000/?image=0" alt="">
+</div><!-- /.c-visual_image -->
+</li><!-- /.c-carousel_item -->
+<li class="c-carousel_item c-visual" aria-hidden="true">
+<div class="c-visual_image">
+<img src="//picsum.photos/2560/1000/?image=1" alt="">
+</div><!-- /.c-visual_image -->
+</li><!-- /.c-carousel_item -->
+</ul><!-- /.c-carousel_main -->
+</div><!-- /.c-carousel_body -->
+<div class="c-carousel_footer">
+<div class="c-carousel_arrow c-carousel_arrow-prev">
+<button data-js-vi_prev><img class="i-button" src="/assets/img/icons/ic_chevron_left.svg" alt="前へ"></button>
+</div>
+<div class="c-carousel_arrow c-carousel_arrow-next">
+<button data-js-vi_next><img class="i-button" src="/assets/img/icons/ic_chevron_right.svg" alt="次へ"></button>
+</div>
+</div><!-- /.c-carousel_footer -->
+</div><!-- /.c-carousel -->
+
+<div class="c-carousel" data-js-sync-slide-vi="slide_nav">
+<div class="c-carousel_body" data-js-vi_body>
+<ul class="c-carousel_main"  data-js-vi_main>
+<li class="c-carousel_item c-visual" aria-hidden="false">
+<div class="c-visual_image">
+<img src="//picsum.photos/2560/1000/?gravity=north" alt="">
+</div><!-- /.c-visual_image -->
+</li><!-- /.c-carousel_item -->
+<li class="c-carousel_item c-visual" aria-hidden="true">
+<div class="c-visual_image">
+<img src="//picsum.photos/2560/1000/?gravity=east" alt="">
+</div><!-- /.c-visual_image -->
+</li><!-- /.c-carousel_item -->
+<li class="c-carousel_item c-visual" aria-hidden="true">
+<div class="c-visual_image">
+<img src="//picsum.photos/2560/1000/?gravity=south" alt="">
+</div><!-- /.c-visual_image -->
+</li><!-- /.c-carousel_item -->
+<li class="c-carousel_item c-visual" aria-hidden="true">
+<div class="c-visual_image">
+<img src="//picsum.photos/2560/1000/?gravity=west" alt="">
+</div><!-- /.c-visual_image -->
+</li><!-- /.c-carousel_item -->
+<li class="c-carousel_item c-visual" aria-hidden="false">
+<div class="c-visual_image">
+<img src="//picsum.photos/2560/1000/?image=0" alt="">
+</div><!-- /.c-visual_image -->
+</li><!-- /.c-carousel_item -->
+<li class="c-carousel_item c-visual" aria-hidden="true">
+<div class="c-visual_image">
+<img src="//picsum.photos/2560/1000/?image=1" alt="">
+</div><!-- /.c-visual_image -->
+</li><!-- /.c-carousel_item -->
+</ul><!-- /.c-carousel_main -->
+</div><!-- /.c-carousel_body -->
+</div><!-- /.c-carousel -->
+</div><!-- /[data-js-sync-slide] -->
+```
+*/
+
+.c-carousel {
+  @include dfm(medium);
+  &_body {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+  }
+  &_main {
+    display: flex;
+    position: relative;
+    top: 0;
+    left: 0;
+  }
+  &_item {
+    flex-shrink: 0;
+    height: 100%;
+    min-height: 1px;
+    margin-top: 0;
+  }
+  &_footer {
+    text-align: center;
+  }
+  &_arrow {
+    padding: $unit * 0.5;
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 0;
+  }
+  &_dots {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  &_dot {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 0;
+    padding: $unit;
+    line-height: 0;
+    > a {
+      line-height: 0;
+      display: block;
+      width: 12px;
+      height: 12px;
+      cursor: pointer;
+      color: transparent;
+      background: transparent;
+      position: relative;
+      &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        display: inline-block;
+        border-radius: 100%;
+        width: 12px;
+        height: 12px;
+        background-color: map-get($c-grey,grey300);
+      }
+    }
+    &-active {
+      > a {
+        &:before {
+          background-color: #c62828;
+        }
+      }
+    }
+  }
+  &_pause {
+    font-size: 0;
+    position: relative;
+    vertical-align: middle;
+    padding: $unit * 0.5;
+    &-active {
+      .is-play {
+        display: none;
+      }
+    }
+    &:not(.c-carousel_pause-active) {
+      .is-pause {
+        display: none;
+      }
+    }
+  }
+}
+.c-carousel {
+  $_root: &;
+  &[data-js-vi="fade"] {
+    #{$_root}_item {
+      width: 100%;
+      height: auto;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+      &.is-active {
+        position: static;
+        top: auto;
+        left: auto;
+        right: auto;
+        bottom: auto;
+        margin-top: 0;
+      }
+    }
+  }
+  &[data-js-sync-slide-vi="slide_nav"] {
+    .c-carousel_main {
+      margin-left: -($unit * 2)px;
+      margin-right: -($unit * 2)px;
+    }
+    .c-carousel_item {
+      height:100%;
+      min-height:1px;
+      margin-top:0;
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+    .c-carousel_item.is-active {
+      opacity:.35;
+    }
+
+  }
+}

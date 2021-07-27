@@ -1,0 +1,83 @@
+/*
+---
+name: A203 Select box
+action:
+  - A2 Input
+  - A2 Input/A203 Select box
+tag:
+  - Input
+---
+
+フォーム画面の実装に<a href="/_styleguide/layout/Layout/L102-Grid/index.html">グリッドコンポーネント</a>、  
+並列する要素の横並び表示の実装に<a href="/_styleguide/layout/Layout/L104-Tile/index.html">タイルコンポーネント</a>を利用しているため、  
+各コンポーネントのオプションが利用可能。
+
+```html
+<div class="c-selectBox">
+<select>
+<option>ラベル1</option>
+<option>ラベル2</option>
+<option>ラベル3</option>
+<option>ラベル4</option>
+<option>ラベル5</option>
+</select>
+</div><!-- /.c-selectBox  -->
+```
+
+### 幅成り行き
+`.c-selectBox-autoWidth`を付与することで幅が成り行きとなる。
+
+```html
+<div class="c-selectBox c-selectBox-autoWidth">
+<select>
+<option>ラベル1</option>
+<option>ラベル2</option>
+<option>ラベル3</option>
+<option>ラベル4</option>
+<option>ラベル5</option>
+</select>
+</div><!-- /.c-selectBox  -->
+```
+*/
+
+.c-selectBox {
+  @include dfm(medium);
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  &-autoWidth {
+    width: auto;
+    select {
+      width: auto;
+    }
+  }
+  select {
+    appearance: none;
+    display: block;
+    border: $bd-regular;
+    height: 3em;
+    background-color: transparent;
+    padding-right: calc(#{$ic-baseSize} + (#{$unit} * 1.5));
+    padding-left: 1em;
+    cursor: pointer;
+    border-radius: 0;
+    width: 100%;
+    @include ex($ts-midium);
+    &::-ms-expand {
+      display: none;
+    }
+  }
+  &::after {
+    content: "";
+    display: inline-block;
+    width: $ic-baseSize;
+    height: $ic-baseSize;
+    vertical-align: baseline;
+    position: absolute;
+    top: calc(50% - (#{$ic-baseSize} * 0.5));
+    right: $unit;
+    background-image: url(#{$ic-rootPath}#{map-get($ic-paths,triDown)});
+    background-size: 100%;
+    pointer-events: none;
+  }
+}

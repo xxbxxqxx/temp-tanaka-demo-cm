@@ -1,0 +1,157 @@
+/*
+---
+name: A103 Tab
+action:
+  - A1 Control
+  - A1 Control/A103 Tab
+tag:
+  - Control
+---
+
+JSで操作する要素のdata属性に`data-js-tab(-**)`を追加し、各オプションを設定してタブ切り替えのJSを初期化する。（ページ下部のタブ切り替えJS初期化設定参照）  
+表示中のタブコンテンツに aria-hidden="false"、非表示のタブコンテンツに aria-hidden="true"を指定し、アクティブなタブトリガーに aria-selected="true" 、非アクティブなタブトリガーに aria-selected="false" を指定する。
+
+## タブ (2項目)
+
+```html
+<div class="c-tab" data-js-tab>
+<div class="c-tab_head">
+<div class="c-tab_tabs">
+<a class="c-tab_trigger c-tab_trigger-active" href="#tab_content01" data-js-tab-trigger aria-selected="true">タブラベル1</a>
+<a class="c-tab_trigger" href="#tab_content02" data-js-tab-trigger aria-selected="false">タブラベル2</a>
+</div><!-- /.c-tab_tabs -->
+</div><!-- /.c-tab_head -->
+<div class="c-tab_contents">
+<div id="tab_content01" class="c-tab_content" data-js-tab-content aria-hidden="false">
+<p class="c-paragraph">タブコンテンツ1：コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。</p>
+</div><!-- /.c-tab_content -->
+<div id="tab_content02" class="c-tab_content" data-js-tab-content aria-hidden="true">
+<p class="c-paragraph">タブコンテンツ2：コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。</p>
+</div><!-- /.c-tab_content -->
+</div><!-- /.c-tab_contents -->
+</div><!-- /.c-tab -->
+```
+
+## タブ (3項目)
+
+```html
+<div class="c-tab" data-js-tab>
+<div class="c-tab_head">
+<div class="c-tab_tabs">
+<a class="c-tab_trigger" href="#tab_content001" data-js-tab-trigger aria-selected="false">タブラベル1</a>
+<a class="c-tab_trigger c-tab_trigger-active" href="#tab_content002" data-js-tab-trigger aria-selected="true">タブラベル2</a>
+<a class="c-tab_trigger" href="#tab_content003" data-js-tab-trigger aria-selected="false">タブラベル3</a>
+</div><!-- /.c-tab_tabs -->
+</div><!-- /.c-tab_head -->
+<div class="c-tab_contents">
+<div id="tab_content001" class="c-tab_content" data-js-tab-content aria-hidden="true">
+<p class="c-paragraph">タブコンテンツ1：コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。</p>
+</div><!-- /.c-tab_content -->
+<div id="tab_content002" class="c-tab_content" data-js-tab-content aria-hidden="false">
+<p class="c-paragraph">タブコンテンツ2：コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。</p>
+</div><!-- /.c-tab_content -->
+<div id="tab_content003" class="c-tab_content" data-js-tab-content aria-hidden="true">
+<p class="c-paragraph">タブコンテンツ3：コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。</p>
+</div><!-- /.c-tab_content -->
+</div><!-- /.c-tab_contents -->
+</div><!-- /.c-tab -->
+```
+
+## タブ (4項目)
+
+```html
+<div class="c-tab" data-js-tab>
+<div class="c-tab_head">
+<div class="c-tab_tabs">
+<a class="c-tab_trigger c-tab_trigger-active" href="#tab_content0001" data-js-tab-trigger aria-selected="true">タブラベル1</a>
+<a class="c-tab_trigger" href="#tab_content0002" data-js-tab-trigger aria-selected="false">タブラベル2</a>
+<a class="c-tab_trigger" href="#tab_content0003" data-js-tab-trigger aria-selected="false">タブラベル3</a>
+<a class="c-tab_trigger" href="#tab_content0004" data-js-tab-trigger aria-selected="false">タブラベル4</a>
+</div><!-- /.c-tab_tabs -->
+</div><!-- /.c-tab_head -->
+<div class="c-tab_contents">
+<div id="tab_content0001" class="c-tab_content" data-js-tab-content aria-hidden="false">
+<p class="c-paragraph">タブコンテンツ1：コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。</p>
+</div><!-- /.c-tab_content -->
+<div id="tab_content0002" class="c-tab_content" data-js-tab-content aria-hidden="true">
+<p class="c-paragraph">タブコンテンツ2：コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。</p>
+</div><!-- /.c-tab_content -->
+<div id="tab_content0003" class="c-tab_content" data-js-tab-content aria-hidden="true">
+<p class="c-paragraph">タブコンテンツ3：コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。</p>
+</div><!-- /.c-tab_content -->
+<div id="tab_content0004" class="c-tab_content" data-js-tab-content aria-hidden="true">
+<p class="c-paragraph">タブコンテンツ4：コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。</p>
+</div><!-- /.c-tab_content -->
+</div><!-- /.c-tab_contents -->
+</div><!-- /.c-tab -->
+```
+
+```js
+// タブ切り替え
+// cnt.tabchange.tsを利用
+// /src/assets/ts/main.tsにて初期化
+
+const tabAreaWrapper = document.querySelectorAll('[data-js-tab]');
+
+Array.from(tabAreaWrapper).forEach((wrapper: HTMLElement) => {
+  new TabChange(wrapper, {
+    tabTrigger: '[data-js-tab-trigger]', //タブトリガーセレクタ
+    tabContent: '[data-js-tab-content]', //タブ切り替え対象コンテンツ
+    triggerActiveClass: 'c-tab_trigger-active', //タブトリガーのアクティブ時クラス名
+    cntentActiveClass: 'c-tab_content-open', //タブコンテンツのアクティブ時クラス名
+    accessibilityFlag: true, //アクセシビリティ対応するか否か
+    beforeChange: null, // タブ切り替え前の処理
+    endChange: null // タブ切り替え後の処理
+  });
+});
+```
+*/
+
+.c-tab {
+  @include dfm(medium);
+  $_root: &;
+  &_head {
+    border: $bd-regular;
+    border-bottom: 0;
+  }
+  &_tabs {
+    @include ex($ts-midium);
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+  }
+  #{$_root} &_trigger {
+    cursor: pointer;
+    display: table-cell;
+    text-align: center;
+    padding: 12px 1em;
+    border-style: solid;
+    border-width: 0 1px 1px;
+    border-color: transparent;
+    border-bottom-color:  map-get($c-grey,grey400);
+    @include bp(medium) {
+      padding: $unit;
+    }
+    &:hover {
+      text-decoration: none;
+    }
+    &-active {
+      border-color:  map-get($c-grey,grey400);
+      border-bottom-color: transparent;
+      color: #000;
+      font-weight: bold;
+      &:first-child {
+        border-left: 0;
+      }
+      &:last-child {
+        border-right: 0;
+      }
+    }
+  }
+  &_content {
+    display: none;
+    &-open {
+      display: block;
+    }
+  }
+}

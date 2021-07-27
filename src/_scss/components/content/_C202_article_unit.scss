@@ -1,0 +1,189 @@
+/*
+---
+name: C202 Article unit
+content:
+  - C2 Unit
+  - C2 Unit/C202 Article unit
+tag:
+  - Unit
+---
+
+
+横並び表示の実装に<a href="/_styleguide/layout/Layout/L102-Grid/index.html">グリッドコンポーネント</a>を利用しているため、  
+デバイスごとの表示割合の切り替えなど、<a href="/_styleguide/layout/Layout/L102-Grid/index.html">グリッドコンポーネント</a>が持つ各オプションが利用可能。
+
+## Vertical
+### 画像＋テキスト
+
+```html
+<div class="l-grid l-gapSmall">
+<div class="l-grid_item l-grid_item-50per">
+<div class="c-img">
+<img src="//picsum.photos/g/1280/500/" alt="">
+</div>
+<p class="c-paragraph">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</p>
+</div><!-- /.l-grid_item -->
+<div class="l-grid_item l-grid_item-50per">
+<div class="c-img">
+<img src="//picsum.photos/g/1280/500/" alt="">
+</div>
+<p class="c-paragraph">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</p>
+</div><!-- /.l-grid_item -->
+</div><!-- /.l-grid -->
+```
+
+### 画像＋テキスト (3カラム)
+
+```html
+<div class="l-grid l-gapSmall">
+<div class="l-grid_item l-grid_item-4">
+<div class="c-img">
+<img src="//picsum.photos/g/1280/500/" alt="">
+</div>
+<p class="c-paragraph">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</p>
+</div><!-- /.l-grid_item -->
+<div class="l-grid_item l-grid_item-4">
+<div class="c-img">
+<img src="//picsum.photos/g/1280/500/" alt="">
+</div>
+<p class="c-paragraph">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</p>
+</div><!-- /.l-grid_item -->
+<div class="l-grid_item l-grid_item-4">
+<div class="c-img">
+<img src="//picsum.photos/g/1280/500/" alt="">
+</div>
+<p class="c-paragraph">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</p>
+</div><!-- /.l-grid_item -->
+</div><!-- /.l-grid -->
+```
+
+### 画像＋テキスト (4カラム)
+
+```html
+<div class="l-grid l-gapSmall">
+<div class="l-grid_item l-grid_item-3">
+<div class="c-img">
+<img src="//picsum.photos/g/1280/500/" alt="">
+</div>
+<p class="c-paragraph">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</p>
+</div><!-- /.l-grid_item -->
+<div class="l-grid_item l-grid_item-3">
+<div class="c-img">
+<img src="//picsum.photos/g/1280/500/" alt="">
+</div>
+<p class="c-paragraph">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</p>
+</div><!-- /.l-grid_item -->
+<div class="l-grid_item l-grid_item-3">
+<div class="c-img">
+<img src="//picsum.photos/g/1280/500/" alt="">
+</div>
+<p class="c-paragraph">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</p>
+</div><!-- /.l-grid_item -->
+<div class="l-grid_item l-grid_item-3">
+<div class="c-img">
+<img src="//picsum.photos/g/1280/500/" alt="">
+</div>
+<p class="c-paragraph">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</p>
+</div><!-- /.l-grid_item -->
+</div><!-- /.l-grid -->
+```
+
+## Horizontal
+### 画像＋テキスト
+
+```html
+<div class="l-grid l-gapSmall">
+<div class="l-grid_item l-grid_item-50per">
+<div class="c-img">
+<img src="//picsum.photos/g/1280/500/" alt="">
+</div>
+<p class="c-note">キャプションが入ります</p>
+</div><!-- /.l-grid_item -->
+<div class="l-grid_item l-grid_item-50per">
+<p class="c-paragraph">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</p>
+</div><!-- /.l-grid_item -->
+</div><!-- /.l-grid -->
+```
+
+### 画像＋テキスト小
+
+```html
+<div class="l-grid l-gapSmall">
+<div class="l-grid_item l-grid_item-25per">
+<div class="c-img">
+<img src="//picsum.photos/g/1280/500/" alt="">
+</div>
+<p class="c-note">キャプションが入ります</p>
+</div><!-- /.l-grid_item -->
+<div class="l-grid_item l-grid_item-75per">
+<p class="c-paragraph">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</p>
+</div><!-- /.l-grid_item -->
+</div><!-- /.l-grid -->
+```
+
+### 画像＋テキスト (2カラム)
+
+```html
+<div class="l-tile l-tile-2">
+<div class="l-tile_item">
+<div class="l-grid l-gapSmall">
+<div class="l-grid_item l-grid_item-50per">
+<div class="c-img">
+<img src="//picsum.photos/g/1280/500/" alt="">
+</div>
+<p class="c-note">キャプションが入ります</p>
+</div><!-- /.l-grid_item -->
+<div class="l-grid_item l-grid_item-50per">
+<p class="c-paragraph">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</p>
+</div><!-- /.l-grid_item -->
+</div><!-- /.l-grid -->
+</div><!-- /.l-tile_item -->
+<div class="l-tile_item">
+<div class="l-grid l-gapSmall">
+<div class="l-grid_item l-grid_item-50per">
+<div class="c-img">
+<img src="//picsum.photos/g/1280/500/" alt="">
+</div>
+<p class="c-note">キャプションが入ります</p>
+</div><!-- /.l-grid_item -->
+<div class="l-grid_item l-grid_item-50per">
+<p class="c-paragraph">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</p>
+</div><!-- /.l-grid_item -->
+</div><!-- /.l-grid -->
+</div><!-- /.l-tile_item -->
+</div><!-- /.l-tile -->
+```
+### 画像＋テキスト小 (2カラム)
+
+```html
+<div class="l-tile l-tile-2">
+<div class="l-tile_item">
+<div class="l-grid l-gapSmall">
+<div class="l-grid_item l-grid_item-25per">
+<div class="c-img">
+<img src="//picsum.photos/g/1280/500/" alt="">
+</div>
+<p class="c-note">キャプションが入ります</p>
+</div><!-- /.l-grid_item -->
+<div class="l-grid_item l-grid_item-75per">
+<p class="c-paragraph">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</p>
+</div><!-- /.l-grid_item -->
+</div><!-- /.l-grid -->
+</div><!-- /.l-tile_item -->
+<div class="l-tile_item">
+<div class="l-grid l-gapSmall">
+<div class="l-grid_item l-grid_item-25per">
+<div class="c-img">
+<img src="//picsum.photos/g/1280/500/" alt="">
+</div>
+<p class="c-note">キャプションが入ります</p>
+</div><!-- /.l-grid_item -->
+<div class="l-grid_item l-grid_item-75per">
+<p class="c-paragraph">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</p>
+</div><!-- /.l-grid_item -->
+</div><!-- /.l-grid -->
+</div><!-- /.l-tile_item -->
+</div><!-- /.l-tile -->
+```
+
+*/

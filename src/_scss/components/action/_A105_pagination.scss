@@ -1,0 +1,58 @@
+/*
+---
+name: A105 Pagination
+action:
+  - A1 Control
+  - A1 Control/A105 Pagination
+tag:
+  - Control
+---
+## ページ切替
+
+```html
+<div class="c-pagination">
+<p class="c-pagination_item c-pagination_prev"><span>前へ</span></p>
+<p class="c-pagination_item c-pagination_next"><a href="#">次へ</a></p>
+</div><!-- /.c-pagination -->
+```
+
+## ページ切替 (番号あり)
+
+```html
+<div class="c-pagination">
+<p class="c-pagination_item c-pagination_prev"><span>前へ</span></p>
+<ol class="c-pagination_list">
+<li class="c-pagination_listItem c-pagination_item c-pagination_item-current"><a href="#">1</a></li>
+<li class="c-pagination_listItem c-pagination_item"><a href="#">2</a></li>
+<li class="c-pagination_listItem c-pagination_item"><a href="#">3</a></li>
+<li class="c-pagination_listItem c-pagination_item"><a href="#">4</a></li>
+<li class="c-pagination_listItem c-pagination_item"><a href="#">5</a></li>
+</ol><!-- /.c-pagination_list -->
+<p class="c-pagination_item c-pagination_next"><a href="#">次へ</a></p>
+</div><!-- /.c-pagination -->
+```
+*/
+.c-pagination {
+  @include dfm(medium);
+  text-align: center;
+  &_list {
+    display: inline-block;
+  }
+  &_item {
+    display: inline-block;
+    line-height: 1;
+    > a,
+    > span {
+      @include ex($ts-small);
+      display: block;
+      padding: $unit ($unit * 1.5);
+    }
+    &-current {
+      font-weight: bold;
+      color: #000;
+      border: $bd-regular;
+      background-color: map-get($c-grey,grey300);
+    }
+  }
+}
+

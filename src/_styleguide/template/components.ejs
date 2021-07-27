@@ -1,0 +1,30 @@
+<% if(components.length) { %>
+<!-- <h1 class="sg-contents_heading" data-component-title></h1> -->
+<!-- <nav>
+  <ul class="sg-contentsList"><% components.forEach(function(component) { %>
+    <li class="sg-contentsList_item">
+      <a href="#<%- component.config.name %>"><%- component.config.name %></a>
+    </li><% }) %>
+  </ul>
+</nav> -->
+<div><% components.forEach(function(component) { %>
+  <div class="sg-module">
+    <h1 class="sg-module_heading" id="<%- component.config.name %>">
+      <%- component.config.name %>
+    </h1>
+    <div class="sg-module_filepath">
+      <%- component.sourcePath %>
+    </div>
+    <ul class="sg-tags"><% component.config.tag.forEach(function(tag) { %>
+      <li class="sg-tags_item sg-tags_item-<%- tag %>">
+        <%- tag %>
+      </li><% })%>
+    </ul>
+    <div class="sg-module_body">
+      <%- component.html %>
+    </div>
+  </div><% }) %>
+</div>
+<% } else { %>
+  <%- html %>
+<% } %>

@@ -1,0 +1,508 @@
+/*! Gap */
+/*
+---
+name: L107 Gap
+layout:
+  - Layout
+  - Layout/L107 Gap
+tag:
+  - Layout
+---
+
+ギャップはレイアウトで指定しているギャップの値を調整する。  
+`.l-grid`や`.l-tile`、`.l-stack`などのレイアウトで使用可能。  
+ギャップの値は `_L107_gap.scss` のローカル変数（`$gapXX`）で数値を指定する。
+
+## ギャップ ラージ
+
+ローカル変数（`$gapLarge`）で数値を指定する。
+
+```html
+<div class="l-grid l-gapLarge">
+<div class="l-grid_item l-grid_item-8">
+<div class="sg-dummy">8 gapLarge</div>
+</div><!-- /.l-grid_item -->
+<div class="l-grid_item l-grid_item-4">
+<div class="sg-dummy">4 gapLarge</div>
+</div><!-- /.l-grid_item -->
+</div><!-- /.l-grid -->
+```
+
+### 各screenの設定
+#### large screen時の設定
+
+large screenの表示については、`.l-gapLarge-lg`を付与することで変更可能。  
+※ medium screen以下には継承されない
+
+```html
+<div class="l-grid l-gapLarge-lg">
+<div class="l-grid_item l-grid_item-8">
+<div class="sg-dummy">8 gapLarge</div>
+</div><!-- /.l-grid_item -->
+<div class="l-grid_item l-grid_item-4">
+<div class="sg-dummy">4 gapLarge</div>
+</div><!-- /.l-grid_item -->
+</div><!-- /.l-grid -->
+```
+
+#### medium screen時の設定
+
+medium screenの表示については、`.l-gapLarge-md`を付与することで変更可能。  
+※ small screenには継承されない
+
+```html
+<div class="l-grid l-gapLarge-md">
+<div class="l-grid_item l-grid_item-8">
+<div class="sg-dummy">8 gapLarge</div>
+</div><!-- /.l-grid_item -->
+<div class="l-grid_item l-grid_item-4">
+<div class="sg-dummy">4 gapLarge</div>
+</div><!-- /.l-grid_item -->
+</div><!-- /.l-grid -->
+```
+
+#### small screen時の設定
+
+small screenの表示については、`.l-gapLarge-sm`を付与することで変更可能。
+
+```html
+<div class="l-grid l-gapLarge-sm">
+<div class="l-grid_item l-grid_item-8">
+<div class="sg-dummy">8 gapLarge</div>
+</div><!-- /.l-grid_item -->
+<div class="l-grid_item l-grid_item-4">
+<div class="sg-dummy">4 gapLarge</div>
+</div><!-- /.l-grid_item -->
+</div><!-- /.l-grid -->
+```
+
+## ギャップ ミディアム
+
+ローカル変数（`$gapMedium`）で数値を指定する。
+
+```html
+<div class="l-grid l-gapMedium">
+<div class="l-grid_item l-grid_item-8">
+<div class="sg-dummy">8 gapMedium</div>
+</div><!-- /.l-grid_item -->
+<div class="l-grid_item l-grid_item-4">
+<div class="sg-dummy">4 gapMedium</div>
+</div><!-- /.l-grid_item -->
+</div><!-- /.l-grid -->
+```
+
+### 各screenの設定
+#### large screen時の設定
+
+large screenの表示については、`.l-gapMedium-lg`を付与することで変更可能。  
+※ medium screen以下には継承されない
+
+```html
+<div class="l-grid l-gapMedium-lg">
+<div class="l-grid_item l-grid_item-8">
+<div class="sg-dummy">8 gapMedium</div>
+</div><!-- /.l-grid_item -->
+<div class="l-grid_item l-grid_item-4">
+<div class="sg-dummy">4 gapMedium</div>
+</div><!-- /.l-grid_item -->
+</div><!-- /.l-grid -->
+```
+
+#### medium screen時の設定
+
+medium screenの表示については、`.l-gapMedium-md`を付与することで変更可能。  
+※ small screenには継承されない
+
+```html
+<div class="l-grid l-gapMedium-md">
+<div class="l-grid_item l-grid_item-8">
+<div class="sg-dummy">8 gapMedium</div>
+</div><!-- /.l-grid_item -->
+<div class="l-grid_item l-grid_item-4">
+<div class="sg-dummy">4 gapMedium</div>
+</div><!-- /.l-grid_item -->
+</div><!-- /.l-grid -->
+```
+
+#### small screen時の設定
+
+small screenの表示については、`.l-gapMedium-sm`を付与することで変更可能。
+
+```html
+<div class="l-grid l-gapMedium-sm">
+<div class="l-grid_item l-grid_item-8">
+<div class="sg-dummy">8 gapMedium</div>
+</div><!-- /.l-grid_item -->
+<div class="l-grid_item l-grid_item-4">
+<div class="sg-dummy">4 gapMedium</div>
+</div><!-- /.l-grid_item -->
+</div><!-- /.l-grid -->
+```
+
+
+## ギャップ スモール
+
+ローカル変数（`$gapSmall`）で数値を指定する。
+
+```html
+<div class="l-grid l-gapSmall">
+<div class="l-grid_item l-grid_item-8">
+<div class="sg-dummy">8 gapSmall</div>
+</div><!-- /.l-grid_item -->
+<div class="l-grid_item l-grid_item-4">
+<div class="sg-dummy">4 gapSmall</div>
+</div><!-- /.l-grid_item -->
+</div><!-- /.l-grid -->
+```
+
+### 各screenの設定
+#### large screen時の設定
+
+large screenの表示については、`.l-gapSmall-lg`を付与することで変更可能。  
+※ medium screen以下には継承されない
+
+```html
+<div class="l-grid l-gapSmall-lg">
+<div class="l-grid_item l-grid_item-8">
+<div class="sg-dummy">8 gapSmall</div>
+</div><!-- /.l-grid_item -->
+<div class="l-grid_item l-grid_item-4">
+<div class="sg-dummy">4 gapSmall</div>
+</div><!-- /.l-grid_item -->
+</div><!-- /.l-grid -->
+```
+
+#### medium screen時の設定
+
+medium screenの表示については、`.l-gapSmall-md`を付与することで変更可能。  
+※ small screenには継承されない
+
+```html
+<div class="l-grid l-gapSmall-md">
+<div class="l-grid_item l-grid_item-8">
+<div class="sg-dummy">8 gapSmall</div>
+</div><!-- /.l-grid_item -->
+<div class="l-grid_item l-grid_item-4">
+<div class="sg-dummy">4 gapSmall</div>
+</div><!-- /.l-grid_item -->
+</div><!-- /.l-grid -->
+```
+
+#### small screen時の設定
+
+small screenの表示については、`.l-gapSmall-sm`を付与することで変更可能。
+
+```html
+<div class="l-grid l-gapSmall-sm">
+<div class="l-grid_item l-grid_item-8">
+<div class="sg-dummy">8 gapSmall</div>
+</div><!-- /.l-grid_item -->
+<div class="l-grid_item l-grid_item-4">
+<div class="sg-dummy">4 gapSmall</div>
+</div><!-- /.l-grid_item -->
+</div><!-- /.l-grid -->
+```
+
+## ギャップ1px
+
+`.l-gapOne`のクラスを付与することでギャップが1pxとなる。
+
+```html
+<div class="l-grid l-gapOne">
+<div class="l-grid_item l-grid_item-3">
+<div class="sg-dummy">3 one</div>
+</div><!-- /.l-grid_item -->
+<div class="l-grid_item l-grid_item-7">
+<div class="sg-dummy">7 one</div>
+</div><!-- /.l-grid_item -->
+<div class="l-grid_item l-grid_item-2">
+<div class="sg-dummy">2 one</div>
+</div><!-- /.l-grid_item -->
+</div><!-- /.l-grid -->
+```
+
+### 各screenの設定
+#### large screen時の設定
+
+large screenの表示については、`.l-gapOne-lg`を付与することで変更可能。  
+※ medium screen以下には継承されない
+
+```html
+<div class="l-grid l-gapOne-lg">
+<div class="l-grid_item l-grid_item-8">
+<div class="sg-dummy">8 gapOne</div>
+</div><!-- /.l-grid_item -->
+<div class="l-grid_item l-grid_item-4">
+<div class="sg-dummy">4 gapOne</div>
+</div><!-- /.l-grid_item -->
+</div><!-- /.l-grid -->
+```
+
+#### medium screen時の設定
+
+medium screenの表示については、`.l-gapOne-md`を付与することで変更可能。  
+※ small screenには継承されない
+
+```html
+<div class="l-grid l-gapOne-md">
+<div class="l-grid_item l-grid_item-8">
+<div class="sg-dummy">8 gapOne</div>
+</div><!-- /.l-grid_item -->
+<div class="l-grid_item l-grid_item-4">
+<div class="sg-dummy">4 gapOne</div>
+</div><!-- /.l-grid_item -->
+</div><!-- /.l-grid -->
+```
+
+#### small screen時の設定
+
+small screenの表示については、`.l-gapOne-sm`を付与することで変更可能。
+
+```html
+<div class="l-grid l-gapOne-sm">
+<div class="l-grid_item l-grid_item-8">
+<div class="sg-dummy">8 gapOne</div>
+</div><!-- /.l-grid_item -->
+<div class="l-grid_item l-grid_item-4">
+<div class="sg-dummy">4 gapOne</div>
+</div><!-- /.l-grid_item -->
+</div><!-- /.l-grid -->
+```
+
+## ギャップ無し
+
+`.l-gapNone`のクラスを付与することでギャップ無しとなる。
+
+```html
+<div class="l-grid l-gapNone">
+<div class="l-grid_item l-grid_item-3">
+<div class="sg-dummy">3 no</div>
+</div><!-- /.l-grid_item -->
+<div class="l-grid_item l-grid_item-7">
+<div class="sg-dummy">7 no</div>
+</div><!-- /.l-grid_item -->
+<div class="l-grid_item l-grid_item-2">
+<div class="sg-dummy">2 no</div>
+</div><!-- /.l-grid_item -->
+</div><!-- /.l-grid -->
+```
+
+### 各screenの設定
+#### large screen時の設定
+
+large screenの表示については、`.l-gapNone-lg`を付与することで変更可能。  
+※ medium screen以下には継承されない
+
+```html
+<div class="l-grid l-gapNone-lg">
+<div class="l-grid_item l-grid_item-8">
+<div class="sg-dummy">8 gapNone</div>
+</div><!-- /.l-grid_item -->
+<div class="l-grid_item l-grid_item-4">
+<div class="sg-dummy">4 gapNone</div>
+</div><!-- /.l-grid_item -->
+</div><!-- /.l-grid -->
+```
+
+#### medium screen時の設定
+
+medium screenの表示については、`.l-gapNone-md`を付与することで変更可能。  
+※ small screenには継承されない
+
+```html
+<div class="l-grid l-gapNone-md">
+<div class="l-grid_item l-grid_item-8">
+<div class="sg-dummy">8 gapNone</div>
+</div><!-- /.l-grid_item -->
+<div class="l-grid_item l-grid_item-4">
+<div class="sg-dummy">4 gapNone</div>
+</div><!-- /.l-grid_item -->
+</div><!-- /.l-grid -->
+```
+
+#### small screen時の設定
+
+small screenの表示については、`.l-gapNone-sm`を付与することで変更可能。
+
+```html
+<div class="l-grid l-gapNone-sm">
+<div class="l-grid_item l-grid_item-8">
+<div class="sg-dummy">8 gapNone</div>
+</div><!-- /.l-grid_item -->
+<div class="l-grid_item l-grid_item-4">
+<div class="sg-dummy">4 gapNone</div>
+</div><!-- /.l-grid_item -->
+</div><!-- /.l-grid -->
+```
+*/
+
+$gapLarge: 48px;
+$gapMedium: 24px;
+$gapSmall: 12px;
+
+@mixin gapLarge {
+	margin-left: -($gapLarge / 2);
+  margin-right: -($gapLarge / 2);
+  margin-bottom: -$gapLarge;
+  & > [class*="item"] {
+    padding-left: $gapLarge / 2;
+    padding-right: $gapLarge / 2;
+    margin-bottom: $gapLarge;
+  }
+}
+
+.l-gapLarge {
+  @include gapLarge;
+  &-lg {
+    @include bp(large) {
+      @include gapLarge;
+    }
+  }
+  &-md {
+    @include bp(medium-only) {
+      @include gapLarge;
+    }
+  }
+  &-sm {
+    @include bp(small) {
+      @include gapLarge;
+    }
+  }
+}
+
+/*
+.l-gapMedium
+*/
+
+@mixin gapMedium {
+  margin-left: -($gapMedium / 2);
+  margin-right: -($gapMedium / 2);
+  margin-bottom: -$gapMedium;
+  & > [class*="item"] {
+    padding-left: $gapMedium / 2;
+    padding-right: $gapMedium / 2;
+    margin-bottom: $gapMedium;
+  }
+}
+
+.l-gapMedium {
+  @include gapMedium;
+  &-lg {
+    @include bp(large) {
+      @include gapMedium;
+    }
+  }
+  &-md {
+    @include bp(medium-only) {
+      @include gapMedium;
+    }
+  }
+  &-sm {
+    @include bp(small) {
+      @include gapMedium;
+    }
+  }
+}
+
+
+/*
+.l-gapSmall
+*/
+
+@mixin gapSmall {
+  margin-left: -($gapSmall / 2);
+  margin-right: -($gapSmall / 2);
+  margin-bottom: -$gapSmall;
+  & > [class*="item"] {
+    padding-left: $gapSmall / 2;
+    padding-right: $gapSmall / 2;
+    margin-bottom: $gapSmall;
+  }
+}
+
+.l-gapSmall {
+  @include gapSmall;
+  &-lg {
+    @include bp(large) {
+      @include gapSmall;
+    }
+  }
+  &-md {
+    @include bp(medium-only) {
+      @include gapSmall;
+    }
+  }
+  &-sm {
+    @include bp(small) {
+      @include gapSmall;
+    }
+  }
+}
+
+/*
+.l-gapOne
+*/
+
+@mixin gapOne {
+  margin-left: -0.5px;
+  margin-right: -0.5px;
+  margin-bottom: -1px;
+  & > [class*="item"] {
+    padding-left: 0.5px;
+    padding-right: 0.5px;
+    margin-bottom: 1px;
+  }
+}
+
+.l-gapOne {
+  @include gapOne;
+  &-lg {
+    @include bp(large) {
+      @include gapOne;
+    }
+  }
+  &-md {
+    @include bp(medium-only) {
+      @include gapOne;
+    }
+  }
+  &-sm {
+    @include bp(small) {
+      @include gapOne;
+    }
+  }
+}
+
+/*
+.l-gapNone
+*/
+
+@mixin gapNone {
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+  & > [class*="item"] {
+    padding-left: 0;
+    padding-right: 0;
+    margin-bottom: 0;
+  }
+}
+
+.l-gapNone {
+  @include gapNone;
+  &-lg {
+    @include bp(large) {
+      @include gapNone;
+    }
+  }
+  &-md {
+    @include bp(medium-only) {
+      @include gapNone;
+    }
+  }
+  &-sm {
+    @include bp(small) {
+      @include gapNone;
+    }
+  }
+}

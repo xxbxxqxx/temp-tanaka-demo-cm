@@ -1,0 +1,304 @@
+/* ======================================== *\
+# Stylesheet Foundation - CONNECT DESIGN KIT
+\* ======================================== */
+
+/* -------------------- *\
+## フォーマット
+\* -------------------- */
+
+/*
+### 基準値
+サイズの基準値を8px（サブ 4px）とします。
+*/
+$unit: 8px;
+
+/*
+### ブレイクポイント
+以下の画面幅でCSSを切り替えます。
+*/
+// bp = BreakPoint
+$bp-large: 960px;
+$bp-medium: 600px;
+$bp-small: $bp-medium - 1;
+
+/*
+### レイアウトグリッド
+ページ中央に以下のレイアウトグリッドを設定します。両端のガターはグリッド幅に含みません。
+*/
+// #### グリッド最大幅（コンテンツ最大幅）
+// ct = ConTents
+$ct-maxW: 1032px;
+// #### グリッド分割数・ギャップ
+// gr = GRid
+$gr-cols: 12;
+$gr-gutter: 24px;
+// #### 左右マージン
+// ct = ConTents
+$ct-padding-large: 44px;
+// $ct-padding-medium: 34px;
+$ct-padding-small: 24px;
+// $ct-padding-xsmall: 0;
+
+
+
+/* -------------------- *\
+## デザイン要素
+\* -------------------- */
+
+/*
+### 色
+以下の色を使用します ※アクセシビリティに配慮する場合、文字色と背景色のコントラスト比を4.5:1以上とする（アイコンは3:1）。
+色の呼び出しは `map-get($c-***,{key})`
+*/
+// c = Color
+// #### 本文色
+$c-text: #000;
+// #### 機能色
+$c-link: (
+  normal: #1565c0,
+  visited: #0d47a1,
+  hover: #1e88e5
+);
+$c-error: #cc2929;
+// #### 表現色
+$c-project: (
+  noname: #fafafa,
+  noname02: #fafafa,
+  noname03: #fafafa,
+  noname04: #fafafa,
+  noname05: #fafafa,
+  noname06: #fafafa,
+  noname07: #fafafa,
+  noname08: #fafafa,
+  noname09: #fafafa,
+  noname10: #fafafa,
+  noname11: #fafafa,
+  noname12: #fafafa
+);
+// 無彩色
+// ※初期値はMaterial Designの「Grey」を採用。() 内は背景白に対するコントラスト比。案件にあわせて段階や値を変更してください。
+$c-grey: (
+  black: #000000,
+  grey900: #212121,
+  grey800: #424242,
+  grey700: #616161,
+  grey600: #757575,
+  grey500: #9e9e9e,
+  grey400: #bdbdbd,
+  grey300: #e0e0e0,
+  grey200: #eeeeee,
+  grey100: #f5f5f5,
+  grey50: #fafafa,
+  white: #fff
+);
+
+/*
+### 状態 (透過)
+透過による状態表現を以下とします。
+*/
+// op = OPacity
+$op-normal: 100; //通常
+$op-overlay: 0.95; //オーバーレイ
+$op-hover: 0.85; //ホバー
+$op-disabled: 0.2; //非活性
+
+/*
+### エレベーション (影)
+影によるZ軸方向の高さの表現を以下とします。
+*/
+// bxs = BoX Shadow
+$bxs-lv3: 0 0 8px 0 rgba(0, 0, 0, 0.3);
+$bxs-lv2: 0 0 6px 0 rgba(0, 0, 0, 0.15);
+$bxs-lv1: 0 0 4px 0 rgba(0, 0, 0, 0.1);
+
+/*
+### 線
+使用する線のスタイルを以下とします。
+*/
+// bd = BorDer
+$bd-bold: 2px solid #000000;
+$bd-medium: 1px solid #000009;
+$bd-regular: 1px solid #bdbdbd;
+$bd-light: 1px solid #e0e0e0;
+$bd-thin: 1px solid #eeeeee;
+
+/*
+### 角R
+使用する角Rを以下とします。
+*/
+// rd = RaDius
+$rd-01: 2px;
+$rd-02: 4px;
+$rd-03: 6px;
+
+/* -------------------- *\
+## タイポグラフィ
+\* -------------------- */
+
+/*
+### スペース
+以下を文書要素間の基本的なスペースとします。特定要素に用いるスペースは個別に指定します。
+*/
+// sp = SPace
+$sp-small: $unit * 1;
+$sp-medium: $unit * 3;
+$sp-large: $unit * 7.5;
+
+/*
+### 初期値
+ルートの書式を以下とします。
+*/
+/* ヒラギノ角ゴ */
+@font-face {
+  font-family: '-Hiragino';
+  font-weight: normal;
+  src: local('HiraginoSans-W3'), local('Hiragino Kaku Gothic ProN');
+}
+@font-face {
+  font-family: '-Hiragino';
+  font-weight: bold;
+  src: local('HiraginoSans-W6'), local('Hiragino Kaku Gothic ProN W6');
+}
+/* 游ゴシック */
+@font-face {
+  font-family: '-YuGothic';
+  font-weight: normal;
+  src: local('YuGothic-Medium'), local('Yu Gothic Medium'), local('YuGothic'); }
+@font-face {
+  font-family: '-YuGothic';
+  font-weight: bold;
+  src: local('YuGothic-Bold'), local('Yu Gothic'), local('YuGothic');
+}
+
+$initial-html:(
+  font-family: #{"-Hiragino", "Meiryo", sans-serif}
+);
+
+/*
+### 書式
+以下を基本的な書式とします。特定要素に用いるテキストスタイルは個別に指定します。
+※書式 = 書体, ウェート, 文字サイズ/行高さ, 字間
+*/
+// ts = Text Style
+// パターンの展開は `@include ex($ts-**);`
+
+$ts-lv1:(
+  font-weight: bold,
+  font-size: 27px,
+  line-height: 1.5
+);
+$ts-lv2:(
+  font-weight: bold,
+  font-size: 20px,
+  line-height: 1.5
+);
+$ts-lv3:(
+  font-weight: bold,
+  font-size: 18px,
+  line-height: 1.5
+);
+$ts-lv4:(
+  font-weight: bold,
+  font-size: 16px,
+  line-height: 1.5
+);
+$ts-headline:(
+  font-weight: bold,
+  font-size: 17px,
+  line-height: 1.5
+);
+$ts-paragraph:(
+  font-size: 16px,
+  line-height: 1.8
+);
+$ts-xlarge:(
+  font-size: 24px,
+  line-height: 1.5
+);
+$ts-large:(
+  font-size: 20px,
+  line-height: 1.5
+);
+$ts-midium:(
+  font-size: 16px,
+  line-height: 1.5
+);
+$ts-small:(
+  font-size: 14px,
+  line-height: 1.5
+);
+$ts-xsmall:(
+  font-size: 12px,
+  line-height: 1.5
+);
+
+/*
+### リンクスタイル
+*/
+// lt = Link Text
+// スタイルの展開は `@include ex($lt-**);`
+// 標準
+$lt-link:(
+  color: map-get($c-link,normal),
+  text-decoration: none
+);
+// 訪問済
+$lt-visited:(
+  color: map-get($c-link,visited),
+  text-decoration: none
+);
+// マウスオン
+$lt-hover:(
+  color: map-get($c-link,hover),
+  text-decoration: underline
+);
+// lp = Link Paragraph
+// スタイルの呼び出しは `@include ex($lt-**);`
+// 標準
+$lp-link:(
+  color: map-get($c-link,normal),
+  text-decoration: none
+);
+// 訪問済
+$lp-visited:(
+  color: map-get($c-link,visited),
+  text-decoration: none
+);
+// マウスオン
+$lp-hover:(
+  color: map-get($c-link,hover),
+  text-decoration: underline
+);
+
+/* -------------------- *\
+## アイコン
+\* -------------------- */
+// ic = ICon
+$ic-baseSize: 1.5em;
+$ic-capheight: 0.77em;
+$ic-padding: 0.5em;
+
+$ic-rootPath: "#{$path-assets}/img/icons/";
+$ic-darkPath: "#{$path-assets}/img/icons/dark/";
+$ic-paths:(
+  check: "ic_check.svg",
+  chevronBottom: "ic_chevron_bottom.svg",
+  chevronTop: "ic_chevron_top.svg",
+  chevronRight: "ic_chevron_right.svg",
+  chevronLeft: "ic_chevron_left.svg",
+  chevronRightHarf: "ic_chevron_right_harf.svg",
+  accordionOpen: "ic_accordion_open.svg",
+  accordionClose: "ic_accordion_close.svg",
+  close: "ic_close.svg",
+  globe: "ic_globe.svg",
+  info: "ic_info.svg",
+  linkBlank: "ic_link_blank.svg",
+  menu: "ic_menu.svg",
+  mail: "ic_mail.svg",
+  search: "ic_search.svg",
+  setting: "ic_setting.svg",
+  triDown: "ic_tri_down.svg",
+  triUp: "ic_tri_up.svg",
+  play: "ic_play.svg",
+  pause: "ic_pause.svg"
+);

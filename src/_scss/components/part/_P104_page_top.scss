@@ -1,0 +1,44 @@
+/*! Footer */
+/*
+---
+name: P104 Page top
+part:
+  - P1 Area
+  - P1 Area/P104 Page top
+tag:
+  - Area
+---
+グローバルフッター周辺のコンポーネント
+
+リンクの親要素に`data-js-localscroll`属性を付与することで。スムーススクロールが適用される。  
+アイコン・テキストは任意で変更。  
+hrefの値及び飛び先のIDは適宜変更すること。
+
+```html
+<p class="c-pageTop" data-js-localscroll><a href="#top"><img class="i-label i-label-left" src="/assets/img/icons/ic_tri_up.svg" alt="">ページトップ</a></p>
+```
+
+```js
+// スムーススクロール
+// cnt.localscroll.tsを利用
+// /src/assets/ts/main.tsにて初期化
+
+const localScrollTrigger = document.querySelectorAll('[data-js-localscroll]');
+
+Array.from(localScrollTrigger).forEach((trigger: HTMLElement) => {
+  new LocalScroll(trigger, {
+    offset: -20, //目的のエリアへスクロールする際に調整するトップのオフセット値 (デフォルト: 0)
+    duration: 1000, //duraiton (デフォルト: 800)
+    easing: 'easeOutExpo' //easing (デフォルト： 'swing')
+    // endScroll: function (target: HTMLElement[]) {
+    // スクロール後の処理
+    //   alert(`id: ${target[0].id}にスクロールしました`);
+    // }
+  });
+});
+```
+*/
+.c-pageTop {
+  @include ex($ts-midium);
+  margin-top: $unit * 3;
+}

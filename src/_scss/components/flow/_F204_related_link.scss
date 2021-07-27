@@ -1,0 +1,76 @@
+/*! Footer */
+/*
+---
+name: F204 Related link
+flow:
+  - F2 Lead
+  - F2 Lead/F204 Related link
+tag:
+  - Lead
+---
+グローバルフッター周辺のコンポーネント
+
+
+```html
+<div class="c-contentFooter">
+<p class="c-contentFooter_title c-titleText">コンテンツフッタータイトル</p>
+<div class="c-contentFooter_link">
+<div class="l-tile l-tile-4">
+<div class="l-tile_item">
+<div class="c-card">
+<a href="#">
+<div class="c-card_img c-img">
+<img src="//picsum.photos/g/600/200/?gravity=north" alt="">
+</div><!-- /.c-card_img -->
+<p class="c-card_title">コンテンツタイトル</p>
+</a>
+</div><!-- /.c-card -->
+</div><!-- /.l-tile_item -->
+<div class="l-tile_item">
+<div class="c-card">
+<a href="#">
+<div class="c-card_img c-img">
+<img src="//picsum.photos/g/600/200/?gravity=east" alt="">
+</div><!-- /.c-card_img -->
+<p class="c-card_title">コンテンツタイトル</p>
+</a>
+</div><!-- /.c-card -->
+</div><!-- /.l-tile_item -->
+<div class="l-tile_item">
+<div class="c-card">
+<a href="#">
+<div class="c-card_img c-img">
+<img src="//picsum.photos/g/600/200/?gravity=south" alt="">
+</div><!-- /.c-card_img -->
+<p class="c-card_title">コンテンツタイトル</p>
+</a>
+</div><!-- /.c-card -->
+</div><!-- /.l-tile_item -->
+<div class="l-tile_item">
+<div class="c-card">
+<a href="#">
+<div class="c-card_img c-img">
+<img src="//picsum.photos/g/600/200/?gravity=west" alt="">
+</div><!-- /.c-card_img -->
+<p class="c-card_title">コンテンツタイトル</p>
+</a>
+</div><!-- /.c-card -->
+</div><!-- /.l-tile_item -->
+</div><!-- /.l-tile -->
+</div><!-- /.c-contentFooter_link -->
+</div><!-- /.c-contentFooter -->
+```
+*/
+
+.c-contentFooter {
+  margin-top: $unit * 3;
+  &_link {
+    margin-top: $unit * 2;
+    .c-card {
+      border: 0;
+      > a {
+        padding: 0;
+      }
+    }
+  }
+}

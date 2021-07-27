@@ -1,0 +1,29 @@
+{
+  "sitesetting": {
+    "meta": {
+      "sitename": "Recruit Holdings",
+      "description": "You have reached the company website of Recruit Holdings Co., Ltd. Here we will be informing you about Recruit Groups business and services, Investor Relations information for our investors and many other information related to our company. We help people to discover Opportunities for Life.",
+      "keyword": "Recruit Holdings,CorporateInformation,Sustainability,Governance,InvestorRelations,",
+      "og_type": "article",
+      "og_image": "https://recruit-holdings.co.jp/who/img/who_ogp.png"
+    },
+    "header": {
+      "sitename": "Recruit Holdings",
+      "siteshoulder": "Demo website",
+      "home": "HOME",
+      "who": "Who we are",
+      "what": "What we do",
+      "sustainability": "Sustainability",
+      "ir": "Investr Relations",
+      "newsroom": "Newsroom",
+      "contact": "Contact us"
+    },
+    "text": {
+      "pagetop": "Page top",
+      "home": "HOME",
+      "switch": "Language Switch",
+      "ja": "Japanese",
+      "en": "English"
+    }
+  }
+}

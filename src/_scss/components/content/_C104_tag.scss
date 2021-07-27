@@ -1,0 +1,63 @@
+/*
+---
+name: C104 Tag
+content:
+  - C1 Element
+  - C1 Element/C104 Tag
+tag:
+  - Element
+---
+## タグ
+
+```html
+<span class="c-tag">テキストが入ります。</span>
+```
+
+### タグの複数利用
+デフォルトスタイルでは`display:inline-block`指定による横並びとなる。
+
+```html
+<span class="c-tag">テキストが入ります。</span>
+<span class="c-tag">テキストが入ります。</span>
+<span class="c-tag">テキストが入ります。</span>
+<span class="c-tag">テキストが入ります。</span>
+```
+
+## タグ（リンク）
+
+```html
+<a href="#" class="c-tag">テキストが入ります。</a>
+```
+
+### タグ（リンク）の複数利用
+デフォルトスタイルでは`display:inline-block`指定による横並びとなる。
+
+```html
+<a href="#" class="c-tag">テキストが入ります。</a>
+<a href="#" class="c-tag">テキストが入ります。</a>
+<a href="#" class="c-tag">テキストが入ります。</a>
+<a href="#" class="c-tag">テキストが入ります。</a>
+```
+*/
+
+.c-tag {
+  font-size: 12px;
+  background-color: map-get($c-grey,grey200);
+  display: inline-block;
+  padding: 0 ($unit * 2);
+  margin-left: $unit;
+  position: relative;
+  vertical-align: middle;
+  color: $c-text;
+  line-height: 1.5;
+  border-radius: 3em;
+}
+
+.c-tag {
+  &:link {
+    &:hover {
+      color: $c-text;
+      text-decoration: none;
+    }
+  }
+}

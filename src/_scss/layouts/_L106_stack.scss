@@ -1,0 +1,33 @@
+/*! Stack */
+/*
+---
+name: L106 Stack
+layout:
+  - Layout
+  - Layout/L106 Stack
+tag:
+  - Layout
+---
+
+レイアウトを目的とした縦積みのレイアウト要素。  
+
+
+## スタックコンポーネント
+
+```html
+<ul class="l-stack">
+<li class="l-stack_item">テキストが入ります。</li>
+<li class="l-stack_item">テキストが入ります。テキストが入ります。</li>
+<li class="l-stack_item">テキストが入ります。</li>
+<li class="l-stack_item">テキストが入ります。テキストが入ります。</li>
+</ul><!-- /.l-stack -->
+```
+*/
+
+.l-stack {
+  @include dfm(medium);
+  margin-bottom: -$unit * 2;
+  & > &_item {
+    margin-bottom: $unit * 2;
+  }
+}

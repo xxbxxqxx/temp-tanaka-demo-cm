@@ -1,0 +1,152 @@
+/*
+---
+name: A104 Accordion
+action:
+  - A1 Control
+  - A1 Control/A104 Accordion
+tag:
+  - Control
+---
+
+内容を必要な人だけに見せる場合に利用。テキスト部分には必要に応じて任意のコンポーネントを適用可。  
+JSで操作する要素のdata属性に`data-js-accordion(-**)`を追加し、各オプションを設定してアコーディオンのJSを初期化する。（ページ下部のアコーディオンJS初期化設定参照）  
+展開されているアコーディオンコンテンツに aria-hidden="false"、折りたためられているアコーディオンコンテンツに aria-hidden="true"を指定し、展開されているアコーディオントリガーに aria-expanded="true" 、折りたためられているアコーディオントリガーに aria-expanded="false" を指定する。
+
+```html
+<div class="c-accordion" data-js-accordion>
+<div class="c-accordion_section" data-js-accordion-wrapper>
+<a href="#" class="c-accordion_title" data-js-accordion-trigger aria-expanded="false">
+アコーディオンタイトル
+<img class="i-area i-area-right is-close" src="/assets/img/icons/ic_accordion_open.svg" alt="アコーディオンを開く">
+<img class="i-area i-area-right is-open" src="/assets/img/icons/ic_accordion_close.svg" alt="アコーディオンを閉じる">
+</a>
+<div class="c-accordion_content" data-js-accordion-content aria-hidden="true">
+<div class="c-accordion_content_inner">
+<p class="c-accordion_text">コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。</p>
+</div><!-- /.c-accordion_content_inner -->
+</div><!-- /.c-accordion_content -->
+</div><!-- /.c-accordion_section -->
+<div class="c-accordion_section" data-js-accordion-wrapper>
+<a href="#" class="c-accordion_title" data-js-accordion-trigger aria-expanded="false">
+アコーディオンタイトル
+<img class="i-area i-area-right is-close" src="/assets/img/icons/ic_accordion_open.svg" alt="アコーディオンを開く">
+<img class="i-area i-area-right is-open" src="/assets/img/icons/ic_accordion_close.svg" alt="アコーディオンを閉じる">
+</a>
+<div class="c-accordion_content" data-js-accordion-content aria-hidden="false">
+<div class="c-accordion_content_inner">
+<p class="c-accordion_text">コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。</p>
+</div><!-- /.c-accordion_content_inner -->
+</div><!-- /.c-accordion_content -->
+</div><!-- /.c-accordion_section -->
+<div class="c-accordion_section" data-js-accordion-wrapper>
+<a href="#" class="c-accordion_title" data-js-accordion-trigger aria-expanded="false">
+アコーディオンタイトル
+<img class="i-area i-area-right is-close" src="/assets/img/icons/ic_accordion_open.svg" alt="アコーディオンを開く">
+<img class="i-area i-area-right is-open" src="/assets/img/icons/ic_accordion_close.svg" alt="アコーディオンを閉じる">
+</a>
+<div class="c-accordion_content" data-js-accordion-content aria-hidden="true">
+<div class="c-accordion_content_inner">
+<p class="c-accordion_text">コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。</p>
+</div><!-- /.c-accordion_content_inner -->
+</div><!-- /.c-accordion_content -->
+</div><!-- /.c-accordion_section -->
+</div><!-- /.c-accordion -->
+```
+
+```js
+// アコーディオン
+// cnt.accordion.tsを利用
+// /src/assets/ts/main.tsにて初期化
+
+const accordionContainer = document.querySelectorAll('[data-js-accordion]');
+
+Array.from(accordionContainer).forEach(container => {
+  new Accordion(container, {
+    wrapperSelector: '[data-js-accordion-wrapper]', // 開閉トリガーと開閉コンテンツの直属のラッパーセレクタ
+    triggerSelector: '[data-js-accordion-trigger]', // 開閉トリガーセレクタ
+    contentSelector: '[data-js-accordion-content]', // 開閉コンテンツセレクタ
+    triggerClass: { opened: 'c-accordion-open', closed: 'c-accordion-close' }, // トリガーに付加するクラス
+    toggleTriggerTxt: { opened: null, closed: null }, // トリガーのテキストを切り替える
+    transitionType: 'slide', //トランジションタイプ（'slide' or 'none'）
+    defaultStatus: '', // デフォルトの開閉状態を指定 （'closed'、’’）
+    multiSelectableFlag: true, // 個別に開閉できるか否か
+    initialOpenWrapperClass: 'is-open', // 強制的に開く場合のラッパーに付与するクラス
+    initialOpenTransitionFlag: false, // 強制的に開く場合のトランジション有無
+    initialOpenTransitionDelay: 500, // 強制的に開く場合のディレイ時間をミリ秒単位で指定
+    accessibilityFlag: true, // アクセシビリティ対応するか否か
+    beforeOpen: null, // 開く前の処理
+    endOpen: null, // 開いた後の処理
+    beforeClose: null, // 閉じる前の処理
+    endClose: null, // 閉じた後の処理
+    syncOpenAnimation: false // 他のコンテンツが開いている場合、開くアニメーションを実行するか否か（multiSelectableFlagがfalseの場合に有効）
+  });
+});
+```
+
+尚、1つ開くと別のアコーディオンは閉じる仕様にするためには、`multiSelectableFlag`を`false`にすることで実現可能。
+*/
+
+.c-accordion {
+  $_root: &;
+  @include dfm(medium);
+  &_section {
+    border: $bd-regular;
+  }
+  &_title {
+    @include ex($ts-midium);
+    position: relative;
+    display: block;
+    cursor: pointer;
+    color: map-get($c-link,normal);
+    &:hover {
+      text-decoration: none;
+      color: map-get($c-link,hover);
+    }
+    padding: ($unit * 2) ($unit * 3);
+    padding-right: calc((#{$unit} * 6) + 1.5em);
+    .i-area-right {
+      right: $unit * 3;
+    }
+    @include bp(small) {
+      padding: $unit * 2;
+      padding-right: calc((#{$unit} * 4) + 1.5em);
+      .i-area-right {
+        right: $unit * 2;
+      }
+    }
+  }
+  &-open {
+    font-weight: bold;
+    &:link {
+      color: #000;
+    }
+    .i-area.is-close {
+      display: none;
+    }
+  }
+  &-close {
+    .i-area.is-open {
+      display: none;
+    }
+  }
+  &_content {
+    display: none;
+    &_inner {
+      padding: 0 ($unit * 3) ($unit * 3);
+      @include bp(small) {
+        padding: 0 ($unit * 2) ($unit * 2);
+      }
+    }
+  }
+  &_text {
+    @include ex($ts-midium);
+  }
+
+  &_section {
+    &:nth-child(2) {
+      #{$_root}_content{
+        display:block;
+      }
+    }
+  }
+}

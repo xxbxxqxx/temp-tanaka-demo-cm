@@ -1,0 +1,64 @@
+/*! Text */
+/*
+---
+name: C103 Note
+content:
+  - C1 Element
+  - C1 Element/C103 Note
+tag:
+  - Element
+---
+
+## Mark
+
+文脈に応じて paragraph / ul を選択。
+
+```html
+<p class="c-note">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</p>
+<ul class="l-stack">
+<li class="l-stack_item"><span class="c-note">テキストが入ります。テキストが入ります。<br>テキストが入ります。テキストが入ります。</span></li>
+<li class="l-stack_item"><span class="c-note">テキストが入ります。テキストが入ります。<br>テキストが入ります。テキストが入ります。</span></li>
+</ul>
+```
+
+## Numbered
+
+文脈に応じて paragraph / ul（olも可）を選択。  
+（下記サンプルはマークダウンパーサーの仕様上ソース内にエスケープ`\`が入っていますが、コンポーネント利用時は削除してください。）
+
+```html
+<p class="c-note c-note-number"><span class="c-note_marker">\*1</span>テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</p>
+<ul class="l-stack">
+<li class="l-stack_item"><span class="c-note c-note-number"><span class="c-note_marker">\*1</span>テキストが入ります。テキストが入ります。テキストが入ります。</span></li>
+<li class="l-stack_item"><span class="c-note c-note-number"><span class="c-note_marker">\*10</span>テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</span></li>
+</ul>
+```
+*/
+
+.c-note {
+  @include ex($ts-xsmall);
+  display: block;
+  text-indent: -1em;
+  padding-left: 1em;
+  &::before {
+    content: "※";
+    width: 1em;
+    vertical-align: top;
+    display: inline-block;
+    text-indent: 0;
+  }
+  &-number {
+    text-indent: -2em;
+    padding-left: 2em;
+    &::before {
+      display: none;
+    }
+  }
+  &_marker {
+    width: 1.75em;
+    margin-right: 0.25em;
+    display: inline-block;
+    text-indent: 0;
+    text-align: right;
+  }
+}

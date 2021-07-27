@@ -1,0 +1,57 @@
+/* ======================================== *\
+# base
+サイトの基盤を定義
+\* ======================================== */
+html {
+  @include ex($initial-html);
+}
+
+body {
+  @include ex($ts-midium);
+  color: $c-text;
+  @extend %baseBody;
+  &.is-modalFixed {
+    overflow-y: scroll;
+  }
+}
+
+button,input,textarea,select,option {
+  @extend %baseBody;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  vertical-align: baseline;
+  font-family : inherit;
+  font-size: inherit;
+  box-sizing: inherit;
+}
+button {
+  cursor: pointer;
+}
+a {
+  @include ex($lt-link);
+  &:visited {
+    @include ex($lt-visited);
+  }
+  &:hover,
+  &:active {
+    @include ex($lt-hover);
+  }
+}
+em {
+  font-style: normal;
+}
+li {
+  list-style-type: none;
+}
+figure {
+  margin: 0;
+}
+[data-js-fixed-html],
+[data-js-fixed-body] {
+  @include bp(medium) {
+    height: 100%;
+    overflow: hidden;
+  }
+}

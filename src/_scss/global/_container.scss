@@ -1,0 +1,16 @@
+/* ======================================== *\
+# container
+main要素を包括する
+2カラムレイアウトなどに変更する場合のラッパーとして用意
+\* ======================================== */
+.g-container {
+  margin-top: 0;
+  [data-js-fixed-html] & {
+    @include bp(medium) {
+      padding-top: 75px; // headerHeight
+    }
+  }
+  @include bp(small) {
+    margin-top: 0;
+  }
+}

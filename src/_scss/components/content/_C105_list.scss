@@ -1,0 +1,203 @@
+/*
+---
+name: C105 List
+content:
+  - C1 Element
+  - C1 Element/C105 List
+tag:
+  - Element
+---
+テキストをリスト状で表示したい場合に使用。
+
+## Bullet list
+
+標準的なビュレットリスト  
+クラスの追加でビュレットなしのリストにも変更可能
+
+```html
+<ul class="c-list c-list-bullet">
+<li class="c-list_item">テキストが入ります。テキストが入ります。テキストが入ります。</li>
+<li class="c-list_item">テキストが入ります。
+<ul class="c-list c-list-bullet">
+<li class="c-list_item">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</li>
+</ul>
+</li>
+</ul><!-- /.c-list -->
+```
+
+## Numbered list
+
+番号付きリスト
+
+```html
+<ol class="c-list c-list-number">
+<li class="c-list_item"><span class="c-list_marker">1.</span>テキストが入ります。テキストが入ります。</li>
+<li class="c-list_item"><span class="c-list_marker">2.</span>テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</li>
+<li class="c-list_item"><span class="c-list_marker">10.</span>テキストが入ります。
+<ol class="c-list c-list-number">
+<li class="c-list_item"><span class="c-list_marker">a.</span>テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</li>
+</ol>
+</li>
+</ol>
+```
+
+## リスト オプション
+
+文脈やデザイン再現のために利用できる開発用のオプション。
+
+
+### ビュレット無しリスト
+
+```html
+<ul class="c-list">
+<li class="c-list_item">テキストが入ります。テキストが入ります。テキストが入ります。</li>
+<li class="c-list_item">テキストが入ります。
+<ul class="c-list">
+<li class="c-list_item">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</li>
+</ul>
+</li>
+</ul><!-- /.c-list -->
+```
+
+### リスト（2列）
+
+```html
+<ul class="c-list c-list-bullet c-list-2">
+<li class="c-list_item">テキストが入ります。テキストが入ります。</li>
+<li class="c-list_item">テキストが入ります。</li>
+<li class="c-list_item">テキストが入ります。テキストが入ります。</li>
+<li class="c-list_item">テキストが入ります。</li>
+</ul><!-- /.c-list -->
+```
+
+### リスト（3列）
+
+```html
+<ul class="c-list c-list-bullet c-list-3">
+<li class="c-list_item">テキストが入ります。テキストが入ります。テキストが入ります。</li>
+<li class="c-list_item">テキストが入ります。テキストが入ります。</li>
+<li class="c-list_item">テキストが入ります。</li>
+<li class="c-list_item">テキストが入ります。テキストが入ります。テキストが入ります。</li>
+<li class="c-list_item">テキストが入ります。テキストが入ります。</li>
+<li class="c-list_item">テキストが入ります。</li>
+</ul><!-- /.c-list -->
+```
+
+### リスト（4列）
+
+```html
+<ul class="c-list c-list-bullet c-list-4">
+<li class="c-list_item">テキストが入ります。テキストが入ります。テキストが入ります。</li>
+<li class="c-list_item">テキストが入ります。テキストが入ります。</li>
+<li class="c-list_item">テキストが入ります。</li>
+<li class="c-list_item">テキストが入ります。テキストが入ります。テキストが入ります。</li>
+<li class="c-list_item">テキストが入ります。テキストが入ります。</li>
+<li class="c-list_item">テキストが入ります。</li>
+<li class="c-list_item">テキストが入ります。テキストが入ります。テキストが入ります。</li>
+<li class="c-list_item">テキストが入ります。テキストが入ります。</li>
+</ul><!-- /.c-list -->
+```
+
+#### 各screenの設定
+large screen、medium screen、small screen、セットで利用する。
+
+#### large screen時の設定
+
+large screenの表示については、表示割合を決めて`.c-list-{n}-lg`を付与することで変更可能。  
+※ medium screen以下には継承されない
+
+#### medium screen時の設定
+
+medium screenの表示については、表示割合を決めて`.c-list-{n}-md`を付与することで変更可能。  
+※ small screenには継承されない
+
+#### small screen時の設定
+
+small screenの表示については、表示割合を決めて`.c-list-{n}-sm`を付与することで変更可能。
+
+```html
+<ul class="c-list c-list-bullet c-list-4-lg c-list-2-md c-list-2-sm">
+<li class="c-list_item">テキストが入ります。テキストが入ります。テキストが入ります。</li>
+<li class="c-list_item">テキストが入ります。テキストが入ります。</li>
+<li class="c-list_item">テキストが入ります。</li>
+<li class="c-list_item">テキストが入ります。テキストが入ります。テキストが入ります。</li>
+<li class="c-list_item">テキストが入ります。テキストが入ります。</li>
+<li class="c-list_item">テキストが入ります。</li>
+<li class="c-list_item">テキストが入ります。テキストが入ります。テキストが入ります。</li>
+<li class="c-list_item">テキストが入ります。テキストが入ります。</li>
+</ul><!-- /.c-list -->
+```
+*/
+
+.c-list {
+  $_root: &;
+  @include ex($ts-midium);
+  @include dfm(medium);
+  li > & {
+    margin-top: 0;
+  }
+  &-bullet {
+    #{$_root}_item {
+      text-indent: -2em;
+      padding-left: 2em;
+      &:before {
+        position: relative;
+        bottom: 0.25em;
+        display: inline-block;
+        content: '';
+        vertical-align: baseline;
+        width: 0.25em;
+        height: 0.25em;
+        margin: 0 0.5em 0 1.25em;
+        background-color: #000;
+        border-radius: 100%;
+      }
+    }
+  }
+}
+.c-list {
+  $_root: &;
+  &-number {
+    #{$_root}_item {
+      text-indent: -2em;
+      padding-left: 2em;
+      &:before {
+        display: none;
+      }
+    }
+    #{$_root}_marker {
+      display: inline-block;
+      width: 1.75em;
+      margin-right: 0.25em;
+      text-align: right;
+      text-indent: 0;
+    }
+  }
+}
+
+// Multicol list
+.c-list {
+  @for $col from 1 through 8 {
+    &-#{$col} {
+      columns: $col;
+      @include bp(small) {
+        columns: 1;
+      }
+      &-lg {
+        @include bp(large) {
+          columns: $col;
+        }
+      }
+      &-md {
+        @include bp(medium-only) {
+          columns: $col;
+        }
+      }
+      &-sm {
+        @include bp(small) {
+          columns: $col;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,521 @@
+/*! Grid */
+/*
+---
+name: L102 Grid
+layout:
+  - Layout
+  - Layout/L102 Grid
+tag:
+  - Layout
+---
+
+グリッドは1行を異なる割合で横分割するためのレイアウト要素。  
+
+## グリッドコンポーネント
+
+グリッドの包括要素。  
+行を分割して表示したい場合に利用する。  
+子要素として`.l-grid_item`が必要となる。
+
+```html
+<div class="l-grid">
+</div><!-- /.l-grid -->
+```
+
+## グリッド指定
+
+`.l-grid`の子要素として`.l-grid_item`を追加し、割合を決めて`.l-grid_item-{n}`を付与する。  
+割合を指定する数値`{n}`の最大値は `_foundation.scss` で指定したグリッドのカラム数（`$gr-cols`）となる。  
+各`.l-grid_item`の幅を、最大値`$gr-cols`のうち何カラム数分利用するかを決め、その値を`{n}`に割り当てる。  
+ギャップの値は `_foundation.scss` で指定した数値（`$gr-gutter`）となる。  
+割合の指定がない場合、l-grid_itemの横幅は100%となる。
+
+```html
+<div class="l-grid">
+<div class="l-grid_item l-grid_item-3">
+<div class="sg-dummy">3</div>
+</div><!-- /.l-grid_item -->
+<div class="l-grid_item l-grid_item-7">
+<div class="sg-dummy">7</div>
+</div><!-- /.l-grid_item -->
+<div class="l-grid_item l-grid_item-2">
+<div class="sg-dummy">2</div>
+</div><!-- /.l-grid_item -->
+</div><!-- /.l-grid -->
+```
+
+### 各screenの設定
+large screen、medium screen、small screen、セットで利用する。
+
+#### large screen時の設定
+
+large screenの表示については、表示割合を決めて`.l-grid_item-{n}-lg`を付与することで変更可能。  
+※ medium screen以下には継承されない
+
+#### medium screen時の設定
+
+medium screenの表示については、表示割合を決めて`.l-grid_item-{n}-md`を付与することで変更可能。  
+※ small screenには継承されない
+
+#### small screen時の設定
+
+small screenの表示については、表示割合を決めて`.l-grid_item-{n}-sm`を付与することで変更可能。
+
+```html
+<div class="l-grid">
+<div class="l-grid_item l-grid_item-3-lg l-grid_item-4-md l-grid_item-12-sm">
+<div class="sg-dummy">3(md4,sm12)</div>
+</div><!-- /.l-grid_item -->
+<div class="l-grid_item l-grid_item-7-lg l-grid_item-8-md l-grid_item-6-sm">
+<div class="sg-dummy">7(md8,sm6)</div>
+</div><!-- /.l-grid_item -->
+<div class="l-grid_item l-grid_item-2-lg l-grid_item-12-md l-grid_item-6-sm">
+<div class="sg-dummy">2(md12,sm6)</div>
+</div><!-- /.l-grid_item -->
+</div><!-- /.l-grid -->
+```
+
+## センターグリッド
+
+`.l-grid`に`.l-grid-center`を付与することで、グリッドが中央揃えになる。  
+複数カラムの中央揃えは非対応。
+
+```html
+<div class="l-grid l-grid-center">
+<div class="l-grid_item l-grid_item-8">
+<div class="sg-dummy">8 center</div>
+</div><!-- /.l-grid_item -->
+</div><!-- /.l-grid -->
+```
+
+### 各screenの設定
+
+#### large screen時の設定
+
+large screenの表示については、`.l-grid-center-lg`を付与することで中央揃えになる。  
+※ medium screen以下には継承されない
+
+```html
+<div class="l-grid l-grid-center-lg">
+<div class="l-grid_item l-grid_item-10-lg l-grid_item-8-md l-grid_item-6-sm">
+<div class="sg-dummy">10(md8,sm6) center</div>
+</div><!-- /.l-grid_item -->
+</div><!-- /.l-grid -->
+```
+
+#### medium screen時の設定
+
+medium screenの表示については、`.l-grid-center-md`を付与することで中央揃えになる。  
+※ small screenには継承されない
+
+```html
+<div class="l-grid l-grid-center-md">
+<div class="l-grid_item l-grid_item-10-lg l-grid_item-8-md l-grid_item-6-sm">
+<div class="sg-dummy">10(md8,sm6) center</div>
+</div><!-- /.l-grid_item -->
+</div><!-- /.l-grid -->
+```
+
+#### small screen時の設定
+
+small screenの表示については、`.l-grid-center-sm`を付与することで中央揃えになる。  
+
+```html
+<div class="l-grid l-grid-center-sm">
+<div class="l-grid_item l-grid_item-10-lg l-grid_item-8-md l-grid_item-6-sm">
+<div class="sg-dummy">10(md8,sm6) center</div>
+</div><!-- /.l-grid_item -->
+</div><!-- /.l-grid -->
+```
+
+## グリッドの入れ子
+
+グリッドを入れ子にすることが可能。  
+例えば`.l-grid_item-10`の中をカラム幅4/10とカラム幅6/10で分割したいといった場合に入れ子を利用する。  
+`.l-grid_item`内の子要素として、`.l-grid`及び分割数分の`.l-grid_item`を追加し、`.l-grid_item`に対して`.l-grid_item-{n}-{nParent}`を付与する。  
+各`.l-grid_item`の幅を、総数のうち何カラム数分利用するかを決め、その値を`{n}`に当てる。  
+{nParent} はカラムの総数を当てる。総数は1〜 `_foundation.scss` で指定したグリッドのカラム数（`$gr-cols`）までの値が利用可能。  
+
+```html
+<div class="l-grid l-grid-center">
+<div class="l-grid_item l-grid_item-10">
+<div class="l-grid">
+<div class="l-grid_item l-grid_item-4-10">
+<div class="sg-dummy">4/10</div>
+</div><!-- /.l-grid_item -->
+<div class="l-grid_item l-grid_item-6-10">
+<div class="sg-dummy">6/10</div>
+</div><!-- /.l-grid_item -->
+</div><!-- /.l-grid -->
+</div><!-- /.l-grid_item -->
+</div><!-- /.l-grid -->
+```
+
+## 割合グリッド
+
+`.l-grid`に`.l-grid_item`を追加し、`.l-grid_item-{n}per`を付与する。  
+`{n}`の値は5刻みで5〜100となりそれぞれ5%〜100％の幅指定となる。  
+各`.l-grid_item`の幅を、何%利用するかを決め、その値を`{n}`に当てる。  
+
+```html
+<div class="l-grid">
+<div class="l-grid_item l-grid_item-20per">
+<div class="sg-dummy">20%</div>
+</div><!-- /.l-grid_item -->
+<div class="l-grid_item l-grid_item-80per">
+<div class="sg-dummy">80%</div>
+</div><!-- /.l-grid_item -->
+</div><!-- /.l-grid -->
+```
+
+### 各screenの設定
+large screen、medium screen、small screen、セットで利用する。
+
+#### large screen時の設定
+
+large screenの表示については、表示割合を決めて`.l-grid_item-{n}per-lg`を付与することで変更可能。  
+※ medium screen以下には継承されない
+
+#### medium screen時の設定
+
+medium screenの表示については、表示割合を決めて`.l-grid_item-{n}per-md`を付与することで変更可能。  
+※ small screenには継承されない
+
+### small screen時の設定
+
+small screenの表示については、表示割合を決めて`.l-grid_item-{n}per-sm`を付与することで変更可能。
+
+```html
+<div class="l-grid">
+<div class="l-grid_item l-grid_item-20per-lg l-grid_item-50per-md l-grid_item-80per-sm">
+<div class="sg-dummy">20%(md50%,sm80%)</div>
+</div><!-- /.l-grid_item -->
+<div class="l-grid_item l-grid_item-80per-lg l-grid_item-50per-md l-grid_item-20per-sm">
+<div class="sg-dummy">80%(md50%,sm20%)</div>
+</div><!-- /.l-grid_item -->
+</div><!-- /.l-grid -->
+```
+
+## 水平方向の反転
+
+`.l-grid`に`.l-grid-hreverse`を付与することで、`flex-direction:row-reverse`指定を追加する。
+
+```html
+<div class="l-grid l-grid-hreverse">
+<div class="l-grid_item l-grid_item-8">
+<div class="sg-dummy">1</div>
+</div><!-- /.l-grid_item -->
+<div class="l-grid_item l-grid_item-4">
+<div class="sg-dummy">2</div>
+</div><!-- /.l-grid_item -->
+</div><!-- /.l-grid -->
+```
+
+### 各screenの設定
+
+#### large screen時の設定
+
+large screenの表示については、`.l-grid-hreverse-lg`を付与することで逆順になる。  
+※ medium screen以下には継承されない
+
+```html
+<div class="l-grid l-grid-hreverse-lg">
+<div class="l-grid_item l-grid_item-8-lg l-grid_item-8-md l-grid_item-8-sm">
+<div class="sg-dummy">1</div>
+</div><!-- /.l-grid_item -->
+<div class="l-grid_item l-grid_item-4-lg l-grid_item-4-md l-grid_item-4-sm">
+<div class="sg-dummy">2</div>
+</div><!-- /.l-grid_item -->
+</div><!-- /.l-grid -->
+```
+
+#### medium screen時の設定
+
+medium screenの表示については、`.l-grid-hreverse-md`を付与することで逆順になる。  
+※ small screenには継承されない
+
+```html
+<div class="l-grid l-grid-hreverse-md">
+<div class="l-grid_item l-grid_item-8-lg l-grid_item-8-md l-grid_item-8-sm">
+<div class="sg-dummy">1</div>
+</div><!-- /.l-grid_item -->
+<div class="l-grid_item l-grid_item-4-lg l-grid_item-4-md l-grid_item-4-sm">
+<div class="sg-dummy">2</div>
+</div><!-- /.l-grid_item -->
+</div><!-- /.l-grid -->
+```
+
+#### small screen時の設定
+
+small screenの表示については、`.l-grid-hreverse-sm`を付与することで逆順になる。  
+
+```html
+<div class="l-grid l-grid-hreverse-sm">
+<div class="l-grid_item l-grid_item-8-lg l-grid_item-8-md l-grid_item-8-sm">
+<div class="sg-dummy">1</div>
+</div><!-- /.l-grid_item -->
+<div class="l-grid_item l-grid_item-4-lg l-grid_item-4-md l-grid_item-4-sm">
+<div class="sg-dummy">2</div>
+</div><!-- /.l-grid_item -->
+</div><!-- /.l-grid -->
+```
+
+## 垂直方向の反転
+
+`.l-grid`に`.l-grid-vreverse`を付与することで、`flex-direction:column-reverse`指定を追加する。
+
+```html
+<div class="l-grid l-grid-vreverse">
+<div class="l-grid_item l-grid_item-12">
+<div class="sg-dummy">1</div>
+</div><!-- /.l-grid_item -->
+<div class="l-grid_item l-grid_item-12">
+<div class="sg-dummy">2</div>
+</div><!-- /.l-grid_item -->
+</div><!-- /.l-grid -->
+```
+
+### 各screenの設定
+
+#### large screen時の設定
+
+large screenの表示については、`.l-grid-vreverse-lg`を付与することで逆順になる。  
+※ medium screen以下には継承されない
+
+```html
+<div class="l-grid l-grid-vreverse-lg">
+<div class="l-grid_item l-grid_item-12">
+<div class="sg-dummy">1</div>
+</div><!-- /.l-grid_item -->
+<div class="l-grid_item l-grid_item-12">
+<div class="sg-dummy">2</div>
+</div><!-- /.l-grid_item -->
+</div><!-- /.l-grid -->
+```
+
+#### medium screen時の設定
+
+medium screenの表示については、`.l-grid-vreverse-md`を付与することで逆順になる。  
+※ small screenには継承されない
+
+```html
+<div class="l-grid l-grid-vreverse-md">
+<div class="l-grid_item l-grid_item-12">
+<div class="sg-dummy">1</div>
+</div><!-- /.l-grid_item -->
+<div class="l-grid_item l-grid_item-12">
+<div class="sg-dummy">2</div>
+</div><!-- /.l-grid_item -->
+</div><!-- /.l-grid -->
+```
+
+#### small screen時の設定
+
+small screenの表示については、`.l-grid-vreverse-sm`を付与することで逆順になる。  
+
+```html
+<div class="l-grid l-grid-vreverse-sm">
+<div class="l-grid_item l-grid_item-12">
+<div class="sg-dummy">1</div>
+</div><!-- /.l-grid_item -->
+<div class="l-grid_item l-grid_item-12">
+<div class="sg-dummy">2</div>
+</div><!-- /.l-grid_item -->
+</div><!-- /.l-grid -->
+```
+*/
+.l-grid {
+  @include dfm(medium);
+  margin-left: -($gr-gutter / 2);
+  margin-right: -($gr-gutter / 2);
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: -$unit * 2;
+}
+
+/*
+.l-grid_item
+*/
+.l-grid {
+  $_root: &;
+  & > &_item {
+    padding-left: $gr-gutter / 2;
+    padding-right: $gr-gutter / 2;
+    margin-bottom: $unit * 2;
+    min-height: 0%;
+    width: 100%;
+    @for $grid from 1 through $gr-cols {
+      &-#{$grid} {
+        width: 100% / $gr-cols * $grid;
+        &-lg {
+          @include bp(large) {
+            width: 100% / $gr-cols * $grid;
+          }
+        }
+        &-md {
+          @include bp(medium-only) {
+            width: 100% / $gr-cols * $grid;
+          }
+        }
+        &-sm {
+          @include bp(small) {
+            width: 100% / $gr-cols * $grid;
+          }
+        }
+      }
+    }
+  }
+}
+
+.l-grid {
+  $_root: &;
+  & > &_item {
+    $childIndex: 0;
+    @for $childDenom from 1 through $gr-cols {
+      $childIndex: $childIndex + 1;
+      @for $childNum from 1 through $childIndex {
+        &-#{$childNum}-#{$childDenom} {
+          width: 100% / $childDenom * $childNum;
+          &-lg {
+            @include bp(large) {
+              width: 100% / $childDenom * $childNum;
+            }
+          }
+          &-md {
+            @include bp(medium) {
+              width: 100% / $childDenom * $childNum;
+            }
+          }
+          &-sm {
+            @include bp(small) {
+              width: 100% / $childDenom * $childNum;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/*
+.l-grid-center
+*/
+.l-grid {
+  &-center {
+    justify-content: center;
+    &-lg {
+      @include bp(large) {
+        justify-content: center;
+      }
+    }
+    &-md {
+      @include bp(medium-only) {
+        justify-content: center;
+      }
+    }
+    &-sm {
+      @include bp(small) {
+        justify-content: center;
+      }
+    }
+  }
+}
+
+/*
+.l-grid_item percentage
+*/
+
+.l-grid {
+  $_root: &;
+  & > &_item {
+    @for $per from 1 through 20 {
+      &-#{$per * 5}per {
+        width: percentage($per / 20);
+        &-lg {
+          @include bp(large) {
+            width: percentage($per / 20);
+          }
+        }
+        &-md {
+          @include bp(medium-only) {
+            width: percentage($per / 20);
+          }
+        }
+        &-sm {
+          @include bp(small) {
+            width: percentage($per / 20);
+          }
+        }
+      }
+    }
+  }
+}
+
+/*
+.l-grid-hreverse
+*/
+
+.l-grid {
+  &-hreverse {
+    flex-direction: row-reverse;
+    &-lg {
+      @include bp(large) {
+        flex-direction: row-reverse;
+      }
+    }
+    &-md {
+      @include bp(medium-only) {
+        flex-direction: row-reverse;
+      }
+    }
+    &-sm {
+      @include bp(small) {
+        flex-direction: row-reverse;
+      }
+    }
+  }
+}
+
+/*
+.l-grid-vreverse
+*/
+
+.l-grid {
+  &-vreverse {
+    flex-direction: column-reverse;
+    &-lg {
+      @include bp(large) {
+        flex-direction: column-reverse;
+      }
+    }
+    &-md {
+      @include bp(medium-only) {
+        flex-direction: column-reverse;
+      }
+    }
+    &-sm {
+      @include bp(small) {
+        flex-direction: column-reverse;
+      }
+    }
+  }
+}
+
+.l-grid {
+  $_root: &;
+  &-flex {
+    display: flex;
+    align-items: center;
+    &SpaceBetween {
+      justify-content: space-between;
+    }
+    &End {
+      justify-content: flex-end;
+    }
+  }
+  & > &_item {
+    &-flex {
+      flex: 1;
+    }
+  }
+}

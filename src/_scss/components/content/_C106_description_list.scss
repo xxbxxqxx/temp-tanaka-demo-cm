@@ -1,0 +1,42 @@
+/*
+---
+name: C106 Description list
+content:
+  - C1 Element
+  - C1 Element/C106 Description list
+tag:
+  - Element
+---
+
+テキストに対して説明を加える際に使用。  
+`<dl>`の利用を想定。  
+タグの意味などを考慮して、文書構造として必要な場合に利用する。
+
+```html
+<dl class="c-descriptionList">
+<dt class="c-descriptionList_term">テキストが入ります。</dt>
+<dd class="c-descriptionList_detail">説明テキストが入ります。</dd>
+<dt class="c-descriptionList_term">テキストが入ります。</dt>
+<dd class="c-descriptionList_detail">説明テキストが入ります。</dd>
+<dt class="c-descriptionList_term">テキストが入ります。</dt>
+<dd class="c-descriptionList_detail">説明テキストが入ります。</dd>
+</dl><!-- /.c-c-descriptionList -->
+```
+*/
+
+// c-descriptionList
+.c-descriptionList {
+  $_root: &;
+  @include ex($ts-midium);
+  @include dfm(medium);
+  &_term {
+    display: block;
+    font-weight: bold;
+  }
+  &_detail {
+    display: block;
+    + #{$_root}_term {
+      margin-top: $unit * 2;
+    }
+  }
+}

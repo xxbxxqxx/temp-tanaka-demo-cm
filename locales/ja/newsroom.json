@@ -1,0 +1,18 @@
+{
+  "newsroom": {
+    "title": "ニュースリリース",
+    "meta": {
+      "description": "概要",
+      "keyword": "キーワード",
+      "og_type": "article",
+      "og_image": "image"
+    },
+    "body": {
+      "press": "プレスリリース",
+      "financial": "決算報告",
+      "business": "事業報告",
+      "other": "その他",
+      "no_entry": "投稿はありません。"
+    }
+  }
+}

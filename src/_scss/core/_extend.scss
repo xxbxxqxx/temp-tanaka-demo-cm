@@ -1,0 +1,41 @@
+/* ======================================== *\
+# extend
+extend用のスタイルを定義
+\* ======================================== */
+%baseBody {
+  box-sizing: border-box;
+  * {
+    &,&:before,&:after {
+      box-sizing: border-box;
+    }
+  }
+}
+
+%clearfix {
+  &:after {
+    content: "";
+    clear: both;
+    display: block;
+  }
+}
+
+%content {
+  max-width: calc(#{$ct-maxW} + (#{$ct-padding-large} * 2));
+  padding-left: $ct-padding-large;
+  padding-right: $ct-padding-large;
+  margin-left: auto;
+  margin-right: auto;
+  // @include bp(medium) {
+  //   max-width: calc(#{$ct-maxW} + (#{$ct-padding-medium} * 2));
+  //   padding-left: $ct-padding-medium;
+  //   padding-right: $ct-padding-medium;
+  // }
+  @include bp(small) {
+    padding-left: $ct-padding-small;
+    padding-right: $ct-padding-small;
+  }
+  // @include bp(xsmall) {
+  //   padding-left: $ct-padding-xsmall;
+  //   padding-right: $ct-padding-xsmall;
+  // }
+}

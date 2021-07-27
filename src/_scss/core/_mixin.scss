@@ -1,0 +1,138 @@
+/* ======================================== *\
+# mixin
+\* ======================================== */
+
+/* -------------------- *\
+## breakpoint
+\* -------------------- */
+
+/*
+### breakpoint(max)
+max-width での breakpoint 指定
+呼び出しは`@include bp([large,medium,small,***px])`
+*/
+@mixin bp($bp-size) {
+  @if $bp-size == 'large' {
+    @media screen and (min-width: $bp-large) {
+      @content;
+    }
+  } @else if $bp-size == 'medium' {
+    @media screen and (max-width: $bp-large - 1) {
+      @content;
+    }
+  } @else if $bp-size == 'over-medium' {
+    @media screen and (min-width: $bp-medium) {
+      @content;
+    }
+  } @else if $bp-size == 'medium-only' {
+    @media screen and (min-width: $bp-medium) and (max-width: $bp-large - 1) {
+      @content;
+    }
+  } @else if $bp-size == 'small' {
+    @media screen and (max-width: $bp-small) {
+      @content;
+    }
+  } @else {
+    @media screen and (max-width: $bp-size) {
+      @content;
+    }
+  }
+}
+
+/*
+### breakpoint(max)
+min-width での breakpoint 指定
+呼び出しは`@include bpmin([large,medium,small,***px])`
+*/
+
+/*
+### breakpoint 初期化
+mediaquery の呼び出し順序を定義
+*/
+@include bp(large) {/*! Large only */}
+@include bp(medium) {/*! Medium and Small */}
+@include bp(over-medium) {/*! over Medium */}
+@include bp(medium-only) {/*! Medium only */}
+@include bp(small) {/*! Small only */}
+
+
+/* -------------------- *\
+## defaultMargin
+呼び出しは`@include dfm($dfm-size)`
+\* -------------------- */
+@mixin dfm($dfm-size) {
+  @if $dfm-size == 'large' {
+    margin-top: $sp-large;
+  } @else if $dfm-size == 'medium' {
+    margin-top: $sp-medium;
+  } @else if $dfm-size == 'small' {
+    margin-top: $sp-small;
+  } @else {
+    margin-top: $dfm-size;
+  }
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+
+/* -------------------- *\
+## expand
+sass の連想配列を css のプロパティ、値として展開
+呼び出しは`@include ex($valiable)`
+例)
+$example:(display:block,margin:0)
+.example { @include ex($example); }
+-> .example { display:block; margin:0; }
+\* -------------------- */
+@mixin ex($valiable) {
+  @if $valiable != null {
+    @each $prop, $value in $valiable {
+      #{$prop}: $value;
+    }
+  }
+}
+
+/* -------------------- *\
+## important
+utility用に `!important` 有り無し両方のスタイル指定を生成する
+呼び出しは`@include imp($prop,$val)`
+例)
+.example { @include imp(margin-top,10px); }
+-> .example { margin-top: 10px; }
+-> .example-imp { margin-top: 10px!important; }
+\* -------------------- */
+@mixin imp($prop,$val) {
+  & {
+    #{$prop}: #{$val};
+  }
+  &-imp {
+    #{$prop}: #{$val}!important;
+  }
+}
+
+/* -------------------- *\
+## expand & important
+sass の連想配列を css のプロパティ、値として展開しつつ、
+utility用に `!important` 有り無し両方のスタイル指定を生成する
+呼び出しは`@include exImp($valiable)`
+例)
+$example:(display:block,margin:0)
+.example { @include exImp($example); }
+-> .example { display:block; margin:0; }
+-> .example { display:block!important; margin:0!important; }
+\* -------------------- */
+@mixin exImp($valiable) {
+  @if $valiable != null {
+    & {
+      @each $prop, $val in $valiable {
+        #{$prop}: #{$val};
+      }
+    }
+    &-imp {
+      @each $prop, $val in $valiable {
+        #{$prop}: #{$val}!important;
+      }
+    }
+  }
+}

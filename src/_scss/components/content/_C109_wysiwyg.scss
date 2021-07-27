@@ -1,0 +1,105 @@
+/*
+---
+name: C109 wysiwyg
+content:
+  - C1 Element
+  - C1 Element/C109 wysiwyg
+tag:
+  - Element
+---
+## wysiwyg
+
+```html
+<div class="wysiwyg">
+<h1>h1見出し</h1>
+<p>テキスト, テキスト。</p>
+<h2>h2見出し</h2>
+<p>テキスト, テキスト。</p>
+<h3>h3見出し</h3>
+<p>テキスト, テキスト。</p>
+<h4>h4見出し</h4>
+<p>テキスト, テキスト。</p>
+<ul>
+<li>箇条書きリスト</li>
+<li>箇条書きリスト</li>
+<li>箇条書きリスト</li>
+</ul>
+<ol>
+<li>番号付きリスト</li>
+<li>番号付きリスト</li>
+<li>番号付きリスト</li>
+</ol>
+<hr />
+<table>
+<tr>
+<th>見出し</th>
+<th>見出し</th>
+<th>見出し</th>
+</tr>
+<tr>
+<td>見出し</td>
+<td>見出し</td>
+<td>見出し</td>
+</tr>
+</table>
+<p>テキスト, テキスト。</p>
+<p>テキスト, テキスト。</p>
+</div><!-- /.wysiwyg -->
+```
+
+*/
+.wysiwyg {
+  line-height: 1.5em;
+  p {
+    margin-bottom: 2em;
+  }
+  h1 {
+    font-size: 1.75em;
+    margin-bottom: 0.5em;
+  }
+  h2 {
+    font-size: 1.5em;
+    margin-bottom: 0.5em;
+  }
+  h3 {
+    font-size: 1.25em;
+    margin-bottom: 0.5em;
+  }
+  h4 {
+    font-size: 1em;
+    margin-bottom: 0.5em;
+  }
+  ul {
+    margin-bottom: 2em;
+  }
+  ul li {
+    margin-left: 20px;
+    list-style-type: disc;
+  }
+  ol {
+    margin-bottom: 2em;
+  }
+  ol li {
+    margin-left: 20px;
+    list-style-type: decimal;
+  }
+  blockquote {
+    border-left: solid 0.5em #DDD;
+    padding-left: 1em;
+    margin-bottom: 2em;
+  }
+  table {
+    margin-bottom: 2em;
+  }
+  table th {
+    background-color: #DDD;
+  }
+  table th,
+  table td {
+    padding: 1em;
+    border: solid 1px #999;
+  }
+  hr {
+    margin-bottom: 2em;
+  }
+}

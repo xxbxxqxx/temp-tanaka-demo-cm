@@ -1,0 +1,19 @@
+{
+  "samplepage": {
+    "title": "Sample Page",
+    "meta": {
+      "description": "",
+      "keyword": "",
+      "og_type": "",
+      "og_image": ""
+    },
+    "body": {
+      "head1": "h1 text",
+      "text1": "text, text. text, text. text, text.",
+      "head2": "h2 text",
+      "text2": "text, text. text, text. text, text.",
+      "head3": "h3 text",
+      "text3": "text, text. text, text. text, text."
+    }
+  }
+}
